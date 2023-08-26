@@ -1,0 +1,525 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8165960309612854750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094c68a3bf2d9a349851f593cd6a24eb, type: 3}
+  m_Name: SR_CellDistance-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 1
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 1
+  AllConditionsMet: 1
+  OffsetCellMode: 2
+  OffsetCell: {x: 0, y: 0, z: 0}
+  DistanceMustBe: 1
+  IgnoreSelf: 1
+  DistanceToTagged: 
+  CheckMode: 0
+  Distance: 10
+  MeasureIn: 1
+  DistanceMulVariable:
+    name: 
+    requiredType: 1
+    Tooltip: 
+--- !u!114 &-7886169361466537959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5698d953b70b3542a61cfe5d4517022, type: 3}
+  m_Name: SR_CellOperation-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 1
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 1
+  AllConditionsMet: 1
+  Operation: 0
+  TargetCellOffset: {x: 0, y: 0, z: 0}
+  OffsetWithRotation: 0
+  PreventSpawn: 
+  ToClearTag: 
+  CheckMode: 0
+  RotationOptions: 0
+  RotationTolerance: 0
+  OnRotations: []
+  checkSetup:
+    UseRotor: 1
+    Rotor: 0
+    UseCondition: 0
+    Condition: 0
+    ToCheck:
+    - {x: 0, y: 0, z: 0}
+    EditorDisplayColor: {r: 0.4, g: 0.4, b: 1, a: 0.95}
+  drawAdditionals: 0
+--- !u!114 &-7658130346457524045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c46bad85e11ef44b81af1e5e1391dfc, type: 3}
+  m_Name: SR_CellPosition-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 1
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 1
+  AllConditionsMet: 1
+  Mode: 0
+  Axis: 1
+  Exact: 0
+  Offset: 0
+  Range: {x: -3, y: 3}
+  ValueMulVariable:
+    name: 
+    requiredType: 1
+    Tooltip: 
+--- !u!114 &-7286485201589424887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984333babc9a8fd4e9ebda25c476c86b, type: 3}
+  m_Name: SR_PipeSpawner-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 1
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 1
+  AllConditionsMet: 1
+  PipePreset: {fileID: 0}
+  MaxDistanceToEnding: 2
+  MaxTries: 128
+  AlignFinish: 1
+  AlignFinishOptionalsOn:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  DontGenerateIfNotEnded: 1
+  FirstSegmentsWithoutCollision: 1
+  AlignScaleForFinishingSegments: 1
+  AlignStartOn:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  AlignStartMaxDistance: 2.5
+  AlignStartDirections:
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: -0, z: -0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: 0, z: -1}
+  ObstaclesMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  BoxcastScale: 0
+  SelfCollisionScale: 0.75
+  HoldMask:
+    serializedVersion: 2
+    m_Bits: 1
+  HoldDirections:
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: -0, z: -0}
+  - {x: 0, y: 1, z: 0}
+  - {x: -0, y: -1, z: -0}
+  - {x: 0, y: 0, z: 1}
+  - {x: -0, y: -0, z: -1}
+  MinimalDistanceToHoldMask: 1.5
+  RFindMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  RFindDirections:
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: -0, z: -0}
+  - {x: 0, y: 1, z: 0}
+  - {x: -0, y: -1, z: -0}
+  - {x: 0, y: 0, z: 1}
+  - {x: -0, y: -0, z: -1}
+  WorldSpaceRFindDirs: 1
+  RFindMinimumDistance: 5
+  RFindMaxDistance: 25
+  FlattendRFindNormal: 1
+  RFindTries: 16
+  RFindSteps: 14
+  Debug: 0
+--- !u!114 &-6065673906434813602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbb284ebb8d6e248a1d73790416bbf4, type: 3}
+  m_Name: SR_PerlinNoiseOffset-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 1
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 1
+  AllConditionsMet: 1
+  PosOffset: {x: 0, y: 2, z: 0}
+  OffsetMode: 1
+  ApplyMode: 1
+  Space: 0
+  PerlinNoiseScale: {x: 16, y: 16}
+  OffsetNoise: {x: 0, y: 0}
+  SquareSteps: 0
+--- !u!114 &-5564796479800452735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671fd9c659a53a04eb310656f11c9125, type: 3}
+  m_Name: New Modificator
+  m_EditorClassIdentifier: 
+  TemporaryContainer: {fileID: 0}
+  Enabled: 1
+  ModTag: 
+  DrawMeshAndBox: 0
+  Combine: 0
+  RunEmittersIfContains: 0
+  DrawSetupFor: 0
+  OStamp: {fileID: 0}
+  DrawObjectStamps: 1
+  OMultiStamp: {fileID: 0}
+  PrefabsList:
+  - Prefab: {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    MainCollider: {fileID: 8185369025297115523, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    subID: 0
+    _refMesh: {fileID: -4172727479431035669, guid: 337e7ea00c398a240bf3322b03834cd6, type: 3}
+    _refCol: {fileID: 8185369025297115523, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+  - Prefab: {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    MainCollider: {fileID: 8012671900650975513, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    subID: 0
+    _refMesh: {fileID: 2298213860806583902, guid: 00194efaa8dc40c4ab4553308e71360f, type: 3}
+    _refCol: {fileID: 8012671900650975513, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+  DrawMultiObjectStamps: 1
+  Spawners:
+  - Enabled: 1
+    Name: Random
+    SpawnerTag: 
+    StampPrefabID: -1
+    Parent: {fileID: -5564796479800452735}
+    Rules:
+    - {fileID: -8165960309612854750}
+    - {fileID: -63383678423007973}
+    - {fileID: -6065673906434813602}
+    Mode: 0
+    CellCheckMode: 0
+    _Editor_SpawnerAdvancedOptionsFoldout: 0
+    OnScalledGrid: 0
+    Repeat: 1
+    DontInheritRotations: 0
+    SwitchSpawnedToStatic: 0
+    MultipleToSpawn: 0
+    UseGlobalRules: 1
+    UseParentPackageRules: 1
+    _wasEnablingGlobalRules: 1
+    ScaleAccess: 1
+    DisplayPreviewGUI: 1
+    IsSubSpawner: 0
+    _EditorDisplaySpawnerHeader: 1
+  SubSpawners: []
+  VariantOf: {fileID: 0}
+  _editor_drawStamp: 1
+  _editor_drawSpawners: 1
+  _editor_drawGlobalRules: 0
+  _editor_drawModPackRules: 0
+  _editor_shareSelected: 0
+  ParentPreset: {fileID: 11400000}
+  ParentPack: {fileID: 2855570448265668263}
+--- !u!114 &-2196690281481570950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60eb5f2bb8d52849961c19a7d3fabf2, type: 3}
+  m_Name: SR_GridSpecifics-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 1
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 1
+  AllConditionsMet: 1
+  Condition: 0
+  ConditionMetAxis: 2
+  SizeRange: 2
+--- !u!114 &-63383678423007973
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c360632d4510a074baef619f3210b541, type: 3}
+  m_Name: SR_CellNeightbours-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 0
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 1
+  AllConditionsMet: 1
+  CheckedCellsMustBe: 3
+  NeightbourNeeds: 0
+  occupiedByTag: 
+  CheckMode: 0
+  DirectCheck: 0
+  OffsetOrigin: {x: 0, y: 0, z: 0}
+  placement:
+    lu: 0
+    u: 0
+    ru: 0
+    l: 0
+    m: 1
+    r: 0
+    ld: 0
+    d: 0
+    rd: 0
+    UseAdvancedSetup: 0
+    AdvancedSetup: []
+  quartRotor:
+    q1: 1
+    q2: 1
+    q3: 1
+    q4: 1
+  OverrideRotation: 1
+  initRotation: 0
+  rotorEff: 90
+  spawnOn: 5
+  EachRotor: 0
+  CustomRotors:
+  - 0
+  - 0
+  - 0
+  - 0
+  GetNeightbourPos: 0
+  GetNeightbourRot: 0
+  GetNeightbourScale: 0
+  UseRestrictedDir: 0
+  CustomCellsCheck: 0
+  FullRotGet: 0
+  Check3DAngles: 0
+  RotationSpaceDisplay: 0
+  CheckPosit90: 1
+  CheckNeg90: 1
+  OverridePitchRotation: 1
+  InitPitchRotation: 0
+  NotCheckDefaultPitch: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6c361108247f045b5087f48c0c7951, type: 3}
+  m_Name: FS_NewFieldSetup1
+  m_EditorClassIdentifier: 
+  CellSize: 16
+  NonUniformSize: 0
+  NonUniformCellSize: {x: 2, y: 2, z: 2}
+  InfoText: Here write custom note about FieldSetup
+  Variables:
+  - Name: Spawn Propability Multiplier
+    v3Val: {x: 0.73, y: 0, z: 0}
+    colVal: {r: 0, g: 0, b: 0, a: 0}
+    str: 
+    mat: {fileID: 0}
+    gameObj: {fileID: 0}
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    unityObj: {fileID: 0}
+    helper: {x: 0, y: 5, z: 0}
+    additionalHelperRef: {fileID: 0}
+    ValueType: 1
+    helpForFieldCommand: 0
+    displayOnScene: 0
+    allowTransformFollow: 0
+    FloatSwitch: 0
+  - Name: Spawn Count Multiplier
+    v3Val: {x: 1, y: 0, z: 0}
+    colVal: {r: 0, g: 0, b: 0, a: 0}
+    str: 
+    mat: {fileID: 0}
+    gameObj: {fileID: 0}
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    unityObj: {fileID: 0}
+    helper: {x: 0, y: 5, z: 0}
+    additionalHelperRef: {fileID: 0}
+    ValueType: 1
+    helpForFieldCommand: 0
+    displayOnScene: 0
+    allowTransformFollow: 0
+    FloatSwitch: 0
+  DoorsModificator: {fileID: 11400000, guid: 7500e28d48a8ac44da90dfc8719e91ef, type: 2}
+  EraseWallModificator: {fileID: 11400000, guid: c5bd286613ebcb24c932c8d5e7f79f9b, type: 2}
+  CellsInstructions:
+  - Title: Clear Wall
+    InstructionType: 3
+    TargetModification: {fileID: 11400000, guid: c5bd286613ebcb24c932c8d5e7f79f9b, type: 2}
+    Tags: 
+    InstructionArgument: 
+    Foldout: 1
+    extraMod: {fileID: 0}
+    extraPack: {fileID: 0}
+  RootPack: {fileID: 2855570448265668263}
+  UtilityModificators: []
+  ModificatorPacks:
+  - {fileID: 2855570448265668263}
+  Ignores: []
+  DontSpawnOn: 
+  SelfInjections: []
+  disabledMods: []
+  CustomPostEvents: []
+  AddReflectionProbes: 0
+  MainReflectionSettings: {fileID: 11400000, guid: dabe448206028124294db7edb02eed3f, type: 2}
+  AddMultipleProbes: 0
+  SmallerReflSettings: {fileID: 11400000, guid: 290a908b3df7c6a4a84c21c932841cde, type: 2}
+  MiniReflSettings: {fileID: 11400000, guid: b243a7973537dbf4faacf7bbda74dada, type: 2}
+  SmallerReflLowerSpaceThan: 4
+  LimitSingleProbeSize: 0
+  TriggerColliderGeneration: 0
+  TriggerGenSettings:
+    TriggersLayer: 0
+    ScaleupTriggers: 1
+    FillHeight: 1
+    MaxCellChecks: 10
+    JoinBounds: 1
+    GenerateRelations: 1
+    GroupUpToSize: 8
+    MaxGroupDistance: 8
+--- !u!114 &2855570448265668263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f132315e3189e59479a1674dc7e52576, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  FieldModificators:
+  - {fileID: -5564796479800452735}
+  ParentPreset: {fileID: 11400000}
+  DisableWholePackage: 0
+  SeedMode: 0
+  CustomSeed: 0
+  ModPackType: 0
+  TagForAllSpawners: 
+  CombineSpawns: 0
+  Variables: []
+  CallOnAllMod: {fileID: 0}
+  CallOnAllSpawners:
+    Enabled: 0
+    Name: 
+    SpawnerTag: 
+    StampPrefabID: 0
+    Parent: {fileID: 0}
+    Rules: []
+    Mode: 0
+    CellCheckMode: 0
+    _Editor_SpawnerAdvancedOptionsFoldout: 0
+    OnScalledGrid: 0
+    Repeat: 0
+    DontInheritRotations: 0
+    SwitchSpawnedToStatic: 0
+    MultipleToSpawn: 0
+    UseGlobalRules: 0
+    UseParentPackageRules: 0
+    _wasEnablingGlobalRules: 0
+    ScaleAccess: 0
+    DisplayPreviewGUI: 0
+    IsSubSpawner: 0
+    _EditorDisplaySpawnerHeader: 0
+  _EditorDisplayCallOnAll: 0
+--- !u!114 &5863335050655038221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3eb05acb0b93347af77c10c419406a, type: 3}
+  m_Name: SR_DirectionalRemove-[New Modificator]
+  m_EditorClassIdentifier: 
+  Logic: 0
+  Negate: 0
+  Global: 0
+  Enabled: 1
+  Ignore: 0
+  _editor_drawRule: 1
+  CellAllow: 0
+  AllConditionsMet: 1
+  replaceOnTag: 
+  CheckMode: 0
+  LocalRemovePosition: {x: 0, y: 0, z: 0}
+  OffsetMode: 1
+  RemoveDistance: 0.1
+  DistanceSource: 2
+  ExecuteOnOffsettedCell: {x: 0, y: 0, z: 0}
+  DrawDebugGizmos: 0
