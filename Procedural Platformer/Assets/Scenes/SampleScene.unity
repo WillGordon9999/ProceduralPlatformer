@@ -123,6 +123,99 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &43926944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 43926945}
+  - component: {fileID: 43926946}
+  m_Layer: 0
+  m_Name: Top Right Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &43926945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43926944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100, y: 50, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &43926946
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43926944}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &82022315
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +295,231 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82022315}
   m_CullTransparentMesh: 1
+--- !u!1 &185599888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185599889}
+  m_Layer: 0
+  m_Name: Point Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185599889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185599888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1231548224}
+  - {fileID: 1253790855}
+  - {fileID: 598699119}
+  - {fileID: 333121260}
+  - {fileID: 43926945}
+  - {fileID: 212208740}
+  - {fileID: 982303111}
+  - {fileID: 1760887825}
+  - {fileID: 1065288749}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &212208739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212208740}
+  - component: {fileID: 212208741}
+  m_Layer: 0
+  m_Name: Top Left Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &212208740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212208739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100, y: 50, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &212208741
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212208739}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &333121259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333121260}
+  - component: {fileID: 333121261}
+  m_Layer: 0
+  m_Name: Top Center Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333121260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333121259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 50, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &333121261
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333121259}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &468875751
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca97c385e89cd044b87dbcd6df8da6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2025058228}
+  target: {fileID: 2042954205}
 --- !u!4 &468875753
 Transform:
   m_ObjectHideFlags: 0
@@ -245,6 +563,235 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &586139399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586139400}
+  - component: {fileID: 586139401}
+  m_Layer: 0
+  m_Name: Directional Light (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &586139400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586139399}
+  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 3, z: -2.098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1151155989}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!108 &586139401
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586139399}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 100
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &598699118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 598699119}
+  - component: {fileID: 598699120}
+  m_Layer: 0
+  m_Name: Center Left Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &598699119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598699118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100, y: 50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &598699120
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598699118}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &618466007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618466009}
+  - component: {fileID: 618466008}
+  m_Layer: 0
+  m_Name: Collectible Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &618466008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618466007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01565cbfdc23f954a85211e75740e12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &618466009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618466007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.96342, y: 44.442734, z: 53.231167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -274,14 +821,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.5
-  m_Range: 100
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -332,13 +879,417 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.42172956, y: -0.058742113, z: 0.027391855, w: 0.9044022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1151155989}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &716891116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 716891117}
+  - component: {fileID: 716891118}
+  m_Layer: 0
+  m_Name: Directional Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &716891117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716891116}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 3, z: -2.098}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_Father: {fileID: 1151155989}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &716891118
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716891116}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 100
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &754749403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754749405}
+  - component: {fileID: 754749404}
+  m_Layer: 0
+  m_Name: Level Generator Reference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &754749404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754749403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caee28bbb4c5c74e93dc90f090fbd7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  maxSectionCount: 8
+  minSectionSize: {x: 20, y: 5, z: 20}
+  maxSectionSize: {x: 40, y: 5, z: 40}
+  boxCastDist: 100
+  passes:
+  - mode: 0
+    enabled: 1
+    bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 150, y: 0, z: 150}
+    minObjects: 50
+    maxObjects: 75
+    maxChain: 10
+    maxChainAttempts: 10
+    minPlatformDistance: 5
+    maxPlatformDistance: 10
+    objects:
+    - obj: {fileID: 2784145988302148788, guid: 06ce404f8f042b4409195b56db7ea6f5, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 0
+      isFloor: 1
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 0
+      minScale: 0
+      maxScale: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 5155773086348910029, guid: 463385db6a976624abbe8dc909224f02, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 0
+      isFloor: 1
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 0
+      minScale: 0
+      maxScale: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 0
+      isFloor: 1
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 0
+      minScale: 0
+      maxScale: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    mainFloor: {fileID: 0}
+    mainFloorBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  - mode: 1
+    enabled: 1
+    bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 150, y: 0, z: 150}
+    minObjects: 50
+    maxObjects: 75
+    maxChain: 10
+    maxChainAttempts: 10
+    minPlatformDistance: 5
+    maxPlatformDistance: 10
+    objects:
+    - obj: {fileID: 2784145988302148788, guid: 06ce404f8f042b4409195b56db7ea6f5, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 0
+      isFloor: 1
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 0
+      minScale: 0
+      maxScale: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 5155773086348910029, guid: 463385db6a976624abbe8dc909224f02, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 0
+      isFloor: 1
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 0
+      minScale: 0
+      maxScale: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 0
+      isFloor: 1
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 0
+      minScale: 0
+      maxScale: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    mainFloor: {fileID: 0}
+    mainFloorBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  - mode: 1
+    enabled: 1
+    bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 150, y: 0, z: 150}
+    minObjects: 50
+    maxObjects: 75
+    maxChain: 5
+    maxChainAttempts: 10
+    minPlatformDistance: 5
+    maxPlatformDistance: 7
+    objects:
+    - obj: {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 1
+      isFloor: 0
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 1
+      minScale: 1
+      maxScale: 3
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 2784145988302148788, guid: 06ce404f8f042b4409195b56db7ea6f5, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 1
+      isFloor: 0
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 1
+      minScale: 1
+      maxScale: 3
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 5155773086348910029, guid: 463385db6a976624abbe8dc909224f02, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 1
+      isFloor: 0
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 1
+      minScale: 1
+      maxScale: 3
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 5994932836311107737, guid: f0ea5e9974da8c94898ed6da8a496d73, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 1
+      isFloor: 0
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 1
+      minScale: 1
+      maxScale: 3
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    - obj: {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 1
+      isFloor: 0
+      canRotate: 1
+      rotateX: 0
+      rotateY: 1
+      rotateZ: 0
+      canScale: 1
+      minScale: 1
+      maxScale: 3
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    mainFloor: {fileID: 0}
+    mainFloorBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  - mode: 2
+    enabled: 1
+    bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+    minObjects: 50
+    maxObjects: 100
+    maxChain: 5
+    maxChainAttempts: 10
+    minPlatformDistance: 5
+    maxPlatformDistance: 7
+    objects: []
+    mainFloor: {fileID: 0}
+    mainFloorBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  - mode: 3
+    enabled: 1
+    bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+    minObjects: 50
+    maxObjects: 100
+    maxChain: 5
+    maxChainAttempts: 10
+    minPlatformDistance: 5
+    maxPlatformDistance: 7
+    objects:
+    - obj: {fileID: 7362527089078268153, guid: d80bd55cb65a3f14aaf1715c0ce90c0b, type: 3}
+      mustTouchGround: 0
+      mustTouchObject: 1
+      isFloor: 0
+      canRotate: 0
+      rotateX: 0
+      rotateY: 0
+      rotateZ: 0
+      canScale: 0
+      minScale: 0
+      maxScale: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    mainFloor: {fileID: 0}
+    mainFloorBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  minFloorHeight: 1
+  maxFloorHeight: 1
+  minPlatforms: 50
+  maxPlatforms: 200
+  maxAttempts: 20
+  minPlatformDistance: 5
+  maxPlatformDistance: 7
+  maxDistFromFloor: 2
+  minPlatformSize: {x: 3, y: 1, z: 3}
+  maxPlatformSize: {x: 6, y: 1, z: 6}
+  groundPlatforms: []
+  floatingPlatforms: []
+--- !u!4 &754749405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754749403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.957104, y: 51.90681, z: 86.11095}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 50, y: -7.432, z: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &894636634
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +1354,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -515,6 +1466,99 @@ MonoBehaviour:
   distanceMax: 15
   returnThreshold: 1.5
   zeroAnchor: {fileID: 0}
+--- !u!1 &982303110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 982303111}
+  - component: {fileID: 982303112}
+  m_Layer: 0
+  m_Name: Down Center Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982303111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982303110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 50, z: -100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &982303112
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982303110}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &996386461
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +1654,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017285371
 GameObject:
@@ -629,7 +1673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1017285372
 Transform:
   m_ObjectHideFlags: 0
@@ -642,7 +1686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1017285373
 MonoBehaviour:
@@ -712,6 +1756,226 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01565cbfdc23f954a85211e75740e12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1065288748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065288749}
+  - component: {fileID: 1065288750}
+  m_Layer: 0
+  m_Name: Down Left Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1065288749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065288748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100, y: 50, z: -100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1065288750
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065288748}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &1151155988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1151155989}
+  m_Layer: 0
+  m_Name: Directional Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1151155989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151155988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 705507995}
+  - {fileID: 716891117}
+  - {fileID: 1412017574}
+  - {fileID: 586139400}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1231548223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231548224}
+  - component: {fileID: 1231548225}
+  m_Layer: 0
+  m_Name: Center Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231548224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231548223}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1231548225
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231548223}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1235902849
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,14 +2069,14 @@ RectTransform:
   m_Children:
   - {fileID: 82022316}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &2025058223
+--- !u!1 &1253790854
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -820,27 +2084,1790 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2025058228}
-  - component: {fileID: 2025058227}
-  - component: {fileID: 2025058226}
-  - component: {fileID: 2025058225}
-  - component: {fileID: 2025058224}
-  - component: {fileID: 2025058229}
-  - component: {fileID: 2025058230}
+  - component: {fileID: 1253790855}
+  - component: {fileID: 1253790856}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Center Right Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &2025058224
+--- !u!4 &1253790855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253790854}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 100, y: 50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1253790856
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253790854}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &1412017573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412017574}
+  - component: {fileID: 1412017575}
+  m_Layer: 0
+  m_Name: Directional Light (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1412017574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412017573}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 3, z: -2.098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1151155989}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+--- !u!108 &1412017575
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412017573}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 100
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &1613217533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613217534}
+  m_Layer: 3
+  m_Name: WallRayPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1613217534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613217533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2042954205}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1694592579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694592580}
+  m_Layer: 3
+  m_Name: WallRayPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1694592580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694592579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2042954205}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1722677627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722677628}
+  - component: {fileID: 1722677629}
+  m_Layer: 3
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1722677628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722677627}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2042954205}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1722677629
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722677627}
+  m_Enabled: 0
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 20
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &1760887824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760887825}
+  - component: {fileID: 1760887826}
+  m_Layer: 0
+  m_Name: Down Right Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760887825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760887824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100, y: 50, z: -100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185599889}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1760887826
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760887824}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 300
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &1863406903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1863406905}
+  - component: {fileID: 1863406904}
+  m_Layer: 0
+  m_Name: Spline Creator (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1863406904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863406903}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6b51e137883764ab36226384175f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splinePrefab: {fileID: 1040092656535725148, guid: 71f10ef5cf28429479b2502844766564, type: 3}
+  playerStartPos: {x: 0, y: 100, z: 0}
+  regenerate: 0
+  passes:
+  - name: 
+    enabled: 0
+    passMode: 0
+    runMode: 0
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 0
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 50
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 10
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 50
+    maxSplinePointDist: 100
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 1
+    minObjectDist: 3
+    maxObjectDist: 10
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 5
+    maxRayAttempts: 10
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 3
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    - {fileID: 6512054147974883011, guid: 479d69335d9a79d42a15e4852176e047, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  - name: 
+    enabled: 1
+    passMode: 0
+    runMode: 0
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 0
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 50
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 10
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 50
+    maxSplinePointDist: 100
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 1
+    minObjectDist: 3
+    maxObjectDist: 10
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 5
+    maxRayAttempts: 10
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 3
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 4365220049634515623, guid: a9188a11366d5e74a876630f8b82dbec, type: 3}
+    - {fileID: 1293837250954932870, guid: 5c7e017c2e16c7e44b7c94d5abc02140, type: 3}
+    - {fileID: 8538801725421790185, guid: 29b1dd494f190f647bdfc68caed1a87f, type: 3}
+    - {fileID: 4369814502554472717, guid: 711097582b7d758479c7af2dbebb5695, type: 3}
+    - {fileID: 3740563173891357985, guid: 7ee6b1d904800f34aa0cd5243fe06309, type: 3}
+    - {fileID: 6894598957670045078, guid: 70d55743522941c449b046e3cfcf15f0, type: 3}
+    - {fileID: 6894598957670045078, guid: 70d55743522941c449b046e3cfcf15f0, type: 3}
+    - {fileID: 9169912361777990127, guid: 8940db095af95034d963409ea85aa00e, type: 3}
+    - {fileID: 6986467414305349552, guid: fd759073b1db2204ab86c339c56fdc34, type: 3}
+    - {fileID: 8945000759204743511, guid: d58cc166323d26a4ca3f91e1f0d55980, type: 3}
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    - {fileID: 6512054147974883011, guid: 479d69335d9a79d42a15e4852176e047, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  - name: 
+    enabled: 0
+    passMode: 0
+    runMode: 0
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 0
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 50
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 10
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 50
+    maxSplinePointDist: 100
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 1
+    minObjectDist: 3
+    maxObjectDist: 10
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 5
+    maxRayAttempts: 10
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 3
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    - {fileID: 6512054147974883011, guid: 479d69335d9a79d42a15e4852176e047, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  - name: 
+    enabled: 1
+    passMode: 0
+    runMode: 0
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 0
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 50
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 10
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 50
+    maxSplinePointDist: 100
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 1
+    minObjectDist: 3
+    maxObjectDist: 10
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 5
+    maxRayAttempts: 10
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 3
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 4365220049634515623, guid: a9188a11366d5e74a876630f8b82dbec, type: 3}
+    - {fileID: 1293837250954932870, guid: 5c7e017c2e16c7e44b7c94d5abc02140, type: 3}
+    - {fileID: 8538801725421790185, guid: 29b1dd494f190f647bdfc68caed1a87f, type: 3}
+    - {fileID: 4369814502554472717, guid: 711097582b7d758479c7af2dbebb5695, type: 3}
+    - {fileID: 3740563173891357985, guid: 7ee6b1d904800f34aa0cd5243fe06309, type: 3}
+    - {fileID: 6894598957670045078, guid: 70d55743522941c449b046e3cfcf15f0, type: 3}
+    - {fileID: 6894598957670045078, guid: 70d55743522941c449b046e3cfcf15f0, type: 3}
+    - {fileID: 9169912361777990127, guid: 8940db095af95034d963409ea85aa00e, type: 3}
+    - {fileID: 6986467414305349552, guid: fd759073b1db2204ab86c339c56fdc34, type: 3}
+    - {fileID: 8945000759204743511, guid: d58cc166323d26a4ca3f91e1f0d55980, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  topRightDebug: 0
+  topLeftDebug: 0
+  downRightDebug: 0
+  downLeftDebug: 0
+  spawnedObjects: []
+  splineObjects: []
+  allSpawnedObjects: []
+  pendingObjects: []
+--- !u!4 &1863406905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863406903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 397.21844, y: -487.81677, z: -369.4298}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1883641880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883641882}
+  - component: {fileID: 1883641881}
+  m_Layer: 0
+  m_Name: Spline Creator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1883641881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883641880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6b51e137883764ab36226384175f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splinePrefab: {fileID: 1040092656535725148, guid: 71f10ef5cf28429479b2502844766564, type: 3}
+  playerStartPos: {x: 0, y: 100, z: 0}
+  regenerate: 0
+  passes:
+  - name: Main Land Spawn
+    enabled: 1
+    passMode: 0
+    runMode: 2
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 1
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 1
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 100
+    objectSpawnCount: 300
+    minObjectSpawnCount: 300
+    maxObjectSpawnCount: 315
+    minSplinePointDist: 50
+    maxSplinePointDist: 100
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 0
+    minObjectDist: 50
+    maxObjectDist: 100
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 50
+    maxRayAttempts: 10
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 2
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    - {fileID: 1872990428193263662, guid: 960ca6927a6671543b867c7849e99aef, type: 3}
+    - {fileID: 4478734878872976896, guid: 82e9d4f3aafad184fa9cc7ed0cc045ac, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  - name: New Cliff Spawn Test
+    enabled: 0
+    passMode: 0
+    runMode: 2
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 1
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 1
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 1
+    splineOffset: {x: 0, y: 35, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 100
+    objectSpawnCount: 100
+    minObjectSpawnCount: 100
+    maxObjectSpawnCount: 115
+    minSplinePointDist: 50
+    maxSplinePointDist: 100
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 0
+    minObjectDist: 50
+    maxObjectDist: 100
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 5
+    maxRayAttempts: 10
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 2
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  - name: Main Cliffs
+    enabled: 0
+    passMode: 1
+    runMode: 1
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 1
+    runSubPassesAsync: 1
+    maxMainPassSpawnCount: 10
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 5
+    minObjectSpawnCount: 3
+    maxObjectSpawnCount: 5
+    minSplinePointDist: 10
+    maxSplinePointDist: 15
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 0
+    minObjectDist: 5
+    maxObjectDist: 7
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 50
+    maxRayAttempts: 30
+    maxPassAttempts: 200
+    canOffset: 1
+    minOffset: {x: -5, y: 0, z: 0}
+    maxOffset: {x: 5, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 2
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses:
+    - name: Stacks
+      enabled: 1
+      passMode: 3
+      runMode: 0
+      spawnOptions: 4
+      spawnSource: 0
+      waitUntilComplete: 1
+      runSubPassesAsync: 0
+      maxMainPassSpawnCount: 1
+      useStartingPos: 0
+      splinePrefab: {fileID: 0}
+      maxHeightDiff: 0
+      offsetSplineObject: 0
+      splineOffset: {x: 0, y: 0, z: 0}
+      neighborCastHeight: 10
+      maxNeighborCastDist: 100
+      neighborScale: 3
+      pruneWaitTime: 0.3
+      useAltSubSpline: 0
+      useOrigIndex: 0
+      useOrigY: 0
+      useSpawnedObjects: 1
+      canRotateSpline: 0
+      minSplineRotation: {x: 0, y: 0, z: 0}
+      maxSplineRotation: {x: 0, y: 0, z: 0}
+      splinePointCount: 0
+      objectSpawnCount: 0
+      minObjectSpawnCount: 5
+      maxObjectSpawnCount: 10
+      minSplinePointDist: 0
+      maxSplinePointDist: 0
+      minAngles: {x: 0, y: 0, z: 0}
+      maxAngles: {x: 0, y: 0, z: 0}
+      pointSize: 0
+      normal: {x: 0, y: 0, z: 0}
+      useRandomNormal: 0
+      minNormal: {x: 0, y: 0, z: 0}
+      maxNormal: {x: 0, y: 0, z: 0}
+      useObjectDist: 0
+      minObjectDist: 0
+      maxObjectDist: 0
+      useRandomSeedRange: 0
+      minSeedRange: 0
+      maxSeedRange: 0
+      spawnOnTopRayDist: 50
+      maxRayAttempts: 20
+      maxPassAttempts: 200
+      canOffset: 0
+      minOffset: {x: 0, y: 0, z: 0}
+      maxOffset: {x: 0, y: 0, z: 0}
+      canRotate: 1
+      minRotation: {x: 0, y: 0, z: 0}
+      maxRotation: {x: 0, y: 360, z: 0}
+      canScale: 0
+      minScale: 0.5
+      maxScale: 1
+      stackRayOffset: {x: 0, y: 1, z: 0}
+      stackRayDist: 3
+      stackSpawnChance: 30
+      splineObjectPrefabs: []
+      spawnObjects: {fileID: 0}
+      subpasses: []
+    - name: Treasure Spawn
+      enabled: 1
+      passMode: 3
+      runMode: 0
+      spawnOptions: 4
+      spawnSource: 1
+      waitUntilComplete: 1
+      runSubPassesAsync: 0
+      maxMainPassSpawnCount: 1
+      useStartingPos: 0
+      splinePrefab: {fileID: 0}
+      maxHeightDiff: 2
+      offsetSplineObject: 0
+      splineOffset: {x: 0, y: 0, z: 0}
+      neighborCastHeight: 10
+      maxNeighborCastDist: 100
+      neighborScale: 3
+      pruneWaitTime: 0.3
+      useAltSubSpline: 0
+      useOrigIndex: 0
+      useOrigY: 0
+      useSpawnedObjects: 1
+      canRotateSpline: 0
+      minSplineRotation: {x: 0, y: 0, z: 0}
+      maxSplineRotation: {x: 0, y: 0, z: 0}
+      splinePointCount: 0
+      objectSpawnCount: 1
+      minObjectSpawnCount: 1
+      maxObjectSpawnCount: 1
+      minSplinePointDist: 0
+      maxSplinePointDist: 0
+      minAngles: {x: 0, y: 0, z: 0}
+      maxAngles: {x: 0, y: 0, z: 0}
+      pointSize: 0
+      normal: {x: 0, y: 0, z: 0}
+      useRandomNormal: 0
+      minNormal: {x: 0, y: 0, z: 0}
+      maxNormal: {x: 0, y: 0, z: 0}
+      useObjectDist: 0
+      minObjectDist: 0
+      maxObjectDist: 0
+      useRandomSeedRange: 0
+      minSeedRange: 0
+      maxSeedRange: 0
+      spawnOnTopRayDist: 50
+      maxRayAttempts: 20
+      maxPassAttempts: 200
+      canOffset: 0
+      minOffset: {x: 0, y: 0, z: 0}
+      maxOffset: {x: 0, y: 0, z: 0}
+      canRotate: 1
+      minRotation: {x: 0, y: 0, z: 0}
+      maxRotation: {x: 0, y: 360, z: 0}
+      canScale: 0
+      minScale: 0.5
+      maxScale: 1
+      stackRayOffset: {x: 0, y: 1, z: 0}
+      stackRayDist: 3
+      stackSpawnChance: 30
+      splineObjectPrefabs:
+      - {fileID: 3851853001911846983, guid: e1f7228bbac9e5e4fb7cab15c5a56949, type: 3}
+      spawnObjects: {fileID: 0}
+      subpasses: []
+  - name: New Main Cliffs
+    enabled: 0
+    passMode: 5
+    runMode: 1
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 1
+    runSubPassesAsync: 1
+    maxMainPassSpawnCount: 10
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 1
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 5
+    minObjectSpawnCount: 3
+    maxObjectSpawnCount: 5
+    minSplinePointDist: 10
+    maxSplinePointDist: 15
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 0
+    minObjectDist: 5
+    maxObjectDist: 7
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 50
+    maxRayAttempts: 30
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: -5, y: 0, z: 0}
+    maxOffset: {x: 5, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 2
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses:
+    - name: Cliff Stacks
+      enabled: 1
+      passMode: 3
+      runMode: 0
+      spawnOptions: 4
+      spawnSource: 1
+      waitUntilComplete: 1
+      runSubPassesAsync: 0
+      maxMainPassSpawnCount: 1
+      useStartingPos: 0
+      splinePrefab: {fileID: 0}
+      maxHeightDiff: 0
+      offsetSplineObject: 0
+      splineOffset: {x: 0, y: 0, z: 0}
+      neighborCastHeight: 10
+      maxNeighborCastDist: 100
+      neighborScale: 3
+      pruneWaitTime: 0.3
+      useAltSubSpline: 0
+      useOrigIndex: 0
+      useOrigY: 0
+      useSpawnedObjects: 0
+      canRotateSpline: 0
+      minSplineRotation: {x: 0, y: 0, z: 0}
+      maxSplineRotation: {x: 0, y: 0, z: 0}
+      splinePointCount: 5
+      objectSpawnCount: 0
+      minObjectSpawnCount: 5
+      maxObjectSpawnCount: 10
+      minSplinePointDist: 5
+      maxSplinePointDist: 10
+      minAngles: {x: 0, y: 0, z: 0}
+      maxAngles: {x: 0, y: 0, z: 0}
+      pointSize: 0
+      normal: {x: 0, y: 0, z: 0}
+      useRandomNormal: 0
+      minNormal: {x: 0, y: 0, z: 0}
+      maxNormal: {x: 0, y: 0, z: 0}
+      useObjectDist: 0
+      minObjectDist: 0
+      maxObjectDist: 0
+      useRandomSeedRange: 1
+      minSeedRange: 0
+      maxSeedRange: 2147483647
+      spawnOnTopRayDist: 50
+      maxRayAttempts: 20
+      maxPassAttempts: 200
+      canOffset: 0
+      minOffset: {x: 0, y: 0, z: 0}
+      maxOffset: {x: 0, y: 0, z: 0}
+      canRotate: 1
+      minRotation: {x: 0, y: 0, z: 0}
+      maxRotation: {x: 0, y: 360, z: 0}
+      canScale: 1
+      minScale: 0.5
+      maxScale: 1
+      stackRayOffset: {x: 0, y: 1, z: 0}
+      stackRayDist: 3
+      stackSpawnChance: 30
+      splineObjectPrefabs:
+      - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+      - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+      - {fileID: 832266862252731539, guid: 426f01dd12a944046b4fe58bcac0a1e5, type: 3}
+      - {fileID: 3897862375334726681, guid: 1aa6d8129ad48f143b1940b30a1dfb11, type: 3}
+      - {fileID: 4191481301151890219, guid: 07e9e73d17ac7ec4fb50ab29c387c63a, type: 3}
+      - {fileID: 2192500598721459597, guid: 6b6ed5da58980464f8b90e532c0338db, type: 3}
+      spawnObjects: {fileID: 0}
+      subpasses: []
+    - name: Cliff Treasure Spawn
+      enabled: 1
+      passMode: 3
+      runMode: 0
+      spawnOptions: 4
+      spawnSource: 1
+      waitUntilComplete: 1
+      runSubPassesAsync: 0
+      maxMainPassSpawnCount: 1
+      useStartingPos: 0
+      splinePrefab: {fileID: 0}
+      maxHeightDiff: 2
+      offsetSplineObject: 0
+      splineOffset: {x: 0, y: 0, z: 0}
+      neighborCastHeight: 10
+      maxNeighborCastDist: 100
+      neighborScale: 3
+      pruneWaitTime: 0.3
+      useAltSubSpline: 0
+      useOrigIndex: 0
+      useOrigY: 0
+      useSpawnedObjects: 0
+      canRotateSpline: 0
+      minSplineRotation: {x: 0, y: 0, z: 0}
+      maxSplineRotation: {x: 0, y: 0, z: 0}
+      splinePointCount: 5
+      objectSpawnCount: 1
+      minObjectSpawnCount: 1
+      maxObjectSpawnCount: 1
+      minSplinePointDist: 5
+      maxSplinePointDist: 10
+      minAngles: {x: 0, y: 0, z: 0}
+      maxAngles: {x: 0, y: 0, z: 0}
+      pointSize: 0
+      normal: {x: 0, y: 0, z: 0}
+      useRandomNormal: 0
+      minNormal: {x: 0, y: 0, z: 0}
+      maxNormal: {x: 0, y: 0, z: 0}
+      useObjectDist: 0
+      minObjectDist: 0
+      maxObjectDist: 0
+      useRandomSeedRange: 1
+      minSeedRange: 0
+      maxSeedRange: 2147483647
+      spawnOnTopRayDist: 50
+      maxRayAttempts: 20
+      maxPassAttempts: 200
+      canOffset: 0
+      minOffset: {x: 0, y: 0, z: 0}
+      maxOffset: {x: 0, y: 0, z: 0}
+      canRotate: 1
+      minRotation: {x: 0, y: 0, z: 0}
+      maxRotation: {x: 0, y: 360, z: 0}
+      canScale: 0
+      minScale: 0.5
+      maxScale: 1
+      stackRayOffset: {x: 0, y: 1, z: 0}
+      stackRayDist: 3
+      stackSpawnChance: 10
+      splineObjectPrefabs:
+      - {fileID: 3851853001911846983, guid: e1f7228bbac9e5e4fb7cab15c5a56949, type: 3}
+      spawnObjects: {fileID: 0}
+      subpasses: []
+  - name: Obstacle Splines
+    enabled: 0
+    passMode: 5
+    runMode: 1
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 1
+    runSubPassesAsync: 1
+    maxMainPassSpawnCount: 10
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 1
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 10
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 15
+    maxSplinePointDist: 20
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 0
+    minObjectDist: 5
+    maxObjectDist: 7
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 50
+    maxRayAttempts: 30
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: -5, y: 0, z: 0}
+    maxOffset: {x: 5, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 0.5
+    maxScale: 1.5
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses:
+    - name: Obstacle Stacks
+      enabled: 1
+      passMode: 3
+      runMode: 0
+      spawnOptions: 4
+      spawnSource: 0
+      waitUntilComplete: 1
+      runSubPassesAsync: 0
+      maxMainPassSpawnCount: 1
+      useStartingPos: 0
+      splinePrefab: {fileID: 0}
+      maxHeightDiff: 0
+      offsetSplineObject: 0
+      splineOffset: {x: 0, y: 0, z: 0}
+      neighborCastHeight: 10
+      maxNeighborCastDist: 100
+      neighborScale: 3
+      pruneWaitTime: 0.3
+      useAltSubSpline: 0
+      useOrigIndex: 0
+      useOrigY: 0
+      useSpawnedObjects: 0
+      canRotateSpline: 0
+      minSplineRotation: {x: 0, y: 0, z: 0}
+      maxSplineRotation: {x: 0, y: 0, z: 0}
+      splinePointCount: 5
+      objectSpawnCount: 0
+      minObjectSpawnCount: 5
+      maxObjectSpawnCount: 10
+      minSplinePointDist: 5
+      maxSplinePointDist: 10
+      minAngles: {x: 0, y: 0, z: 0}
+      maxAngles: {x: 0, y: 0, z: 0}
+      pointSize: 1
+      normal: {x: 0, y: 0, z: 0}
+      useRandomNormal: 0
+      minNormal: {x: 0, y: 0, z: 0}
+      maxNormal: {x: 0, y: 0, z: 0}
+      useObjectDist: 0
+      minObjectDist: 0
+      maxObjectDist: 0
+      useRandomSeedRange: 1
+      minSeedRange: 0
+      maxSeedRange: 2147483647
+      spawnOnTopRayDist: 50
+      maxRayAttempts: 20
+      maxPassAttempts: 200
+      canOffset: 0
+      minOffset: {x: 0, y: 0, z: 0}
+      maxOffset: {x: 0, y: 0, z: 0}
+      canRotate: 1
+      minRotation: {x: 0, y: 0, z: 0}
+      maxRotation: {x: 0, y: 360, z: 0}
+      canScale: 1
+      minScale: 0.5
+      maxScale: 1
+      stackRayOffset: {x: 0, y: 1, z: 0}
+      stackRayDist: 3
+      stackSpawnChance: 30
+      splineObjectPrefabs:
+      - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+      - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+      - {fileID: 832266862252731539, guid: 426f01dd12a944046b4fe58bcac0a1e5, type: 3}
+      - {fileID: 3897862375334726681, guid: 1aa6d8129ad48f143b1940b30a1dfb11, type: 3}
+      - {fileID: 4191481301151890219, guid: 07e9e73d17ac7ec4fb50ab29c387c63a, type: 3}
+      - {fileID: 2192500598721459597, guid: 6b6ed5da58980464f8b90e532c0338db, type: 3}
+      spawnObjects: {fileID: 0}
+      subpasses: []
+    - name: Obstacle Treasure Spawn
+      enabled: 1
+      passMode: 3
+      runMode: 0
+      spawnOptions: 4
+      spawnSource: 1
+      waitUntilComplete: 1
+      runSubPassesAsync: 0
+      maxMainPassSpawnCount: 1
+      useStartingPos: 0
+      splinePrefab: {fileID: 0}
+      maxHeightDiff: 2
+      offsetSplineObject: 0
+      splineOffset: {x: 0, y: 0, z: 0}
+      neighborCastHeight: 10
+      maxNeighborCastDist: 100
+      neighborScale: 3
+      pruneWaitTime: 0.3
+      useAltSubSpline: 0
+      useOrigIndex: 0
+      useOrigY: 0
+      useSpawnedObjects: 0
+      canRotateSpline: 0
+      minSplineRotation: {x: 0, y: 0, z: 0}
+      maxSplineRotation: {x: 0, y: 0, z: 0}
+      splinePointCount: 5
+      objectSpawnCount: 1
+      minObjectSpawnCount: 1
+      maxObjectSpawnCount: 1
+      minSplinePointDist: 5
+      maxSplinePointDist: 10
+      minAngles: {x: 0, y: 0, z: 0}
+      maxAngles: {x: 0, y: 0, z: 0}
+      pointSize: 0
+      normal: {x: 0, y: 0, z: 0}
+      useRandomNormal: 0
+      minNormal: {x: 0, y: 0, z: 0}
+      maxNormal: {x: 0, y: 0, z: 0}
+      useObjectDist: 0
+      minObjectDist: 0
+      maxObjectDist: 0
+      useRandomSeedRange: 1
+      minSeedRange: 0
+      maxSeedRange: 2147483647
+      spawnOnTopRayDist: 50
+      maxRayAttempts: 20
+      maxPassAttempts: 200
+      canOffset: 0
+      minOffset: {x: 0, y: 0, z: 0}
+      maxOffset: {x: 0, y: 0, z: 0}
+      canRotate: 1
+      minRotation: {x: 0, y: 0, z: 0}
+      maxRotation: {x: 0, y: 360, z: 0}
+      canScale: 0
+      minScale: 0.5
+      maxScale: 1
+      stackRayOffset: {x: 0, y: 1, z: 0}
+      stackRayDist: 3
+      stackSpawnChance: 10
+      splineObjectPrefabs:
+      - {fileID: 3851853001911846983, guid: e1f7228bbac9e5e4fb7cab15c5a56949, type: 3}
+      spawnObjects: {fileID: 0}
+      subpasses: []
+  - name: Item Pickup Spawn
+    enabled: 0
+    passMode: 0
+    runMode: 0
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 0
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 50
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 3
+    objectSpawnCount: 2
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 30
+    maxSplinePointDist: 50
+    minAngles: {x: -20, y: 0, z: -20}
+    maxAngles: {x: 20, y: 0, z: 20}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 1
+    minObjectDist: 5
+    maxObjectDist: 7
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 50
+    maxRayAttempts: 30
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 0
+    minScale: 0.25
+    maxScale: 0.5
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 8649535420344351340, guid: d8da23d86f6091e48a425dfaa461c8eb, type: 3}
+    - {fileID: 678256652290126015, guid: 0e0a19cfc1d1b0847a9553294f8a4f7b, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  - name: Collectible Spawn
+    enabled: 0
+    passMode: 1
+    runMode: 2
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 1
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 50
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    pruneWaitTime: 0.3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 5
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 30
+    maxSplinePointDist: 50
+    minAngles: {x: -20, y: 0, z: -20}
+    maxAngles: {x: 20, y: 0, z: 20}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 1
+    minObjectDist: 5
+    maxObjectDist: 7
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 50
+    maxRayAttempts: 30
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 0
+    minScale: 0.25
+    maxScale: 0.5
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 409821093893844648, guid: c4f9502e2062a5149aa9ea88fb4d214f, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
+  topRightDebug: 0
+  topLeftDebug: 0
+  downRightDebug: 0
+  downLeftDebug: 0
+  spawnedObjects: []
+  splineObjects: []
+  allSpawnedObjects: []
+  pendingObjects: []
+--- !u!4 &1883641882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883641880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2042954197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2042954205}
+  - component: {fileID: 2042954204}
+  - component: {fileID: 2042954203}
+  - component: {fileID: 2042954202}
+  - component: {fileID: 2042954201}
+  - component: {fileID: 2042954200}
+  - component: {fileID: 2042954199}
+  - component: {fileID: 2042954198}
+  m_Layer: 3
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2042954198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042954197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b029a6ea731a895428e6cf4ad162c496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotCount: 4
+  pickUpRadius: 3
+  itemPoolSize: 10
+  swapSlotTime: 2
+  aimDist: 10
+  xOffset: 0.1
+  yOffset: 0.7
+  slotWidth: 300
+  slotHeight: 300
+  xPickupOffset: 0.5
+  yPickupOffset: 0.8
+  pickUpWidth: 300
+  pickUpHeight: 100
+--- !u!114 &2042954199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042954197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ee5c38598fe3f4e81d149a05ac4cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName: default
+  move: {fileID: 0}
+  rb: {fileID: 0}
+--- !u!114 &2042954200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042954197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec9b8c0e36f23a4fb6c6f1c31afc8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  airMoveSpeed: 10
+  rotSpeed: 0.15
+  useStopMove: 1
+  stopMoveDistanceOrig: 1.5
+  stopMoveOffset: 0.2
+  stopMoveDistance: 0.1
+  slopeLimit: 75
+  stopMoveHeight: 0.65
+  maxSlope: 85
+  stopMoveLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  jumpSpeed: 10
+  jumpLerpVal: 10
+  minJumpHeight: 0.1
+  maxJumpHeight: 3
+  jumpSweepDist: 0.1
+  jumpZeroVelocity: 0
+  stopAtTarget: 0
+  maxJumpCount: 2
+  jumpForce: 10
+  jumpMode: 1
+  maxJumpTime: 1
+  useBaseDownForce: 1
+  baseDownForce: 7
+  downForceMode: 1
+  useEarlyCancelDownForce: 1
+  earlyCancelDownForce: 7
+  earlyCancelMode: 1
+  useCancelCoroutine: 0
+  cancelCoroutineForce: 10
+  coroutineMode: 0
+  climbSpeed: 20
+  climbingAngle: 3
+  rayOrigin: {x: 0, y: 0, z: 0}
+  rayDistance: 1.5
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  wallHitDist: 0.2
+  wallMoveScale: 1
+  stepOffsetDist: 0.1
+  stepOffsetMinHeight: 0
+  stepOffsetMaxHeight: 0.5
+  isGrounded: 0
+  groundCheckEnabled: 1
+  jumpCount: 0
+  origJumpPos: {x: 0, y: 0, z: 0}
+  jumpTarget: {x: 0, y: 0, z: 0}
+  isJumping: 0
+  distFromJumpStart: 0
+  wallDebug: 0
+--- !u!54 &2042954201
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025058223}
+  m_GameObject: {fileID: 2042954197}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -849,28 +3876,28 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!136 &2025058225
+  m_CollisionDetection: 3
+--- !u!136 &2042954202
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025058223}
-  m_Material: {fileID: 0}
+  m_GameObject: {fileID: 2042954197}
+  m_Material: {fileID: 13400000, guid: 3ee48d5e5e48dee41bb03a8a31d76eee, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &2025058226
+--- !u!23 &2042954203
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025058223}
+  m_GameObject: {fileID: 2042954197}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -905,72 +3932,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2025058227
+--- !u!33 &2042954204
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025058223}
+  m_GameObject: {fileID: 2042954197}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2025058228
+--- !u!4 &2042954205
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025058223}
+  m_GameObject: {fileID: 2042954197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1722677628}
+  - {fileID: 1613217534}
+  - {fileID: 1694592580}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2025058229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025058223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fec9b8c0e36f23a4fb6c6f1c31afc8d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  airMoveSpeed: 10
-  rotSpeed: 0.15
-  jumpSpeed: 10
-  jumpLerpVal: 10
-  minJumpHeight: 0.1
-  maxJumpHeight: 3
-  jumpSweepDist: 0.1
-  jumpZeroVelocity: 1
-  maxJumpCount: 1
-  climbSpeed: 20
-  climbingAngle: 3
-  rayOrigin: {x: 0, y: 0, z: 0}
-  rayDistance: 1.5
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  isGrounded: 0
-  groundCheckEnabled: 1
---- !u!114 &2025058230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025058223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ee5c38598fe3f4e81d149a05ac4cf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateName: default
 --- !u!1 &2056981175
 GameObject:
   m_ObjectHideFlags: 0
