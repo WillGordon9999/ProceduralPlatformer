@@ -1,0 +1,322 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1040092656535725148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040092656535725151}
+  - component: {fileID: 1040092656535725150}
+  - component: {fileID: 297321838040216697}
+  - component: {fileID: -6823047074147915573}
+  m_Layer: 0
+  m_Name: Spline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1040092656535725151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040092656535725148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1040092656535725150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040092656535725148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e68924c9f6324bbfd049d3bae754c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorDrawPivot: 1
+  editorPathColor: {r: 1, g: 1, b: 1, a: 1}
+  editorAlwaysDraw: 0
+  editorDrawThickness: 0
+  editorBillboardThickness: 1
+  isNewlyCreated: 0
+  editorUpdateMode: 0
+  multithreaded: 0
+  updateMode: 0
+  triggerGroups: []
+  _spline:
+    points:
+    - _type: 0
+      position: {x: 0, y: 0, z: 0}
+      color: {r: 1, g: 1, b: 1, a: 1}
+      normal: {x: 0, y: 1, z: 0}
+      size: 1
+      tangent: {x: 0, y: 0, z: 0}
+      tangent2: {x: 0, y: 0, z: 0}
+    - _type: 0
+      position: {x: 0, y: 0.0000038146973, z: 10}
+      color: {r: 1, g: 1, b: 1, a: 1}
+      normal: {x: 0, y: 1, z: 0}
+      size: 1
+      tangent: {x: 0, y: 0.0000038146973, z: 10}
+      tangent2: {x: 0, y: 0.0000038146973, z: 10}
+    type: 0
+    linearAverageDirection: 1
+    customValueInterpolation:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    customNormalInterpolation:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    sampleRate: 10
+    closed: 0
+    _knotParametrization: 0
+  _originalSamplePercents: []
+  _is2D: 0
+  hasSamples: 1
+  _optimizeAngleThreshold: 0.5
+  _space: 0
+  _sampleMode: 0
+  _subscribers:
+  - {fileID: 297321838040216697}
+  _rawSamples:
+  - position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0
+  - position: {x: 0, y: 0.00000042385525, z: 1.1111112}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.1111111111111111
+  - position: {x: 0, y: 0.0000008477105, z: 2.2222223}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.2222222222222222
+  - position: {x: 0, y: 0.0000012715658, z: 3.3333335}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.0000003814697, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.3333333333333333
+  - position: {x: 0, y: 0.000001695421, z: 4.4444447}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.4444444444444444
+  - position: {x: 0, y: 0.0000021192764, z: 5.555556}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.0000003814697, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.5555555555555556
+  - position: {x: 0, y: 0.0000025431316, z: 6.666667}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.6666666666666666
+  - position: {x: 0, y: 0.0000029669868, z: 7.7777777}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.7777777777777778
+  - position: {x: 0, y: 0.000003390842, z: 8.888889}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0.8888888888888888
+  - position: {x: 0, y: 0.0000038146973, z: 10}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 1
+  _nodes: []
+--- !u!114 &297321838040216697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040092656535725148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb0592a986cebb4287d41702ab6ea22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateMethod: 0
+  _spline: {fileID: 1040092656535725150}
+  _autoUpdate: 1
+  _rotationModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _offsetModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _colorModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _sizeModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _clipFromSample:
+    position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 0
+  _clipToSample:
+    position: {x: 0, y: 0.0000038146973, z: 10}
+    up: {x: 0, y: 1, z: 0}
+    forward: {x: 0, y: 0.00000038146973, z: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    size: 1
+    percent: 1
+  _loopSamples: 0
+  _clipFrom: 0
+  _clipTo: 1
+  animClipFrom: 0
+  animClipTo: 1
+  multithreaded: 0
+  buildOnAwake: 1
+  buildOnEnable: 0
+  objects: []
+  _evaluateOffset: 0
+  _spawnCount: 0
+  _retainPrefabInstancesInEditor: 0
+  _objectPositioning: 0
+  _iteration: 1
+  _randomSeed: 1
+  _minOffset: {x: 0, y: 0, z: 0}
+  _maxOffset: {x: 0, y: 0, z: 0}
+  _offsetUseWorldCoords: 1
+  _minRotation: {x: 0, y: 0, z: 0}
+  _maxRotation: {x: 0, y: 0, z: 0}
+  _uniformScaleLerp: 1
+  _minScaleMultiplier: {x: 1, y: 1, z: 1}
+  _maxScaleMultiplier: {x: 1, y: 1, z: 1}
+  _shellOffset: 0
+  _applyRotation: 1
+  _rotateByOffset: 0
+  _applyScale: 1
+  _objectMethod: 0
+  delayedSpawn: 0
+  spawnDelay: 0.1
+  lastChildCount: 0
+  spawned: []
+  _useCustomObjectDistance: 0
+  _minObjectDistance: 10
+  _maxObjectDistance: 100
+  _customOffsetRule: {fileID: 0}
+  _customRotationRule: {fileID: 0}
+  _customScaleRule: {fileID: 0}
+--- !u!114 &-6823047074147915573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040092656535725148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae7f8835f5a07147b91134efcfde39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialized: 0
+  objects: []
+  colliders: []
+  rayPoses: []
+  spawnDatas: []
+  pass:
+    name: 
+    enabled: 1
+    passMode: 0
+    runMode: 0
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 0
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 50
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastHeight: 10
+    maxNeighborCastDist: 100
+    neighborScale: 3
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 10
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 3
+    maxSplinePointDist: 10
+    minAngles: {x: -90, y: 0, z: -90}
+    maxAngles: {x: 90, y: 0, z: 90}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: -1, y: -1, z: -1}
+    maxNormal: {x: 1, y: 1, z: 1}
+    useObjectDist: 1
+    minObjectDist: 3
+    maxObjectDist: 10
+    useRandomSeedRange: 0
+    minSeedRange: 0
+    maxSeedRange: 99999999
+    spawnOnTopRayDist: 0.3
+    maxRayAttempts: 10
+    maxPassAttempts: 200
+    canOffset: 1
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 20, y: 0, z: 20}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 1
+    maxScale: 3
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs: []
+    spawnObjects: {fileID: 0}
+    subpasses: []
