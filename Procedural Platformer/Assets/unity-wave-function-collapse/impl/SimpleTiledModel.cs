@@ -10,7 +10,7 @@ using System;
 using System.Xml;
 using System.Linq;
 using System.Collections.Generic;
-
+using WaveFunctionCollapse;
 public class SimpleTiledModel : Model
 {
 	public List<string> tiles;

@@ -8,215 +8,223 @@ The software is provided "as is", without warranty of any kind, express or impli
 
 using System;
 
-public abstract class Model
+namespace WaveFunctionCollapse
 {
-	protected bool[][] wave;
 
-	protected int[][][] propagator;
-	int[][][] compatible;
-	protected int[] observed;
+    public abstract class Model
+    {
+        protected bool[][] wave;
 
-	protected bool init = false;
+        protected int[][][] propagator;
+        int[][][] compatible;
+        protected int[] observed;
 
-	Tuple<int, int>[] stack;
-	int stacksize;
+        protected bool init = false;
 
-	protected System.Random random;
-	protected int FMX, FMY, T;
-	protected bool periodic;
+        Tuple<int, int>[] stack;
+        int stacksize;
 
-	protected double[] weights;
-	double[] weightLogWeights;
+        protected System.Random random;
+        protected int FMX, FMY, T;
+        protected bool periodic;
 
-	int[] sumsOfOnes;
-	double sumOfWeights, sumOfWeightLogWeights, startingEntropy;
-	double[] sumsOfWeights, sumsOfWeightLogWeights, entropies;
+        protected double[] weights;
+        double[] weightLogWeights;
 
-	protected Model(int width, int height)
-	{
-		FMX = width;
-		FMY = height;
-	}
+        int[] sumsOfOnes;
+        double sumOfWeights, sumOfWeightLogWeights, startingEntropy;
+        double[] sumsOfWeights, sumsOfWeightLogWeights, entropies;
 
-	void Init()
-	{
-		wave = new bool[FMX * FMY][];
-		compatible = new int[wave.Length][][];
-		for (int i = 0; i < wave.Length; i++)
-		{
-			wave[i] = new bool[T];
-			compatible[i] = new int[T][];
-			for (int t = 0; t < T; t++) compatible[i][t] = new int[4];
-		}
+        protected Model(int width, int height)
+        {
+            FMX = width;
+            FMY = height;
+        }
 
-		weightLogWeights = new double[T];
-		sumOfWeights = 0;
-		sumOfWeightLogWeights = 0;
+        void Init()
+        {
+            wave = new bool[FMX * FMY][];
+            compatible = new int[wave.Length][][];
+            for (int i = 0; i < wave.Length; i++)
+            {
+                wave[i] = new bool[T];
+                compatible[i] = new int[T][];
+                for (int t = 0; t < T; t++) compatible[i][t] = new int[4];
+            }
 
-		for (int t = 0; t < T; t++)
-		{
-			weightLogWeights[t] = weights[t] * Math.Log(weights[t]);
-			sumOfWeights += weights[t];
-			sumOfWeightLogWeights += weightLogWeights[t];
-		}
+            weightLogWeights = new double[T];
+            sumOfWeights = 0;
+            sumOfWeightLogWeights = 0;
 
-		startingEntropy = Math.Log(sumOfWeights) - sumOfWeightLogWeights / sumOfWeights;
+            for (int t = 0; t < T; t++)
+            {
+                weightLogWeights[t] = weights[t] * Math.Log(weights[t]);
+                sumOfWeights += weights[t];
+                sumOfWeightLogWeights += weightLogWeights[t];
+            }
 
-		sumsOfOnes = new int[FMX * FMY];
-		sumsOfWeights = new double[FMX * FMY];
-		sumsOfWeightLogWeights = new double[FMX * FMY];
-		entropies = new double[FMX * FMY];
-		
-		stack = new Tuple<int, int>[wave.Length * T];
-		stacksize = 0;
-	}
+            startingEntropy = Math.Log(sumOfWeights) - sumOfWeightLogWeights / sumOfWeights;
 
-	
+            sumsOfOnes = new int[FMX * FMY];
+            sumsOfWeights = new double[FMX * FMY];
+            sumsOfWeightLogWeights = new double[FMX * FMY];
+            entropies = new double[FMX * FMY];
 
-	bool? Observe()
-	{
-		double min = 1E+3;
-		int argmin = -1;
+            stack = new Tuple<int, int>[wave.Length * T];
+            stacksize = 0;
+        }
 
-		for (int i = 0; i < wave.Length; i++)
-		{
-			if (OnBoundary(i % FMX, i / FMX)) continue;
 
-			int amount = sumsOfOnes[i];
-			if (amount == 0) return false;
 
-			double entropy = entropies[i];
-			if (amount > 1 && entropy <= min)
-			{
-				double noise = 1E-6 * random.NextDouble();
-				if (entropy + noise < min)
-				{
-					min = entropy + noise;
-					argmin = i;
-				}
-			}
-		}
+        bool? Observe()
+        {
+            double min = 1E+3;
+            int argmin = -1;
 
-		if (argmin == -1)
-		{
-			observed = new int[FMX * FMY];
-			for (int i = 0; i < wave.Length; i++) for (int t = 0; t < T; t++) if (wave[i][t]) { observed[i] = t; break; }
-			return true;
-		}
+            for (int i = 0; i < wave.Length; i++)
+            {
+                if (OnBoundary(i % FMX, i / FMX)) continue;
 
-		double[] distribution = new double[T];
-		for (int t = 0; t < T; t++) distribution[t] = wave[argmin][t] ? weights[t] : 0;
-		int r = distribution.Random(random.NextDouble());
-		
-		bool[] w = wave[argmin];
-		for (int t = 0; t < T; t++)	if (w[t] != (t == r)) Ban(argmin, t);
+                int amount = sumsOfOnes[i];
+                if (amount == 0) return false;
 
-		return null;
-	}
+                double entropy = entropies[i];
+                if (amount > 1 && entropy <= min)
+                {
+                    double noise = 1E-6 * random.NextDouble();
+                    if (entropy + noise < min)
+                    {
+                        min = entropy + noise;
+                        argmin = i;
+                    }
+                }
+            }
 
-	protected void Propagate()
-	{
-		while (stacksize > 0)
-		{
-			var e1 = stack[stacksize - 1];
-			stacksize--;
+            if (argmin == -1)
+            {
+                observed = new int[FMX * FMY];
+                for (int i = 0; i < wave.Length; i++) for (int t = 0; t < T; t++) if (wave[i][t]) { observed[i] = t; break; }
+                return true;
+            }
 
-			int i1 = e1.Item1;
-			int x1 = i1 % FMX, y1 = i1 / FMX;
-			bool[] w1 = wave[i1];
+            double[] distribution = new double[T];
+            for (int t = 0; t < T; t++) distribution[t] = wave[argmin][t] ? weights[t] : 0;
+            int r = distribution.Random(random.NextDouble());
 
-			for (int d = 0; d < 4; d++)
-			{
-				int dx = DX[d], dy = DY[d];
-				int x2 = x1 + dx, y2 = y1 + dy;
-				if (OnBoundary(x2, y2)) continue;
+            bool[] w = wave[argmin];
+            for (int t = 0; t < T; t++) if (w[t] != (t == r)) Ban(argmin, t);
 
-				if (x2 < 0) x2 += FMX;
-				else if (x2 >= FMX) x2 -= FMX;
-				if (y2 < 0) y2 += FMY;
-				else if (y2 >= FMY) y2 -= FMY;
+            return null;
+        }
 
-				int i2 = x2 + y2 * FMX;
-				int[] p = propagator[d][e1.Item2];
-				int[][] compat = compatible[i2];
+        protected void Propagate()
+        {
+            while (stacksize > 0)
+            {
+                var e1 = stack[stacksize - 1];
+                stacksize--;
 
-				for (int l = 0; l < p.Length; l++)
-				{
-					int t2 = p[l];
-					int[] comp = compat[t2];
+                int i1 = e1.Item1;
+                int x1 = i1 % FMX, y1 = i1 / FMX;
+                bool[] w1 = wave[i1];
 
-					comp[d]--;
-					if (comp[d] == 0) Ban(i2, t2);
-				}
-			}
-		}
-	}
+                for (int d = 0; d < 4; d++)
+                {
+                    int dx = DX[d], dy = DY[d];
+                    int x2 = x1 + dx, y2 = y1 + dy;
+                    if (OnBoundary(x2, y2)) continue;
 
-	public bool Run(int seed, int limit)
-	{
-		if (wave == null) Init();
+                    if (x2 < 0) x2 += FMX;
+                    else if (x2 >= FMX) x2 -= FMX;
+                    if (y2 < 0) y2 += FMY;
+                    else if (y2 >= FMY) y2 -= FMY;
 
-		if (!this.init) {
-			this.init = true;
-			this.Clear();
-		}
+                    int i2 = x2 + y2 * FMX;
+                    int[] p = propagator[d][e1.Item2];
+                    int[][] compat = compatible[i2];
 
-		if (seed==0) {
-			random = new System.Random();
-		} else {
-			random = new System.Random(seed);
-		}
+                    for (int l = 0; l < p.Length; l++)
+                    {
+                        int t2 = p[l];
+                        int[] comp = compat[t2];
 
-		for (int l = 0; l < limit || limit == 0; l++)
-		{
-			bool? result = Observe();
-			if (result != null) return (bool)result;
-			Propagate();
-		}
+                        comp[d]--;
+                        if (comp[d] == 0) Ban(i2, t2);
+                    }
+                }
+            }
+        }
 
-		return true;
-	}
+        public bool Run(int seed, int limit)
+        {
+            if (wave == null) Init();
 
-	protected void Ban(int i, int t)
-	{
-		wave[i][t] = false;
+            if (!this.init)
+            {
+                this.init = true;
+                this.Clear();
+            }
 
-		int[] comp = compatible[i][t];
-		for (int d = 0; d < 4; d++) comp[d] = 0;
-		stack[stacksize] = new Tuple<int, int>(i, t);
-		stacksize++;
+            if (seed == 0)
+            {
+                random = new System.Random();
+            }
+            else
+            {
+                random = new System.Random(seed);
+            }
 
-		double sum = sumsOfWeights[i];
-		entropies[i] += sumsOfWeightLogWeights[i] / sum - Math.Log(sum);
+            for (int l = 0; l < limit || limit == 0; l++)
+            {
+                bool? result = Observe();
+                if (result != null) return (bool)result;
+                Propagate();
+            }
 
-		sumsOfOnes[i] -= 1;
-		sumsOfWeights[i] -= weights[t];
-		sumsOfWeightLogWeights[i] -= weightLogWeights[t];
+            return true;
+        }
 
-		sum = sumsOfWeights[i];
-		entropies[i] -= sumsOfWeightLogWeights[i] / sum - Math.Log(sum);
-	}
+        protected void Ban(int i, int t)
+        {
+            wave[i][t] = false;
 
-	protected virtual void Clear()
-	{
-		for (int i = 0; i < wave.Length; i++)
-		{
-			for (int t = 0; t < T; t++)
-			{
-				wave[i][t] = true;
-				for (int d = 0; d < 4; d++) compatible[i][t][d] = propagator[opposite[d]][t].Length;
-			}
+            int[] comp = compatible[i][t];
+            for (int d = 0; d < 4; d++) comp[d] = 0;
+            stack[stacksize] = new Tuple<int, int>(i, t);
+            stacksize++;
 
-			sumsOfOnes[i] = weights.Length;
-			sumsOfWeights[i] = sumOfWeights;
-			sumsOfWeightLogWeights[i] = sumOfWeightLogWeights;
-			entropies[i] = startingEntropy;
-		}
-	}
+            double sum = sumsOfWeights[i];
+            entropies[i] += sumsOfWeightLogWeights[i] / sum - Math.Log(sum);
 
-	protected abstract bool OnBoundary(int x, int y);
+            sumsOfOnes[i] -= 1;
+            sumsOfWeights[i] -= weights[t];
+            sumsOfWeightLogWeights[i] -= weightLogWeights[t];
 
-	protected static int[] DX = { -1, 0, 1, 0 };
-	protected static int[] DY = { 0, 1, 0, -1 };
-	static int[] opposite = { 2, 3, 0, 1 };
+            sum = sumsOfWeights[i];
+            entropies[i] -= sumsOfWeightLogWeights[i] / sum - Math.Log(sum);
+        }
+
+        protected virtual void Clear()
+        {
+            for (int i = 0; i < wave.Length; i++)
+            {
+                for (int t = 0; t < T; t++)
+                {
+                    wave[i][t] = true;
+                    for (int d = 0; d < 4; d++) compatible[i][t][d] = propagator[opposite[d]][t].Length;
+                }
+
+                sumsOfOnes[i] = weights.Length;
+                sumsOfWeights[i] = sumOfWeights;
+                sumsOfWeightLogWeights[i] = sumOfWeightLogWeights;
+                entropies[i] = startingEntropy;
+            }
+        }
+
+        protected abstract bool OnBoundary(int x, int y);
+
+        protected static int[] DX = { -1, 0, 1, 0 };
+        protected static int[] DY = { 0, 1, 0, -1 };
+        static int[] opposite = { 2, 3, 0, 1 };
+    }
 }
