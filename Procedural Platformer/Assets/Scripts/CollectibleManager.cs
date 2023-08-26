@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollectibleManager : MonoBehaviour
 {
     public static CollectibleManager Instance { get { return mInstance; } private set { } }
-    private static CollectibleManager mInstance;
+    private static CollectibleManager mInstance;    
     List<GameObject> collectibles;
     uint totalCollectibleCount = 0;
     uint currentCollectibleCount = 0;

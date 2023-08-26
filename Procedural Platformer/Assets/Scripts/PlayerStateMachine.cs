@@ -5,6 +5,9 @@ using System;
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    public static PlayerStateMachine Instance { get { return mInstance; } private set { } }
+    private static PlayerStateMachine mInstance = null;
+
     //Main State Delegates
     public string stateName = "default";
     Action enter;
@@ -12,13 +15,18 @@ public class PlayerStateMachine : MonoBehaviour
     Action fixedUpdate;
     Action exit;
 
-    Movement move;
-    Rigidbody rb;
+    [HideInInspector] public Movement move;
+    [HideInInspector] public Rigidbody rb;
+    InventoryController inventory;    
 
     void Awake()
     {
+        if (mInstance == null)
+            mInstance = this;
+
         rb = GetComponent<Rigidbody>();
         move = GetComponent<Movement>();
+        inventory = GetComponent<InventoryController>();
     }
 
     void Start()
@@ -56,9 +64,15 @@ public class PlayerStateMachine : MonoBehaviour
     void MainUpdate()
     {
         move.FallCheck();
-        move.Jump();
+
+        if (!inventory.CheckForItemUse())
+            move.Jump();
+
         move.GroundCheck();
         move.UpdateMove();
+
+        
+        inventory.UpdatePickup();
 
         move.UpdateJump();
     }

@@ -126,14 +126,14 @@ public class TerrainSpawner : MonoBehaviour
         //StartCoroutine("TerrainBoxCastPass");
         //StartCoroutine("CreateLandMass", Vector3.zero);
         //StartCoroutine("LargePassUpdate");
-        StartCoroutine("NewPassUpdate", Vector3.zero);
+        StartCoroutine(NewPassUpdate(Vector3.zero));
 
         for (int i = 0; i < pass1ExtraIterations; i++)
         {
             float x = Random.Range(minX, maxX);
             float y = useHeight ? Random.Range(minY, maxY) : 0.0f;
             float z = Random.Range(minZ, maxZ);
-            StartCoroutine("NewPassUpdate", new Vector3(x, y, z));
+            StartCoroutine(NewPassUpdate(new Vector3(x, y, z)));
         }
     }
 
@@ -202,6 +202,7 @@ public class TerrainSpawner : MonoBehaviour
         Vector3 randDir = Random.onUnitSphere;
         Quaternion rot = Quaternion.LookRotation(new Vector3(randDir.x, 0.0f, randDir.z));
         
+        //Spawn the first land mass to work with
         int index = Random.Range(0, spawnObjectsLarge.Count);
 
         GameObject obj = Instantiate(spawnObjectsLarge[index], initPos, rot);
