@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030fb63d9809d4a4b88ab30cbe43c9bc, type: 3}
+  m_Name: Cliff01 Adjacents
+  m_EditorClassIdentifier: 
+  objects:
+  - name: Cliff02
+    obj: {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    enabled: 1
+    overrideOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    overrideRotate: 0
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 0, z: 0}
+    overrideScale: 0
+    minScale: 1
+    maxScale: 1
+  - name: Cliff04-Whole-V2
+    obj: {fileID: 1872990428193263662, guid: 960ca6927a6671543b867c7849e99aef, type: 3}
+    enabled: 1
+    overrideOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    overrideRotate: 0
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 0, z: 0}
+    overrideScale: 0
+    minScale: 1
+    maxScale: 1
+  - name: Cliff05-Whole-V2
+    obj: {fileID: 4478734878872976896, guid: 82e9d4f3aafad184fa9cc7ed0cc045ac, type: 3}
+    enabled: 1
+    overrideOffset: 0
+    minOffset: {x: 0, y: 0, z: 0}
+    maxOffset: {x: 0, y: 0, z: 0}
+    overrideRotate: 0
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 0, z: 0}
+    overrideScale: 0
+    minScale: 1
+    maxScale: 1
