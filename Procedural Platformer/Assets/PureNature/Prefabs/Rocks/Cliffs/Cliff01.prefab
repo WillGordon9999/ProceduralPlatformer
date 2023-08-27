@@ -31,12 +31,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960844236708463733}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2869455179489349994
 MeshFilter:
@@ -57,6 +58,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -95,9 +97,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960844236708463733}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 0
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4172727479431035669, guid: 337e7ea00c398a240bf3322b03834cd6, type: 3}
@@ -169,9 +179,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960844236708463733}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 4.549407, y: 22.96104, z: 4.0741787}
   m_Center: {x: 0.045426846, y: 0.0000009536743, z: -0.10417038}
 --- !u!64 &2597567732653776808
@@ -182,9 +200,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960844236708463733}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3336498934930111377, guid: 3fba2cdd06a3dc841a3f85f32be108da, type: 2}
@@ -200,13 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a67ec1a36f99b47965af8faed3cbe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
   center: {x: 0.045426846, y: 0.0000009536743, z: -0.10417038}
   size: {x: 4.549407, y: 22.96104, z: 4.0741787}
   spawnPoints: {fileID: 11400000, guid: 4f77d3214ff45904d9de3b5595f64801, type: 2}
   stackables: {fileID: 11400000, guid: a399f75a247a9154cbf8185b9b2ff4ae, type: 2}
   adjacents: {fileID: 11400000, guid: 794c1b92926f4a941a1c96bcc4cd5a1f, type: 2}
-  neighbors: []
   boxCollider: {fileID: 0}
   rayPos: {x: 0, y: 0, z: 0}
   rayPoints: []
+  neighborPoints: []
+  neighbors: []
+  neighborBounds: []
