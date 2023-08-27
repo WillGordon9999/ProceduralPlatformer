@@ -47,9 +47,7 @@ public class SpawnPointDataEditor
 #endif
 
 public class SpawnPointData : MonoBehaviour
-{
-    public bool test = false;
-
+{    
     public Vector3 center;    
     public Vector3 size;  //This is actually the extents I think
 
@@ -58,20 +56,18 @@ public class SpawnPointData : MonoBehaviour
     public SpawnObjectList stackables;
     public SpawnObjectList adjacents;
 
-    public List<SpawnPointData> neighbors;
-
-    public Collider boxCollider;
+    public BoxCollider boxCollider;
     public Vector3 rayPos;
-   
-    //public Bounds testBounds;
-    //public Vector3[] rays;
-    //public int[] indices;
-
-    //public int attempts = 0;
-    //public int hits = 0;    
 
     public Transform[] rayPoints;
-   
+    public Transform[] neighborPoints;
+
+    public List<SpawnPointData> neighbors;
+    public List<Bounds> neighborBounds;
+    //public HashSet<SpawnPointData> neighbors;
+    //public HashSet<Bounds> neighborBounds;
+
+    //public bool markedForDeath = false; //Had to add this because for Destroy taking too long dunno about DestroyImmediate here
 
     //public List<Vector3> xPoints;
     //public List<Vector3> yPoints;
@@ -83,7 +79,10 @@ public class SpawnPointData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        neighbors = new List<SpawnPointData>();        
+        neighbors = new List<SpawnPointData>();
+        neighborBounds = new List<Bounds>();
+        //neighbors = new HashSet<SpawnPointData>();
+        //neighborBounds = new HashSet<Bounds>();
     }
 
     // Update is called once per frame
@@ -96,8 +95,17 @@ public class SpawnPointData : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawWireCube(transform.TransformPoint(testBounds.center), testBounds.size);   
+        Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireCube(transform.TransformPoint(center), size);   
+        //Gizmos.DrawWireCube(transform.TransformPoint(center), neighborSize);
+        //Gizmos.DrawWireCube(neighborBounds.center, neighborBounds.size);
+
+        //for (int i = 0; i < neighbors.Count; i++)
+        for (int i = 0; i < neighborBounds.Count; i++)
+        {
+            //Gizmos.DrawLine(transform.TransformPoint(center), neighbors[i].transform.position);
+            Gizmos.DrawWireCube(neighborBounds[i].center, neighborBounds[i].size);
+        }
     }
 
 #endif
