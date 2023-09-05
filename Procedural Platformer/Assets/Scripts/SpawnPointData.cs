@@ -57,13 +57,42 @@ public class SpawnPointData : MonoBehaviour
     public SpawnObjectList adjacents;
 
     public BoxCollider boxCollider;
-    public Vector3 rayPos;
+    //public BoxCollider yBounds;
+    //RayPoints on the bottom of the collider
+    public Vector3 rayPos; //center
+    public Vector3 topRight;
+    public Vector3 topLeft;
+    public Vector3 downRight;
+    public Vector3 downLeft;
 
+    public Bounds yBounds;
+    public int mainIndex = -1;
+
+    //Inspector-assigned poses
     public Transform[] rayPoints;
     public Transform[] neighborPoints;
+    //[HideInInspector] public bool[] rayPointHits;
+    public RaycastHit[] rayPointHits;
+    public int rayPointHitCount = 0;
+
+    public float generateRadius = 10.0f;
 
     public List<SpawnPointData> neighbors;
     public List<Bounds> neighborBounds;
+    public List<Vector3> neighborDirs;
+
+    [Header("Debug")]
+    //public float textOffset = -5.0f;
+    public List<Vector3> neighborRayPoses;
+    public List<Vector3> neighborRayDirs;
+    public List<RaycastHit> neighborHits;
+    //public List<Renderer> renderers;
+    //public List<MeshFilter> meshes;    
+    bool render = false;
+
+    public MeshFilter mesh;
+    public Renderer renderer;
+    public SplineData spline;
     //public HashSet<SpawnPointData> neighbors;
     //public HashSet<Bounds> neighborBounds;
 
@@ -81,6 +110,19 @@ public class SpawnPointData : MonoBehaviour
     {
         neighbors = new List<SpawnPointData>();
         neighborBounds = new List<Bounds>();
+        neighborDirs = new List<Vector3>();
+        //rayPointHits = new bool[rayPoints.Length];
+        rayPointHits = new RaycastHit[rayPoints.Length];
+
+        neighborRayPoses = new List<Vector3>();
+        neighborHits = new List<RaycastHit>();
+        neighborRayDirs = new List<Vector3>();
+        //renderers = new List<Renderer>();
+        //meshes = new List<MeshFilter>();
+
+        renderer = GetComponent<Renderer>();
+        mesh = GetComponent<MeshFilter>();
+
         //neighbors = new HashSet<SpawnPointData>();
         //neighborBounds = new HashSet<Bounds>();
     }
@@ -88,24 +130,64 @@ public class SpawnPointData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 #if UNITY_EDITOR
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireCube(transform.TransformPoint(center), size);   
-        //Gizmos.DrawWireCube(transform.TransformPoint(center), neighborSize);
-        //Gizmos.DrawWireCube(neighborBounds.center, neighborBounds.size);
-
-        //for (int i = 0; i < neighbors.Count; i++)
-        for (int i = 0; i < neighborBounds.Count; i++)
+        Gizmos.color = Color.yellow;        
+        int meshDrawn = 0;
+        for (int i = 0; i < neighbors.Count; i++)
         {
-            //Gizmos.DrawLine(transform.TransformPoint(center), neighbors[i].transform.position);
-            Gizmos.DrawWireCube(neighborBounds[i].center, neighborBounds[i].size);
+            MeshFilter mesh = neighbors[i].mesh;
+            Gizmos.DrawWireMesh(mesh.sharedMesh, mesh.transform.position, mesh.transform.rotation, mesh.transform.localScale);
+            meshDrawn++;
         }
+
+        //for (int i = 0; i < neighborBounds.Count; i++)
+        //{
+        //    //Gizmos.DrawWireCube(neighborBounds[i].center, neighborBounds[i].size);
+        //    Gizmos.DrawWireCube(neighborBounds[i].center, neighborBounds[i].extents);            
+        //}
+
+
+        Debug.Log($"Drawn {meshDrawn} meshes for {neighbors.Count}");
+
+        Color blue = Color.blue;
+        blue.a = 0.5f;
+
+        Gizmos.color = blue;
+        Gizmos.DrawMesh(mesh.sharedMesh, transform.position, transform.rotation, transform.localScale);
+
+        Gizmos.color = Color.red;
+        for (int i = 0; i < neighborRayPoses.Count; i++)
+        {
+            Vector3 pos = neighborRayPoses[i];
+            //Gizmos.DrawLine(pos, pos + Vector3.down * spline.pass.neighborCastDist);
+            //Gizmos.DrawLine(pos, pos + neighborRayDirs[i] * spline.pass.spawnOnTopRayDist);
+            Gizmos.DrawLine(pos, pos + neighborRayDirs[i] * spline.pass.neighborCastDist);
+        }
+
+        Gizmos.color = MyColor.orange;
+
+        for (int i = 0; i < rayPointHits.Length; i++)
+        {
+            Gizmos.DrawSphere(rayPointHits[i].point, 0.5f);
+        }
+
+        //for (int i = 0; i < neighborRayPoses.Count; i++)
+        //{
+        //    Gizmos.DrawSphere(neighborRayPoses[i], spline.pass.checkRadius);
+        //}
+
+        Gizmos.color = MyColor.purple;
+        for (int i = 0; i < neighborHits.Count; i++)
+        {
+            Gizmos.DrawSphere(neighborHits[i].point, spline.pass.checkRadius);
+        }
+
     }
 
 #endif

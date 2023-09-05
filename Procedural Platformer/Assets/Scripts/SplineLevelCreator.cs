@@ -9,8 +9,6 @@ using UnityEngine;
 #if UNITY_EDITOR
 ///*
 using UnityEditor;
-using UnityEditor.UIElements;
-using UnityEditor.UI;
 
 public class EditorHelper
 {
@@ -23,35 +21,90 @@ public class EditorHelper
         {
             BoxCollider box = obj.GetComponent<BoxCollider>();
             Bounds bounds = box.bounds;
+            SpawnPointData data = obj.GetComponent<SpawnPointData>();
 
             //Vector3 center = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.center.z);
-            Vector3 centerRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
-            Vector3 centerLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
-            
-            Vector3 topCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
-            Vector3 topRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
-            Vector3 topLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
-            
-            Vector3 downCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
-            Vector3 downRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
-            Vector3 downLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
+            //Vector3 centerRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
+            //Vector3 centerLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
+            //
+            //Vector3 topCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
+            //Vector3 topRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
+            //Vector3 topLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
+            //
+            //Vector3 downCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
+            //Vector3 downRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
+            //Vector3 downLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
 
+            Vector3 fwd = Vector3.forward * data.generateRadius;
+            Vector3 fwdRight = new Vector3(1, 0, 1).normalized * data.generateRadius;
+            Vector3 fwdLeft = new Vector3(-1, 0, 1).normalized * data.generateRadius;
             //Vector3 fwdRight = obj.transform.TransformPoint(new Vector3(1, 0, 1).normalized);
             //Vector3 fwdLeft = obj.transform.TransformPoint(new Vector3(-1, 0, 1).normalized);
+
+            Vector3 right = Vector3.right * data.generateRadius;
+            Vector3 left = Vector3.left * data.generateRadius;
+
+            Vector3 back = Vector3.back * data.generateRadius;
+            Vector3 backRight = new Vector3(1, 0, -1).normalized * data.generateRadius;
+            Vector3 backLeft = new Vector3(-1, 0, -1).normalized * data.generateRadius;
             //Vector3 backRight = obj.transform.TransformPoint(new Vector3(1, 0, -1).normalized);
             //Vector3 backLeft = obj.transform.TransformPoint(new Vector3(-1, 0, -1).normalized);
 
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topCenter), "Forward", obj);
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topRight), "Forward-Right", obj);
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topLeft), "Forward-Left", obj);
+            SplineLevelCreator.AddSphere(fwd, "Forward", obj);
+            SplineLevelCreator.AddSphere(fwdRight, "Forward-Right", obj);
+            SplineLevelCreator.AddSphere(fwdLeft, "Forward-Left", obj);
 
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerRight), "Right", obj);
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerLeft), "Left", obj);
+            SplineLevelCreator.AddSphere(right, "Right", obj);
+            SplineLevelCreator.AddSphere(left, "Left", obj);
 
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downCenter), "Back", obj);
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downRight), "Back-Right", obj);
-            SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downLeft), "Back-Left", obj);
+            SplineLevelCreator.AddSphere(back, "Back", obj);
+            SplineLevelCreator.AddSphere(backRight, "Back-Right", obj);
+            SplineLevelCreator.AddSphere(backLeft, "Back-Left", obj);
 
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(fwd), "Forward", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(fwdRight), "Forward-Right", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(fwdLeft), "Forward-Left", obj);
+            //
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(right), "Right", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(left), "Left", obj);
+            //
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(back), "Back", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(backRight), "Back-Right", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(backLeft), "Back-Left", obj);   
+
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topCenter), "Forward", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topRight), "Forward-Right", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topLeft), "Forward-Left", obj);
+            //
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerRight), "Right", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerLeft), "Left", obj);
+            //
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downCenter), "Back", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downRight), "Back-Right", obj);
+            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downLeft), "Back-Left", obj);
+
+        }
+    }
+
+    [MenuItem("Window/Create Y Bounds")]
+    public static void CreateYBounds()
+    {
+        GameObject obj = Selection.activeGameObject;
+
+        if (obj != null)
+        {
+            SpawnPointData data = obj.GetComponent<SpawnPointData>();            
+            Bounds bounds = new Bounds();
+            Vector3 center = data.boxCollider.bounds.center;
+            center.y += data.boxCollider.bounds.extents.y;
+            bounds.center = center;
+
+            for (int i = 0; i < data.spawnPoints.yPoints.Count; i++)
+            {
+                bounds.Encapsulate(data.spawnPoints.yPoints[i]);
+            }
+
+            //data.yBounds = bounds;
         }
     }
 }
@@ -113,6 +166,11 @@ public class SplinePass
     public bool useOrigIndex = false;
     public bool useOrigY = false;
     public bool useSpawnedObjects = true;
+    public float neighborDotCheck = 0.8f;
+    public float dotCheck = 0.0f;
+    //public float distanceInterval = 10.0f;
+    public float minDistInterval = 10.0f;
+    public float maxDistInterval = 15.0f;
 
     [Space(10)]
     public bool canRotateSpline = true;
@@ -217,7 +275,14 @@ public class SplinePass
 
 }
 
+public class MyColor
+{
+    public static Color orange { get { return new Color(1.0f, 0.6004562f, 0.0f, 1.0f); } }
+    public static Color purple { get { return new Color(0.467245f, 0.0f, 1.0f, 1.0f); } }
+}
 
+public enum RayPointOrder { Center, CenterRight, CenterLeft, TopCenter, TopRight, TopLeft, DownCenter, DownRight, DownLeft };
+public enum RayDirOrder { Forward, ForwardRight, ForwardLeft, Right, Left, Back, BackRight, BackLeft };
 
 public class SplineLevelCreator : MonoBehaviour
 {
@@ -226,9 +291,31 @@ public class SplineLevelCreator : MonoBehaviour
 
     public GameObject splinePrefab;
     public Vector3 playerStartPos = new Vector3(0, 100, 0);
-    public bool regenerate = false;  
+    public bool regenerate = false;
+    public bool makeTestSpline = false;
             
     public List<SplinePass> passes;
+
+    public int hitsForTopGround = 3;
+
+    //public QueryParameters pruneQuery;
+    public int maxPruneCommands = 9;
+    public int maxPruneHits = 3;
+    public bool pruneLowScoreGrounds = true;
+    public QueryTriggerInteraction pruneHitTriggers;
+    public bool pruneHitBackFaces = false;
+    public bool pruneHitMultiFaces = false;
+    public bool showAllPruneHits = false;
+    [Space(10)]
+    [Header("Prototyping")]
+    public int minPointCount = 10;
+    public int maxPointCount = 30;
+    public float dotLimit = 0.45f;
+    public float maxStartAngle = 90.0f;
+    public SplineComputer.Space space = SplineComputer.Space.Local;
+    public bool allowHeightSwitch = false;
+    public bool enforceDotAndHeight = false;
+    public bool useDotLimit = false;
 
     [Header("Debug")]
     public bool topRightDebug;
@@ -243,6 +330,8 @@ public class SplineLevelCreator : MonoBehaviour
     //public List<string> overlapHitsDebug;
     bool passComplete = false;
     List<GameObject> landSpawns;
+    List<List<Vector3>> pointMap;
+    SplineData mainSpline;
 
     //SplineComputer spline;
     //SplinePoint[] splinePoints;
@@ -277,6 +366,7 @@ public class SplineLevelCreator : MonoBehaviour
         pendingObjects = new List<GameObject>();
         spawnHelper = new GameObject("Spawn Helper");
         splineHelper = new GameObject("Spline Helper");
+        //pointMap = new List<List<Vector3>>();
 
         helperBox = spawnHelper.AddComponent<BoxCollider>();
         helperBox.isTrigger = true;
@@ -286,6 +376,17 @@ public class SplineLevelCreator : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            regenerate = true;
+        }
+
+        if (makeTestSpline)
+        {
+            StartCoroutine(RunSplineTest());
+            makeTestSpline = false;
+        }
+
         if (regenerate)
         {
             StopAllCoroutines();
@@ -325,6 +426,56 @@ public class SplineLevelCreator : MonoBehaviour
         GameObject point = new GameObject(name);
         point.transform.position = position;
         point.transform.parent = target.transform;
+    }
+
+    public static void AddSphere(Vector3 position, string name, GameObject target)
+    {
+        GameObject point = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        point.name = name;
+        point.transform.position = position;
+        DestroyImmediate(point.GetComponent<SphereCollider>());
+        point.transform.parent = target.transform;
+    }
+
+    public static void AddSphere(Vector3 position, string name, GameObject target, Color color)
+    {
+        GameObject point = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        point.name = name;
+        point.transform.position = position;
+
+        if (!Application.isPlaying)
+            DestroyImmediate(point.GetComponent<SphereCollider>());
+        else
+            Destroy(point.GetComponent<SphereCollider>());
+
+        point.GetComponent<Renderer>().material.color = color;
+
+        point.transform.parent = target.transform;
+    }
+
+    public static GameObject AddSphere(Vector3 position, Quaternion rotation, string name, GameObject target, Color color)
+    {
+        GameObject point = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        point.name = name;
+        point.transform.position = position;
+        point.transform.rotation = rotation;
+
+        if (!Application.isPlaying)
+            DestroyImmediate(point.GetComponent<SphereCollider>());
+        else
+            Destroy(point.GetComponent<SphereCollider>());
+
+        point.GetComponent<Renderer>().material.color = color;
+
+        point.transform.parent = target.transform;
+        return point;
+    }
+
+    IEnumerator RunSplineTest()
+    {
+        PassBool complete = new PassBool();
+        StartCoroutine(NewSubSpline5(null, null, null, Vector3.zero, complete));
+        yield return new WaitUntil(() => { return complete.val; });
     }
 
 
@@ -408,7 +559,11 @@ public class SplineLevelCreator : MonoBehaviour
             if (pass.passMode == PassMode.NewSubSpline)
             {
                 PassBool complete = new PassBool();
-                StartCoroutine(NewSubSpline(pass, targetSpline, targetObj, startPos, complete));
+                //StartCoroutine(NewSubSpline(pass, targetSpline, targetObj, startPos, complete));
+                //StartCoroutine(NewSubSpline2(pass, targetSpline, targetObj, startPos, complete));
+                //StartCoroutine(NewSubSpline3(pass, targetSpline, targetObj, startPos, complete));
+                //StartCoroutine(NewSubSpline4(pass, targetSpline, targetObj, startPos, complete));
+                StartCoroutine(NewSubSpline5(pass, targetSpline, targetObj, startPos, complete));
 
                 if (pass.waitUntilComplete)
                     yield return new WaitUntil(() => { return complete.val; });
@@ -637,6 +792,1202 @@ public class SplineLevelCreator : MonoBehaviour
         complete.val = true;
     }
 
+    IEnumerator NewSubSpline5(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, List<GameObject> objectList = null)
+    {
+        while (spawnedObjects.Count < 1)
+            yield return null;
+
+        Restart:
+        SpawnPointData current = mainSpline.spawnDatas[Random.Range(0, mainSpline.spawnDatas.Count)];
+        SpawnPointData start = current;
+        SpawnPointData prev = null;
+        SpawnPointData next = null;
+
+        Transform point = null;
+        Transform prevPoint = null;
+        int index = Random.Range(0, current.rayPointHits.Length);
+
+        if (current.rayPointHits[index].collider != null)
+        {
+            //Debug.Log("Find other point");
+            yield return null;
+            goto Restart;
+        }
+
+        point = current.rayPoints[index];
+        GameObject newSpline = Instantiate(splinePrefab, point.position, Quaternion.identity);
+        if (useDotLimit) newSpline.name += " Dot Limit";
+        SplineComputer spline = newSpline.GetComponent<SplineComputer>();
+        SplineData splineData = newSpline.GetComponent<SplineData>();
+        spline.space = space;
+
+        if (current.neighbors.Count < 1)
+        {
+            Debug.LogError($"{current.gameObject.name} has no neighbors", current.gameObject);
+            Destroy(newSpline);
+            yield return null;
+            goto Restart;
+        }
+
+        int pointCount = Random.Range(minPointCount, maxPointCount);
+        Debug.Log($"Point Count is  {pointCount}");
+        SplinePoint[] splinePoints = new SplinePoint[pointCount];
+        GameObject pointList = new GameObject("Point List");
+        if (useDotLimit) pointList.name += " Dot Limit";
+        splineData.pointList = pointList;
+
+        int prevCount = 10;
+        int prevIndex = 0;
+        int prevAccess = 0;
+        SpawnPointData[] prevData = new SpawnPointData[prevCount];
+        Vector3[] prevDirs = new Vector3[prevCount];
+        //allSpawnedObjects.Add(pointList);
+        HashSet<SpawnPointData> visits = new HashSet<SpawnPointData>(pointCount);
+
+        for (int i = 0; i < pointCount; i++)
+        {
+            TryAgain:
+            if (i == 0)
+            {
+                newSpline.transform.position = point.position;
+                spawnHelper.transform.position = point.position;
+                
+                //Vector3 initDir = (mainSpline.mainLandCenter - point.position).normalized;
+                Vector3 initDir = (point.position - mainSpline.mainLandCenter).normalized;
+                initDir.y = 0.0f;
+                float angle = Random.Range(-maxStartAngle, maxStartAngle);
+                spawnHelper.transform.rotation = Quaternion.LookRotation(point.TransformDirection(initDir));
+                //spawnHelper.transform.Rotate(0.0f, angle, 0.0f);
+
+                Vector3 fwd = spawnHelper.transform.TransformDirection(Vector3.forward);
+                splineData.debugStart = point.position;
+                splineData.debugStartDir = fwd;
+                //Debug.DrawLine(spawnHelper.transform.position, spawnHelper.transform.position + fwd * 50.0f, Color.red, 60.0f);
+            }
+
+            splinePoints[i] = new SplinePoint();
+            splinePoints[i].position = point.position;
+            splinePoints[i].normal = Vector3.up;
+            splinePoints[i].size = 1.0f;
+            spawnHelper.transform.position = point.position;
+            visits.Add(current);
+
+            GameObject pointObj = AddSphere(point.position, spawnHelper.transform.rotation, $"{i} {point.position} {current.gameObject.name}", pointList, MyColor.orange);
+
+            bool foundPoint = false;
+            bool isSet = false;
+            float bestDot = -1.0f;
+            float bestHeight = 100.0f;
+            Vector3 currentDir = Vector3.zero;
+
+            for (int j = 0; j < current.neighbors.Count; j++)
+            {
+                if (prev != null && current.neighbors[j] == prev)
+                    continue;
+
+                Vector3 dir = current.neighborDirs[j];
+                dir.y = 0.0f;
+                //float dot = Vector3.Dot(dir, point.TransformDirection(Vector3.forward));
+                float dot = Vector3.Dot(dir, spawnHelper.transform.TransformDirection(Vector3.forward));
+                float height = Mathf.Abs(current.neighbors[j].rayPoints[0].position.y - point.position.y);
+
+                //if (!isSet)
+                //{
+                //    bestHeight = height;
+                //    isSet = true;
+                //}
+
+                bool dotCheck = (useDotLimit) ? dot >= dotLimit && dot > bestDot : dot > bestDot;
+
+                //if (dot >= dotLimit && dot > bestDot)
+                //if (dot > bestDot)
+                if (dotCheck)
+                {
+                    bestDot = dot;
+                    next = current.neighbors[j];
+
+                    prevData[prevIndex] = next;
+                    prevDirs[prevIndex] = dir;
+                    prevIndex++;
+                    if (prevIndex >= prevCount) prevIndex = 0;
+
+                    //spawnHelper.transform.rotation = Quaternion.LookRotation(dir);                    
+                    currentDir = dir;
+                    foundPoint = true;
+
+                    //if (enforceDotAndHeight && height < bestHeight)
+                    //{                       
+                    //    bestHeight = height;
+                    //    next = current.neighbors[j];
+                    //
+                    //    prevData[prevIndex] = next;
+                    //    prevDirs[prevIndex] = dir;
+                    //    prevIndex++;
+                    //    if (prevIndex >= prevCount) prevIndex = 0;
+                    //
+                    //    //spawnHelper.transform.rotation = Quaternion.LookRotation(dir);
+                    //    currentDir = dir;
+                    //    if (allowHeightSwitch) foundPoint = true;
+                    //}
+
+                }
+
+                if (!enforceDotAndHeight && height < bestHeight)
+                {
+                    bestHeight = height;
+                    next = current.neighbors[j];
+
+                    prevData[prevIndex] = next;
+                    prevDirs[prevIndex] = dir;
+                    prevIndex++;
+                    if (prevIndex >= prevCount) prevIndex = 0;
+
+                    //spawnHelper.transform.rotation = Quaternion.LookRotation(dir);
+                    currentDir = dir;
+                    if (allowHeightSwitch) foundPoint = true;
+                }
+            }
+
+            if (foundPoint)
+            {
+                Debug.Log("Found point");
+                //int randIndex = Random.Range(0, next.rayPoints.Length);
+                Transform closest = null;
+                float bestDist = 0.0f;
+
+                for (int j = 0; j < next.rayPoints.Length; j++)
+                {
+                    float dist = Vector3.Distance(spawnHelper.transform.position, next.rayPoints[j].position);
+
+                    if (closest == null)
+                    {
+                        closest = next.rayPoints[j];
+                        bestDist = dist;
+                    }
+
+                    if (dist < bestDist)
+                    {
+                        closest = next.rayPoints[j];
+                        bestDist = dist;
+                    }
+                }
+
+                spawnHelper.transform.rotation = Quaternion.LookRotation(currentDir);
+
+                prev = current;
+                prevPoint = point;
+                point = closest;
+                current = next;
+            }
+
+            else
+            {
+                Debug.Log("Try again");
+
+                //prevAccess = (prevIndex - 1 < 0) ? prevCount - 1 : prevIndex - 1;
+                //next = prevData[prevAccess];
+                Vector3 prevDir = Vector3.zero;
+                SpawnPointData testNext = null;
+                float dotTest = -1.0f;
+                float heightTest = 100.0f;
+                bool foundPoint2 = false;
+
+                //for (int j = 0; j < prevCount; j++)
+                //{
+                //    if (!visits.Contains(prevData[j]) && prevData[j] != null)
+                //    {
+                //        Vector3 dir = prevDirs[j];
+                //        dir.y = 0.0f;
+                //
+                //        float dot = Vector3.Dot(dir, spawnHelper.transform.TransformDirection(Vector3.forward));
+                //        float height = Mathf.Abs(prevData[j].rayPoints[0].position.y - point.position.y);
+                //
+                //        if (dot >= dotLimit && dot > dotTest)
+                //        {
+                //            dotTest = dot;
+                //            prevDir = dir;
+                //            foundPoint2 = true;
+                //            testNext = prevData[j];
+                //
+                //            if (enforceDotAndHeight && height < heightTest)
+                //            {
+                //                heightTest = height;
+                //                testNext = prevData[j];
+                //                prevDir = dir;
+                //                if (allowHeightSwitch) foundPoint2 = true;
+                //            }
+                //        }
+                //
+                //        if (!enforceDotAndHeight && height < heightTest)
+                //        {
+                //            heightTest = height;
+                //            testNext = prevData[j];
+                //            prevDir = dir;
+                //            if (allowHeightSwitch) foundPoint2 = true;
+                //        }
+                //
+                //    }
+                //}
+                //
+                //if (foundPoint2)
+                //{
+                //    next = testNext;
+                //}
+                //
+                //else Debug.Log("Running out of ideas here");
+
+                for (int j = prevCount - 1; j >= 0; j--)
+                {
+                    if (prevData[j] != null && prevData[j] != current && prevData[j] != next)
+                    {
+                        next = prevData[j];
+                        prevDir = prevDirs[j];
+                        break;
+                    }
+                }
+
+                //currentDir = prevDirs[prevIndex];
+
+                Transform closest = null;
+                float bestDist = 0.0f;
+
+                for (int j = 0; j < next.rayPoints.Length; j++)
+                {
+                    float dist = Vector3.Distance(spawnHelper.transform.position, next.rayPoints[j].position);
+
+                    if (closest == null)
+                    {
+                        closest = next.rayPoints[j];
+                        bestDist = dist;
+                    }
+
+                    if (dist < bestDist)
+                    {
+                        closest = next.rayPoints[j];
+                        bestDist = dist;
+                    }
+                }
+
+                //spawnHelper.transform.rotation = Quaternion.LookRotation(prevDirs[prevAccess]);
+                spawnHelper.transform.rotation = Quaternion.LookRotation(prevDir);
+
+                prev = current;
+                prevPoint = point;
+                point = closest;
+                current = next;
+
+                //if (prev != null && prevPoint != null)
+                //{
+                //    current = prev;
+                //    point = prevPoint;
+                //}
+
+                //Destroy(pointObj);
+
+                //spawnHelper.transform.position = point.position;                
+                //float angle = Random.Range(-maxStartAngle, maxStartAngle);
+                //spawnHelper.transform.Rotate(0.0f, angle, 0.0f);
+                //yield return null;
+                //goto TryAgain;
+            }
+            
+            yield return null;
+        }
+
+        spline.SetPoints(splinePoints);
+        splineObjects.Add(spline);
+
+        complete.val = true;
+    }
+
+    IEnumerator NewSubSpline4(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, List<GameObject> objectList = null)
+    {
+        while (spawnedObjects.Count < 1)
+            yield return null;
+
+        Vector3 fwd = Vector3.forward;
+        Vector3 fwdRight = new Vector3(1, 0, 1).normalized;
+        Vector3 fwdLeft = new Vector3(-1, 0, 1).normalized;
+        Vector3 right = Vector3.right;
+        Vector3 left = Vector3.left;
+        Vector3 back = Vector3.back;
+        Vector3 backRight = new Vector3(1, 0, -1).normalized;
+        Vector3 backLeft = new Vector3(-1, 0, -1).normalized;
+
+        int maxDirs = 8;
+        int maxHits = 16;
+
+        //NativeArray<SpherecastCommand> commands = new NativeArray<SpherecastCommand>(maxDirs, Allocator.TempJob);
+        NativeArray<RaycastCommand> commands = new NativeArray<RaycastCommand>(maxDirs, Allocator.TempJob);
+        NativeArray<RaycastHit> hits = new NativeArray<RaycastHit>(maxDirs * maxHits, Allocator.TempJob);
+        QueryParameters query = QueryParameters.Default;
+        query.hitTriggers = QueryTriggerInteraction.Ignore;
+
+        int index = 0;
+        SplinePoint[] splinePoints = new SplinePoint[maxHits];
+        Color orange = new Color(1.0f, 0.6004562f, 0.0f, 1.0f);
+        Color purple = new Color(0.467245f, 0.0f, 1.0f, 1.0f);
+        Color[] colors = new Color[] { Color.red, Color.magenta, Color.cyan, Color.green, Color.blue, purple, Color.gray, orange };
+
+        for (int i = 0; i < mainSpline.spawnDatas.Count; i++)
+        {
+            SpawnPointData data = mainSpline.spawnDatas[i];
+            Transform start = data.rayPoints[Random.Range(0, data.rayPoints.Length)];
+
+            //SpawnPointData data = spawnedObjects[Random.Range(0, spawnedObjects.Count)].GetComponent<SpawnPointData>();
+            //Transform start = data.rayPoints[Random.Range(0, data.rayPoints.Length)];
+
+            //commands[0] = new SpherecastCommand(start.position, pass.checkRadius, fwd, query, pass.spawnOnTopRayDist);            
+            //commands[1] = new SpherecastCommand(start.position, pass.checkRadius, fwdRight, query, pass.spawnOnTopRayDist);            
+            //commands[2] = new SpherecastCommand(start.position, pass.checkRadius, fwdLeft, query, pass.spawnOnTopRayDist);            
+            //commands[3] = new SpherecastCommand(start.position, pass.checkRadius, right, query, pass.spawnOnTopRayDist);            
+            //commands[4] = new SpherecastCommand(start.position, pass.checkRadius, left, query, pass.spawnOnTopRayDist);            
+            //commands[5] = new SpherecastCommand(start.position, pass.checkRadius, back, query, pass.spawnOnTopRayDist);            
+            //commands[6] = new SpherecastCommand(start.position, pass.checkRadius, backRight, query, pass.spawnOnTopRayDist);            
+            //commands[7] = new SpherecastCommand(start.position, pass.checkRadius, backLeft, query, pass.spawnOnTopRayDist);
+
+            
+            commands[0] = new RaycastCommand(start.position, start.TransformDirection(fwd), query, pass.spawnOnTopRayDist);
+            commands[1] = new RaycastCommand(start.position, start.TransformDirection(fwdRight), query, pass.spawnOnTopRayDist);
+            commands[2] = new RaycastCommand(start.position, start.TransformDirection(fwdLeft), query, pass.spawnOnTopRayDist);
+            commands[3] = new RaycastCommand(start.position, start.TransformDirection(right), query, pass.spawnOnTopRayDist);
+            commands[4] = new RaycastCommand(start.position, start.TransformDirection(left), query, pass.spawnOnTopRayDist);
+            commands[5] = new RaycastCommand(start.position, start.TransformDirection(back), query, pass.spawnOnTopRayDist);
+            commands[6] = new RaycastCommand(start.position, start.TransformDirection(backRight), query, pass.spawnOnTopRayDist);
+            commands[7] = new RaycastCommand(start.position, start.TransformDirection(backLeft), query, pass.spawnOnTopRayDist);
+
+            //Debug.DrawLine(start.position, start.position + fwd * pass.spawnOnTopRayDist, Color.red, 30.0f);
+            //Debug.DrawLine(start.position, start.position + fwdRight * pass.spawnOnTopRayDist, Color.magenta, 30.0f);
+            //Debug.DrawLine(start.position, start.position + fwdLeft * pass.spawnOnTopRayDist, Color.cyan, 30.0f);
+            //Debug.DrawLine(start.position, start.position + right * pass.spawnOnTopRayDist, Color.green, 30.0f);
+            //Debug.DrawLine(start.position, start.position + left * pass.spawnOnTopRayDist, Color.blue, 30.0f);
+            //Debug.DrawLine(start.position, start.position + back * pass.spawnOnTopRayDist, purple, 30.0f);
+            //Debug.DrawLine(start.position, start.position + backRight * pass.spawnOnTopRayDist, Color.gray, 30.0f);
+            //Debug.DrawLine(start.position, start.position + backLeft * pass.spawnOnTopRayDist, orange, 30.0f);
+
+            //JobHandle handle = SpherecastCommand.ScheduleBatch(commands, hits, maxDirs);
+            JobHandle handle = RaycastCommand.ScheduleBatch(commands, hits, maxDirs);
+            handle.Complete();
+
+            for (int j = 0; j < maxDirs; j++)
+            {
+                GameObject newSpline = Instantiate(splinePrefab, start.position, Quaternion.identity);
+                newSpline.name = $"Spline {commands[j].direction.ToString()}";
+                //newSpline.transform.parent = start;
+                SplineComputer spline = newSpline.GetComponent<SplineComputer>();
+                Vector3 lastValidPos = start.position;
+                SplineData splineData = newSpline.GetComponent<SplineData>();
+                splineData.debugStart = start.position;
+                splineData.debugEnd = start.position + commands[j].direction * pass.spawnOnTopRayDist;
+                splineData.hits = new List<RaycastHit>();
+
+                for (int k = 0; k < maxHits; k++)
+                {
+                    //lastValidPos = start.position;
+                    if (k * j < hits.Length)
+                    {
+                        splineData.hits.Add(hits[k * j]);
+
+                        if (hits[k * j].collider != null)
+                        {
+                            splinePoints[k] = new SplinePoint();
+                            splinePoints[k].position = hits[k * j].point;
+                            lastValidPos = hits[k * j].point;
+                            splinePoints[k].normal = pass.normal;
+                            splinePoints[k].size = pass.pointSize;
+                            //splinePoints[k].color = colors[j];
+                        }
+
+                        else
+                        {
+                            splinePoints[k] = new SplinePoint();
+                            splinePoints[k].position = lastValidPos;
+                            splinePoints[k].normal = pass.normal;
+                            splinePoints[k].size = pass.pointSize;
+                            //splinePoints[k].color = colors[j];
+                        }
+                    }
+                }
+
+                if (lastValidPos == start.position)
+                    Debug.Log("No valid Points found for this spline", newSpline);
+
+                spline.SetPoints(splinePoints);
+                splineObjects.Add(spline);
+            }
+            yield return null;
+        }
+
+        commands.Dispose();
+        hits.Dispose();
+
+        yield return null;
+        complete.val = true;
+    }
+
+    IEnumerator NewSubSpline3(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, List<GameObject> objectList = null)
+    {
+        while (spawnedObjects.Count < 1)
+            yield return null;
+
+        GameObject prefab = (pass.splinePrefab != null) ? pass.splinePrefab : splinePrefab;
+        GameObject newSpline = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        newSpline.name = $"SubSpline {pass.name}";
+
+        SplineComputer spline = newSpline.GetComponent<SplineComputer>();
+        SplinePoint[] splinePoints = new SplinePoint[pass.splinePointCount];
+        ObjectController controller = newSpline.GetComponent<ObjectController>();
+        spline.space = SplineComputer.Space.Local;
+
+        Vector3 currentPos = Vector3.zero;
+        float[] distances = new float[splinePoints.Length];
+
+        for (int i = 0; i < splinePoints.Length; i++)
+        {
+            float dist = Random.Range(pass.minSplinePointDist, pass.maxSplinePointDist);            
+            splinePoints[i].position = newSpline.transform.position + Vector3.forward * (i + dist);
+            splinePoints[i].normal = pass.normal;
+            splinePoints[i].size = pass.pointSize;
+        }
+
+        spline.SetPoints(splinePoints);
+        splineObjects.Add(spline);
+
+        controller.objects = pass.splineObjectPrefabs.ToArray();
+        controller.useCustomObjectDistance = pass.useObjectDist;
+        controller.minObjectDistance = pass.minObjectDist;
+        controller.maxObjectDistance = pass.maxObjectDist;
+
+        if (pass.canRotate)
+        {
+            controller.minRotation = pass.minRotation;
+            controller.maxRotation = pass.maxRotation;
+        }
+
+        if (pass.canScale)
+        {
+            controller.minScaleMultiplier = Vector3.one * pass.minScale;
+            controller.maxScaleMultiplier = Vector3.one * pass.maxScale;
+        }
+
+        //controller.spawnCount = pass.objectSpawnCount;
+        controller.spawnCount = Random.Range(pass.minObjectSpawnCount, pass.maxObjectSpawnCount);
+
+        if (pass.useRandomSeedRange)
+        {
+            controller.randomSeed = Random.Range(pass.minSeedRange, pass.maxSeedRange + 1);
+        }
+
+        Transform[] children = null;
+        SplineData data = newSpline.GetComponent<SplineData>();
+        List<SpawnPointData> spawnDatas = null;
+
+        controller.Rebuild();
+
+        controller.onPostBuild += () =>
+        {
+            if (!data.initialized)
+            {
+                children = newSpline.GetComponentsInChildren<Transform>();
+                spawnDatas = new List<SpawnPointData>(children.Length);
+                data.rayPoses = new List<Vector3>(children.Length);
+                data.colliders = new List<Collider>(children.Length);
+                data.spawnDatas = new List<SpawnPointData>(children.Length);
+                data.objects = new List<GameObject>(children.Length);
+
+                for (int i = 0; i < children.Length; i++)
+                {
+                    if (children[i] != null && children[i] != newSpline.transform)
+                    {
+                        if (children[i].TryGetComponent<BoxCollider>(out BoxCollider box))
+                        {
+                            SpawnPointData spawn = children[i].GetComponent<SpawnPointData>();
+                            spawnDatas.Add(spawn);
+                            spawn.boxCollider = box;
+
+                            spawn.rayPos = new Vector3(box.bounds.center.x, -box.bounds.extents.y, box.bounds.center.z);
+                            spawn.topRight = new Vector3(box.bounds.extents.x, -box.bounds.extents.y, box.bounds.extents.z);
+                            spawn.topLeft = new Vector3(-box.bounds.extents.x, -box.bounds.extents.y, box.bounds.extents.z);
+                            spawn.downRight = new Vector3(box.bounds.extents.x, -box.bounds.extents.y, -box.bounds.extents.z);
+                            spawn.downLeft = new Vector3(-box.bounds.extents.x, -box.bounds.extents.y, -box.bounds.extents.z);
+                        }
+                    }
+                }
+
+                data.pass = pass;
+                data.initialized = true;
+            }
+        };
+
+        while (!data.initialized)
+            yield return null;
+
+        SpawnPointData start = spawnedObjects[Random.Range(0, spawnedObjects.Count)].GetComponent<SpawnPointData>();
+
+        Vector3 fwd = Vector3.forward;
+        Vector3 fwdRight = new Vector3(1, 0, 1).normalized;
+        Vector3 fwdLeft = new Vector3(-1, 0, 1).normalized;
+
+        Vector3 right = Vector3.right;
+        Vector3 left = Vector3.left;
+
+        Vector3 back = Vector3.back;
+        Vector3 backRight = new Vector3(1, 0, -1).normalized;
+        Vector3 backLeft = new Vector3(-1, 0, -1).normalized;
+
+        Vector3 pos = start.transform.TransformPoint(start.spawnPoints.yPoints[Random.Range(0, start.spawnPoints.yPoints.Count)]);
+        Vector3 rayPos = new Vector3(pos.x, pos.y + pass.spawnOnTopRayDist - 1.0f, pos.z);        
+        spawnHelper.transform.position = rayPos;
+        spawnHelper.transform.rotation = start.transform.rotation;
+        //spawnHelper.transform.localScale = start.transform.localScale;
+        spawnHelper.transform.localScale = Vector3.one;
+
+        int maxDirs = 8;
+
+        NativeArray<RaycastCommand> commands = new NativeArray<RaycastCommand>(maxDirs * spawnDatas.Count, Allocator.TempJob);
+        NativeArray<RaycastHit> hits = new NativeArray<RaycastHit>(maxDirs * spawnDatas.Count, Allocator.TempJob);
+        int index = 0;
+
+        QueryParameters query = QueryParameters.Default;
+        query.hitTriggers = QueryTriggerInteraction.Ignore;
+
+        for (int i = 0; i < spawnDatas.Count; i++)
+        {
+            float dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 fwdPos = spawnHelper.transform.TransformPoint(fwd * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+
+            dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 fwdRightPos = spawnHelper.transform.TransformPoint(fwdRight * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+
+            dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 fwdLeftPos = spawnHelper.transform.TransformPoint(fwdLeft * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+
+            dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 rightPos = spawnHelper.transform.TransformPoint(right * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+
+            dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 leftPos = spawnHelper.transform.TransformPoint(left * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+
+            dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 backPos = spawnHelper.transform.TransformPoint(back * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+
+            dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 backRightPos = spawnHelper.transform.TransformPoint(backRight * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+
+            dist = Random.Range(pass.minDistInterval, pass.maxDistInterval);
+            Vector3 backLeftPos = spawnHelper.transform.TransformPoint(backLeft * (i + 1) * dist);
+            commands[index] = new RaycastCommand(fwdPos, Vector3.down, query, pass.spawnOnTopRayDist);
+            index++;
+        }
+
+        JobHandle handle = RaycastCommand.ScheduleBatch(commands, hits, maxDirs);
+        handle.Complete();
+
+        controller.enabled = false;
+        controller.spline = null;
+
+        int maxObjRays = 4;
+
+        NativeArray<RaycastCommand> objRays = new NativeArray<RaycastCommand>(maxObjRays, Allocator.TempJob);
+        NativeArray<RaycastHit> objHits = new NativeArray<RaycastHit>(maxObjRays, Allocator.TempJob);
+
+        Vector3 prevPos = Vector3.zero;
+        (RaycastHit hit, float dot, bool allHit, bool isSet)[] helpers = new (RaycastHit hit, float dot, bool allHit, bool isSet)[maxDirs];
+
+        for (int i = 0; i < spawnDatas.Count; i++)
+        {
+            //int targetIndex = -1;
+            //RaycastHit bestHit;
+            //float bestDot = -1.0f;
+            int helpIndex = 0;
+
+            for (int j = i * maxDirs; j < (i * maxDirs) + maxDirs; j++)
+            {
+                helpers[helpIndex].isSet = false;
+                helpers[helpIndex].dot = -1.0f;
+                helpers[helpIndex].allHit = false;
+
+                if (j < hits.Length)
+                {                    
+                    if (hits[j].collider != null)
+                    {
+                        //spawnDatas[i].transform.position = hits[j].point;
+                        helpers[helpIndex].isSet = true;
+                        helpers[helpIndex].hit = hits[j];
+
+                        if (prevPos != Vector3.zero)
+                        {
+                            //Vector3 origDir = (commands[j].from - pos).normalized;
+                            Vector3 origDir = (commands[j].from - rayPos).normalized;
+                            Vector3 dir = (hits[j].point - prevPos).normalized;                            
+                            helpers[helpIndex].dot = Vector3.Dot(origDir, dir);
+
+                            //if (Vector3.Dot(origDir, dir) < pass.dotCheck)
+                            //{
+                            //    continue;
+                            //}
+                        }
+
+                        int attemptCount = 0;
+                        int maxAttempt = 20;
+
+                        //spawnHelper.transform.position = hits[j].point;
+                        spawnHelper.transform.position = spawnDatas[i].yBounds.ClosestPoint(hits[j].point);
+                        spawnHelper.transform.rotation = spawnDatas[i].transform.rotation;
+                        spawnHelper.transform.localScale = spawnDatas[i].transform.localScale;
+                        
+                        Recalculate:
+                        
+                        Vector3 topRight = spawnHelper.transform.TransformPoint(spawnDatas[i].topRight);
+                        topRight.y += pass.spawnOnTopRayDist - 1.0f;
+                        Vector3 topLeft = spawnHelper.transform.TransformPoint(spawnDatas[i].topLeft);
+                        topLeft.y += pass.spawnOnTopRayDist - 1.0f;
+                        Vector3 downRight = spawnHelper.transform.TransformPoint(spawnDatas[i].downRight);
+                        downRight.y += pass.spawnOnTopRayDist - 1.0f;
+                        Vector3 downLeft = spawnHelper.transform.TransformPoint(spawnDatas[i].downLeft);
+                        downLeft.y += pass.spawnOnTopRayDist - 1.0f;
+                        
+                        objRays[0] = new RaycastCommand(topRight, Vector3.down, QueryParameters.Default, pass.spawnOnTopRayDist);
+                        objRays[1] = new RaycastCommand(topLeft, Vector3.down, QueryParameters.Default, pass.spawnOnTopRayDist);
+                        objRays[2] = new RaycastCommand(downRight, Vector3.down, QueryParameters.Default, pass.spawnOnTopRayDist);
+                        objRays[3] = new RaycastCommand(downLeft, Vector3.down, QueryParameters.Default, pass.spawnOnTopRayDist);
+
+                        //Debug.DrawLine(topRight, topRight + Vector3.down * pass.spawnOnTopRayDist, Color.red, 30.0f);
+                        //Debug.DrawLine(topLeft, topLeft + Vector3.down * pass.spawnOnTopRayDist, Color.red, 30.0f);
+                        //Debug.DrawLine(downRight, downRight + Vector3.down * pass.spawnOnTopRayDist, Color.red, 30.0f);
+                        //Debug.DrawLine(downLeft, downLeft + Vector3.down * pass.spawnOnTopRayDist, Color.red, 30.0f);
+
+                        JobHandle objHandle = RaycastCommand.ScheduleBatch(objRays, objHits, maxObjRays);
+                        objHandle.Complete();
+                        
+                        bool hitAll = true;                        
+
+                        for (int k = 0; k < maxObjRays; k++)
+                        {
+                            if (objHits[k].collider == null)
+                            {
+                                hitAll = false;
+                                break;
+                            }
+
+                            if (objHits[k].collider != null && !objHits[k].collider.tag.Equals("MainLand"))
+                            {
+                                hitAll = false;
+                                break;
+                            }
+
+                        }
+
+                        helpers[helpIndex].allHit = hitAll;
+
+                        //for (int k = 0; k < maxObjRays; k++)
+                        //{
+                        //    for (int l = 0; l < maxObjRays; l++)
+                        //    {
+                        //        if (Mathf.Abs(objHits[k].distance - objHits[l].distance) > pass.maxHeightDiff)
+                        //        {
+                        //            hitAll = false;
+                        //            break;
+                        //        }
+                        //    }
+                        //
+                        //    if (!hitAll)
+                        //        break;
+                        //
+                        //}
+ 
+                        //if (hitAll)
+                        //{
+                        //    spawnDatas[i].transform.position = hits[j].point;
+                        //    prevPos = hits[j].point;
+                        //    break;
+                        //}
+                        //
+                        //else
+                        //{
+                        //    attemptCount++;
+                        //
+                        //    if (attemptCount < maxAttempt)
+                        //    {
+                        //        spawnHelper.transform.rotation = pass.GetRandomRotation(pass.minRotation, pass.maxRotation);
+                        //        yield return null;
+                        //        goto Recalculate;
+                        //    }
+                        //}
+                    }
+                }
+
+                helpIndex++;
+            }
+
+            (RaycastHit hit, float dot, bool allHit, bool isSet) bestHit = (new RaycastHit(), -1.0f, false, false);
+            //bestHit.dot = -1.0f;
+            //bestHit.allHit = false;
+            //bestHit.isSet = false;
+
+            //Decide best fit
+            for (int j = 0; j < maxDirs; j++)
+            {
+                if (helpers[j].isSet && !bestHit.isSet)
+                {
+                    bestHit = helpers[j];
+                }
+
+                if (bestHit.isSet && helpers[j].isSet)
+                {
+                    if (helpers[j].allHit && !bestHit.allHit)
+                        bestHit = helpers[j];
+
+                    if (bestHit.allHit && helpers[j].allHit)
+                    {
+                        if (helpers[j].dot > bestHit.dot)
+                            bestHit = helpers[j];
+                    }
+
+                    else
+                    {
+                        if (helpers[j].dot > bestHit.dot)
+                            bestHit = helpers[j];
+                    }
+                }
+            }
+
+            spawnDatas[i].transform.position = bestHit.hit.point;
+            prevPos = bestHit.hit.point;
+            yield return null;
+        }
+
+        objRays.Dispose();
+        objHits.Dispose();
+        commands.Dispose();
+        hits.Dispose();
+
+        spawnHelper.transform.position = Vector3.zero;
+        spawnHelper.transform.rotation = Quaternion.identity;
+        spawnHelper.transform.localScale = Vector3.one;
+
+        yield return null;
+
+        complete.val = true;
+    }
+
+    IEnumerator NewSubSpline2(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, List<GameObject> objectList = null)
+    {
+        HardRestart:
+
+        while (spawnedObjects.Count < 1)
+            yield return null;
+
+        GameObject prefab = (pass.splinePrefab != null) ? pass.splinePrefab : splinePrefab;
+        GameObject newSpline = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        newSpline.name = $"SubSpline {pass.name}";
+
+        SplineComputer spline = newSpline.GetComponent<SplineComputer>();
+        SplinePoint[] splinePoints = new SplinePoint[pass.splinePointCount];
+        ObjectController controller = newSpline.GetComponent<ObjectController>();
+        spline.space = SplineComputer.Space.Local;
+
+        int index = 0;
+        SplineData targetData = null;
+
+        bool useSpawn = pass.useSpawnedObjects;
+
+        if (!pass.useSpawnedObjects)
+        {
+            targetData = targetSpline.GetComponent<SplineData>();
+
+            if (targetData == null)
+            {
+                complete.val = true;
+                yield break;
+            }
+
+            else
+            {
+                while (!targetData.initialized)
+                    yield return null;
+            }
+        }
+
+        SoftRestart:
+
+        index = (useSpawn) ? Random.Range(0, spawnedObjects.Count) : Random.Range(0, targetData.spawnDatas.Count);
+
+        //SpawnPointData prev = null;
+        //Vector3 prevPos = Vector3.zero;
+
+        float origY = 0.0f;
+        Vector3 dir = Vector3.zero;
+        Vector3 currentPos = Vector3.zero;
+
+        SpawnPointData data = null;
+
+        if (pass.canRotateSpline)
+            newSpline.transform.rotation = pass.GetRandomRotation(pass.minSplineRotation, pass.maxSplineRotation);
+
+        if (useSpawn) data = spawnedObjects[index].GetComponent<SpawnPointData>();
+        else data = targetData.spawnDatas[index];
+
+        Vector3 pos = data.transform.TransformPoint(data.spawnPoints.yPoints[Random.Range(0, data.spawnPoints.yPoints.Count)]);
+        Vector3 rayPos = pos + Vector3.up * (pass.spawnOnTopRayDist - 1.0f);
+        dir = spawnHelper.transform.TransformDirection(Vector3.forward);
+
+        if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit hit, pass.spawnOnTopRayDist))
+        {
+            //if (hit.point.y > pos.y)
+            //    pos = hit.point;
+
+            if (hit.collider != null && hit.collider.gameObject != data.gameObject)
+            {
+                if (hit.point.y > pos.y) //May need a normal test
+                {
+                    pos = hit.point;
+                    data = hit.collider.GetComponent<SpawnPointData>();
+                }
+            }
+        }
+
+        int attemptCounter = 0;
+        int maxAttempts = 20;
+
+        for (int i = 0; i < splinePoints.Length; i++)
+        {           
+            if (i == 0)
+            {
+                newSpline.transform.position = pos;
+                splinePoints[i] = new SplinePoint();
+                splinePoints[i].position = pos;
+                origY = pos.y;
+
+                currentPos = pos;
+
+                if (!pass.useRandomNormal)
+                    splinePoints[i].normal = pass.normal;
+                else
+                    splinePoints[i].normal = pass.GetRandomVector(pass.minNormal, pass.maxNormal);
+
+                splinePoints[i].size = pass.pointSize;
+            }
+
+            else
+            {
+                splinePoints[i] = new SplinePoint();
+                
+                TryPointAgain:
+                
+
+                float dist = Random.Range(pass.minSplinePointDist, pass.maxSplinePointDist);
+                Vector3 angles = pass.GetRandomVector(pass.minAngles, pass.maxAngles);
+                dir = new Vector3(Mathf.Cos(angles.x), Mathf.Sin(angles.y), Mathf.Sin(angles.z)); //Mathf.Sin(angle)
+                pos = currentPos + newSpline.transform.TransformDirection(dir) * dist;
+
+                pos = currentPos + dir * dist;
+                spawnHelper.transform.position = pos;
+
+                if (data.neighbors.Count == 0)
+                {
+                    Debug.Log($"{data.gameObject.name} has no neighbors", data.gameObject);
+                    Destroy(newSpline);
+                    yield return null;
+                    goto HardRestart;
+                }
+
+                SpawnPointData neighbor = null;
+
+                for (int j = 0; j < data.neighborDirs.Count; j++)
+                {
+                    if (Vector3.Dot(dir, data.neighborDirs[j]) >= pass.neighborDotCheck)
+                    {
+                        neighbor = data.neighbors[j];
+                        break;
+                    }
+                }
+
+                if (neighbor != null)
+                {                    
+                    pos = neighbor.transform.TransformPoint(neighbor.yBounds.ClosestPoint(pos));
+                    rayPos = pos;
+                    rayPos.y += pass.spawnOnTopRayDist - 1.0f;
+
+                    if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit ground, pass.spawnOnTopRayDist))
+                    {
+                        if (hit.collider != null && hit.collider.gameObject != neighbor.gameObject)
+                        {
+                            attemptCounter++;
+
+                            if (attemptCounter >= maxAttempts)
+                            {
+                                yield return null;
+                                goto HardRestart;
+                            }
+
+                            Debug.Log("Failed Raycast Test, try again");
+                            yield return null;
+                            goto TryPointAgain;
+                        }
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("Failed to find neighbor with dot product");
+                    yield return null;
+                    goto TryPointAgain;
+                }
+
+                //if (pass.canOffset)
+                //{
+                //    Vector3 offset = pass.GetRandomVector(pass.minOffset, pass.maxOffset);
+                //    pos = spawnHelper.transform.TransformPoint(offset);
+                //}
+
+                //bool foundPoint = false;
+                //SpawnPointData neighbor = null;
+                //
+                //int testIndex = -1;
+                //int localIndex = -1;
+                //
+                //if (data.neighbors.Count == 0)
+                //    Debug.Log($"{data.gameObject.name} has no neighbors", data.gameObject);
+                //
+                //for (int j = 0; j < data.neighbors.Count; j++)
+                //{
+                //    if (data.neighbors[j].mainIndex != -1 && testIndex == -1)
+                //    {
+                //        testIndex = data.neighbors[j].mainIndex;
+                //        localIndex = j;
+                //    }
+                //
+                //    if (data.neighbors[j].mainIndex != -1 && data.neighbors[j].mainIndex > index)
+                //    {
+                //        testIndex = data.neighbors[j].mainIndex;
+                //        localIndex = j;
+                //    }
+                //}
+                //
+                //if (testIndex != -1)
+                //{
+                //    Vector3 closest = data.neighbors[localIndex].yBounds.ClosestPoint(pos);
+                //    //Vector3 closest = data.neighborBounds[localIndex].ClosestPoint(pos);
+                //    closest = data.neighbors[localIndex].transform.TransformPoint(closest);
+                //
+                //    rayPos = closest;
+                //    rayPos.y += pass.spawnOnTopRayDist - 1.0f;
+                //
+                //    //if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit groundHit, pass.spawnOnTopRayDist))
+                //    //{
+                //    //    pos = groundHit.point;
+                //    //}
+                //
+                //    pos = closest;
+                //    index = testIndex;
+                //    data = data.neighbors[localIndex];
+                //}
+                //
+                //else
+                //{
+                //    Debug.Log("Panic, haven't found neighbor");
+                //}
+
+                //for (int j = 0; j < data.neighborBounds.Count; j++)
+                //{
+                //    if (data.neighborBounds[j].Contains(pos))
+                //    {
+                //        Vector3 closest = data.neighbors[j].yBounds.ClosestPoint(pos);
+                //        pos = data.neighbors[j].transform.TransformPoint(closest);
+                //        neighbor = data.neighbors[j];
+                //        foundPoint = true;
+                //        break;
+                //    }
+                //}
+                //
+                //if (!foundPoint && data.neighbors.Count > 0)
+                //{
+                //    Debug.Log("Failed to find point");
+                //    yield return null;
+                //    attemptCounter++;
+                //
+                //    if (attemptCounter < maxAttempts)
+                //        goto TryPointAgain;
+                //    else
+                //        goto SoftRestart;
+                //    //neighbor = data.neighbors[Random.Range(0, data.neighbors.Count)];
+                //    //pos = neighbor.transform.TransformPoint(neighbor.spawnPoints.yPoints[Random.Range(0, neighbor.spawnPoints.yPoints.Count)]);
+                //}
+                //
+                //else if (!foundPoint && data.neighbors.Count < 1)
+                //{
+                //    Debug.Log("Failed to find a neighbor");
+                //    Destroy(newSpline);
+                //    goto HardRestart;                    
+                //}
+
+                if (pass.useOrigY)
+                    pos.y = origY;
+
+                splinePoints[i].position = pos;
+                //data = neighbor;
+                currentPos = pos;
+
+                if (!pass.useRandomNormal)
+                    splinePoints[i].normal = pass.normal;
+                else
+                    splinePoints[i].normal = pass.GetRandomVector(pass.minNormal, pass.maxNormal);
+
+                splinePoints[i].size = pass.pointSize;
+            }
+
+            yield return null;
+        }
+
+        spline.SetPoints(splinePoints);
+        splineObjects.Add(spline);
+
+        controller.objects = pass.splineObjectPrefabs.ToArray();
+        controller.useCustomObjectDistance = pass.useObjectDist;
+        controller.minObjectDistance = pass.minObjectDist;
+        controller.maxObjectDistance = pass.maxObjectDist;
+
+        if (pass.canRotate)
+        {
+            controller.minRotation = pass.minRotation;
+            controller.maxRotation = pass.maxRotation;
+        }
+
+        //controller.customOffsetRule = pass.rule;
+
+        if (pass.canScale)
+        {
+            controller.minScaleMultiplier = Vector3.one * pass.minScale;
+            controller.maxScaleMultiplier = Vector3.one * pass.maxScale;
+        }
+
+        //controller.spawnCount = pass.objectSpawnCount;
+        controller.spawnCount = Random.Range(pass.minObjectSpawnCount, pass.maxObjectSpawnCount);
+
+        if (pass.useRandomSeedRange)
+        {
+            controller.randomSeed = Random.Range(pass.minSeedRange, pass.maxSeedRange + 1);
+        }
+
+        controller.Rebuild();
+
+        SplineData splineData = newSpline.GetComponent<SplineData>();
+        Transform[] children = null;
+
+        controller.onPostBuild += () =>
+        {
+            if (!splineData.initialized)
+            {
+                children = newSpline.GetComponentsInChildren<Transform>();
+                splineData.colliders = new List<Collider>(children.Length);
+                splineData.spawnDatas = new List<SpawnPointData>(children.Length);
+                splineData.objects = new List<GameObject>(children.Length);
+                splineData.rayPoses = new List<Vector3>(children.Length);
+
+                for (int i = 0; i < children.Length; i++)
+                {
+                    if (children[i] != null)
+                    {
+                        if (children[i].transform != newSpline.transform)
+                        {
+                            //Collider col = children[i].GetComponent<Collider>();
+                            if (children[i].TryGetComponent<Collider>(out Collider col))
+                            {
+                                allSpawnedObjects.Add(children[i].gameObject);
+                                splineData.colliders.Add(col);
+                                splineData.spawnDatas.Add(children[i].GetComponent<SpawnPointData>());
+                                splineData.rayPoses.Add(new Vector3(col.bounds.center.x, -col.bounds.extents.y, col.bounds.center.z));
+                                splineData.objects.Add(children[i].gameObject);
+                            }
+                        }
+                    }
+                }
+
+                splineData.pass = pass;
+                splineData.initialized = true;
+            }
+        };
+
+        while (!splineData.initialized)
+            yield return null;
+
+        controller.enabled = false;
+        controller.spline = null;
+
+        //RaycastHit firstHit = new RaycastHit();
+        NativeArray<RaycastHit> rayHits = new NativeArray<RaycastHit>(splineData.rayPoses.Count, Allocator.TempJob);
+        NativeArray<RaycastCommand> commands = new NativeArray<RaycastCommand>(splineData.rayPoses.Count, Allocator.TempJob);
+        
+        //TO-DO: ADD A Check to ensure y deviation isn't too great
+        for (int i = 0; i < splineData.rayPoses.Count; i++)
+        {
+            Vector3 rayPos2 = children[i].TransformPoint(splineData.rayPoses[i]);
+            commands[i] = new RaycastCommand(rayPos2, Vector3.down, QueryParameters.Default, pass.spawnOnTopRayDist);            
+        }
+        
+        JobHandle rayHandle = RaycastCommand.ScheduleBatch(commands, rayHits, commands.Length);
+        rayHandle.Complete();
+
+        GameObject helper = new GameObject("helper");
+
+        for (int i = 0; i < rayHits.Length; i++)
+        {
+            if (rayHits[i].collider != null)
+            {
+                helper.transform.position = commands[i].from;
+                Transform orig = children[i].transform.parent;
+                children[i].transform.parent = helper.transform;
+                helper.transform.position = rayHits[i].point;
+                children[i].transform.parent = orig;
+            }
+        }
+
+        Destroy(helper);
+
+        rayHits.Dispose();
+        commands.Dispose();
+
+        if (pass.runMode == RunMode.EndOfCycle)
+        {
+            if (pass.subpasses != null && pass.subpasses.Count > 0)
+            {
+                if (pass.runSubPassesAsync)
+                {
+                    StartCoroutine(RunSubPassAsync(pass.subpasses, newSpline, targetObj, newSpline.transform.position));
+                }
+
+                else
+                {
+                    for (int i = 0; i < pass.subpasses.Count; i++)
+                    {
+                        PassBool subComplete = new PassBool();
+                        StartCoroutine(MainPass(pass.subpasses[i], newSpline, targetObj, newSpline.transform.position, subComplete));
+
+                        if (pass.subpasses[i].waitUntilComplete)
+                            yield return new WaitUntil(() => { return subComplete.val; });
+                    }
+                }
+            }
+        }
+
+        complete.val = true;
+    }
+
     IEnumerator NewSubSpline(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, List<GameObject> objectList = null)
     {
         //while (spawnedObjects.Count < 1)
@@ -649,13 +2000,13 @@ public class SplineLevelCreator : MonoBehaviour
 
         GameObject prefab = (pass.splinePrefab != null) ? pass.splinePrefab : splinePrefab;
         GameObject newSpline = Instantiate(prefab, spawnPos, randRot);
-        newSpline.name = "SubSpline";
+        newSpline.name = $"SubSpline {pass.name}";
 
         SplineComputer spline = newSpline.GetComponent<SplineComputer>();
         SplinePoint[] splinePoints = new SplinePoint[pass.splinePointCount];
         ObjectController controller = newSpline.GetComponent<ObjectController>();
         spline.space = SplineComputer.Space.Local;
-
+        
         int index = 0;
         SplineData targetData = null;
 
@@ -1083,7 +2434,7 @@ public class SplineLevelCreator : MonoBehaviour
             for (int i = 0; i < rayPoses.Count; i++)
             {
                 Vector3 rayPos = children[i].TransformPoint(rayPoses[i]);
-                commands[i] = new RaycastCommand(rayPos, Vector3.down, pass.spawnOnTopRayDist);                
+                commands[i] = new RaycastCommand(rayPos, Vector3.down, QueryParameters.Default, pass.spawnOnTopRayDist);                
                 //if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit hit, pass.spawnOnTopRayDist))
                 //{
                 //    hits[i] = hit;
@@ -1097,7 +2448,8 @@ public class SplineLevelCreator : MonoBehaviour
                 //}
             }
 
-            JobHandle rayHandle = RaycastCommand.ScheduleBatch(commands, rayHits, 1);
+            //JobHandle rayHandle = RaycastCommand.ScheduleBatch(commands, rayHits, 1);
+            JobHandle rayHandle = RaycastCommand.ScheduleBatch(commands, rayHits, rayPoses.Count);
             rayHandle.Complete();
 
             int hitCount = 0;
@@ -1710,6 +3062,8 @@ public class SplineLevelCreator : MonoBehaviour
         controller.Rebuild();
         
         SplineData data = newSpline.GetComponent<SplineData>();
+        data.mainLandCenter = newSpline.transform.position;
+        mainSpline = data;
         Transform[] children = null;        
         List<SpawnPointData> spawnDatas = null;
         
@@ -1888,20 +3242,28 @@ public class SplineLevelCreator : MonoBehaviour
         //    //yield return null;
         //}
 
-        int maxRayCommands = 9;
-        int maxRayHits = 3;
+        //int maxRayCommands = 9;
+        //int maxRayHits = 3; //was 3
+        int maxRayCommands = maxPruneCommands;
+        int maxRayHits = maxPruneHits;
+
         int rayIndex = 0;
 
         NativeArray<RaycastCommand> commands = new NativeArray<RaycastCommand>(maxRayCommands * spawnDatas.Count, Allocator.TempJob);
         NativeArray<RaycastHit> rayHits = new NativeArray<RaycastHit>(maxRayCommands * maxRayHits * spawnDatas.Count, Allocator.TempJob);
+
+        QueryParameters pruneQuery = QueryParameters.Default;
+        pruneQuery.hitTriggers = pruneHitTriggers;
+        pruneQuery.hitBackfaces = pruneHitBackFaces;
+        pruneQuery.hitMultipleFaces = pruneHitMultiFaces;
 
         for (int i = 0; i < spawnDatas.Count; i++)
         {
             for (int j = 0; j < maxRayCommands; j++)
             {
                 Vector3 pos = spawnDatas[i].rayPoints[j].position;
-                pos.y += (pass.spawnOnTopRayDist - 1.0f);
-                commands[rayIndex] = new RaycastCommand(pos, Vector3.down, QueryParameters.Default, pass.spawnOnTopRayDist);
+                pos.y += (pass.spawnOnTopRayDist - 1.0f);                
+                commands[rayIndex] = new RaycastCommand(pos, Vector3.down, pruneQuery, pass.spawnOnTopRayDist);
                 rayIndex++;
             }
         }
@@ -1911,33 +3273,87 @@ public class SplineLevelCreator : MonoBehaviour
 
         for (int i = 0; i < spawnDatas.Count; i++)
         {
-            bool targetHit = false;
-
+            bool targetHit = false;            
+            int pointIndex = 0;
             for (int j = i * maxRayCommands; j < (i * maxRayCommands) + maxRayCommands; j++)
             {
                 if (j * maxRayHits < rayHits.Length)
                 {
+                    if (rayHits[j * maxRayHits].collider != null && showAllPruneHits)
+                    {
+                        GameObject obj = rayHits[j * maxRayHits].collider.gameObject;
+                        AddSphere(rayHits[j * maxRayHits].point, $"hit {obj.name}", obj, Color.blue);
+                    }
+
                     if (rayHits[j * maxRayHits].collider != null && rayHits[j * maxRayHits].collider.gameObject == spawnDatas[i].gameObject)
                     {
                         targetHit = true;
-                        break;
+                        //break;
+                        //spawnDatas[i].rayPointHits[pointIndex] = true;
+                        spawnDatas[i].rayPointHits[pointIndex] = rayHits[j * maxRayHits];
+                        spawnDatas[i].rayPointHitCount++;
+                        spawnDatas[i].rayPoints[pointIndex].GetComponent<MeshRenderer>().enabled = true;
+
+                        //GameObject obj = rayHits[j * maxRayHits].collider.gameObject;
+                        //AddSphere(rayHits[j * maxRayHits].point, $"hit {obj.name}", obj, MyColor.purple);
                     }
-                }                
+
+                    else
+                    {                        
+                        //spawnDatas[i].rayPointHits[pointIndex] = false;
+                        spawnDatas[i].rayPointHits[pointIndex] = new RaycastHit();
+                    }
+                }
+                pointIndex++;
             }
 
             if (targetHit)
             {
-                spawnedObjects.Add(spawnDatas[i].gameObject);
-                allSpawnedObjects.Add(spawnDatas[i].gameObject);
-                data.rayPoses.Add(spawnDatas[i].rayPos);
-                data.colliders.Add(spawnDatas[i].boxCollider);
-                data.objects.Add(spawnDatas[i].gameObject);
-                data.spawnDatas.Add(spawnDatas[i]);
+                if (!pruneLowScoreGrounds)
+                {
+                    spawnDatas[i].spline = data;
+                    spawnDatas[i].gameObject.tag = "MainLand";
+                    spawnDatas[i].gameObject.name += $" {i}";
+                    spawnedObjects.Add(spawnDatas[i].gameObject);
+                    allSpawnedObjects.Add(spawnDatas[i].gameObject);
+                    data.rayPoses.Add(spawnDatas[i].rayPos);
+                    data.colliders.Add(spawnDatas[i].boxCollider);
+                    data.objects.Add(spawnDatas[i].gameObject);
+                    data.spawnDatas.Add(spawnDatas[i]);
+
+                    if (spawnDatas[i].rayPointHitCount >= hitsForTopGround)
+                        spawnDatas[i].gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+                }
+                
+                             
+                if (spawnDatas[i].rayPointHitCount >= hitsForTopGround && pruneLowScoreGrounds)
+                {
+                    //spawnDatas[i].gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+                    spawnDatas[i].spline = data;
+                    spawnDatas[i].gameObject.tag = "MainLand";
+                    spawnDatas[i].gameObject.name += $" {i}";
+                    spawnedObjects.Add(spawnDatas[i].gameObject);
+                    allSpawnedObjects.Add(spawnDatas[i].gameObject);
+                    data.rayPoses.Add(spawnDatas[i].rayPos);
+                    data.colliders.Add(spawnDatas[i].boxCollider);
+                    data.objects.Add(spawnDatas[i].gameObject);
+                    data.spawnDatas.Add(spawnDatas[i]);
+                }
+
+                else
+                {
+                    if (pruneLowScoreGrounds)
+                    {
+                        //spawnDatas[i].gameObject.SetActive(false);
+                        Destroy(spawnDatas[i].gameObject);
+                    }
+                }
+
             }
 
             else
             {
-                Destroy(spawnDatas[i].gameObject);
+                Destroy(spawnDatas[i].gameObject);                
             }
         }
 
@@ -1952,395 +3368,215 @@ public class SplineLevelCreator : MonoBehaviour
 
         yield return null; //allow Destroy to go through hopefully
 
-        //for (int i = 0; i < data.spawnDatas.Count; i++)
-        //{
-        //    if (data.spawnDatas[i].spawnPoints != null)
-        //    {
-        //        for (int j = 0; j < data.spawnDatas[i].spawnPoints.yPoints.Count; j++)
-        //        {
-        //            GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        //            marker.transform.position = data.spawnDatas[i].transform.TransformPoint(data.spawnDatas[i].spawnPoints.yPoints[j]);
-        //            marker.GetComponent<Renderer>().material.color = Color.blue;
-        //            marker.transform.parent = data.spawnDatas[i].transform;
-        //            Destroy(marker.GetComponent<SphereCollider>());
-        //        }
-        //    }
-        //}
-
-        //Neighbor Search Potentially still useful
-        //int maxHit = 10;
-        //Collider[] colliders = new Collider[maxHit];
-        //for (int i = 0; i < data.objects.Count; i++)
-        //{
-        //    //Vector3 center = data.spawnDatas[i].center;
-        //    Vector3 center = data.spawnDatas[i].boxCollider.center;
-        //    center = data.spawnDatas[i].transform.TransformPoint(center);
-        //
-        //    //Vector3 extents = data.spawnDatas[i].size;
-        //    Vector3 extents = data.spawnDatas[i].boxCollider.size;
-        //    extents *= pass.neighborScale;
-        //    //extents = data.spawnDatas[i].transform.TransformPoint(extents);
-        //    //data.spawnDatas[i].neighborSize = extents;
-        //    //data.spawnDatas[i].neighborBounds = new Bounds(center, extents);
-        //
-        //    Quaternion rot = data.objects[i].transform.rotation;
-        //
-        //    //Collider[] colliders = Physics.OverlapBox(center, extents, rot);
-        //    int count = Physics.OverlapBoxNonAlloc(center, extents, colliders, rot);
-        //
-        //    //foreach(Collider col in colliders)
-        //    //for (int j = 0; j < colliders.Length; j++)
-        //    for (int j = 0; j < count; j++)
-        //    {                
-        //        if (colliders[j].gameObject != data.objects[i])
-        //        {
-        //            if (colliders[j].isTrigger)
-        //            {
-        //                if (colliders[j].gameObject.TryGetComponent<SpawnPointData>(out SpawnPointData other))
-        //                {
-        //                    //Debug.Log("Adding a neighbor", data.objects[i]);
-        //                    //if (!data.spawnDatas[i].neighbors.Contains(other))
-        //                    //    data.spawnDatas[i].neighbors.Add(other);
-        //                    //data.spawnDatas[i].neighborBounds.Encapsulate(col.bounds);
-        //                    //Vector3 pos = colliders[j].transform.TransformPoint(other.center);
-        //                    //data.spawnDatas[i].neighborBounds.Add(new Bounds(pos, other.size));
-        //                    data.spawnDatas[i].neighbors.Add(other);
-        //                    data.spawnDatas[i].neighborBounds.Add(colliders[j].bounds);
-        //                }
-        //            }
-        //        }
-        //    }
-        //
-        //    yield return null;
-        //}
-
         //yield return new WaitForSeconds(5.0f);
         //int maxHits = 9;
         int maxCommands = 8;
-        int maxHits = 2;
+        int maxHits = 16;
 
-        //NativeArray<BoxcastCommand> boxCommands = new NativeArray<BoxcastCommand>(maxHits * data.objects.Count, Allocator.TempJob);
-        //NativeArray<RaycastCommand> boxCommands = new NativeArray<RaycastCommand>(maxHits * data.objects.Count, Allocator.TempJob);
-        //NativeArray<RaycastHit> boxHits = new NativeArray<RaycastHit>(maxHits * data.objects.Count, Allocator.TempJob);
-
-        //NativeArray<RaycastCommand> boxCommands = new NativeArray<RaycastCommand>(maxHits, Allocator.TempJob);
-        //NativeArray<BoxcastCommand> boxCommands = new NativeArray<BoxcastCommand>(maxHits, Allocator.TempJob);
         NativeArray<SpherecastCommand> boxCommands = new NativeArray<SpherecastCommand>(maxCommands * data.objects.Count, Allocator.TempJob);
+        //NativeArray<RaycastCommand> boxCommands = new NativeArray<RaycastCommand>(maxCommands * data.objects.Count, Allocator.TempJob);
         NativeArray<RaycastHit> boxHits = new NativeArray<RaycastHit>(maxCommands * maxHits * data.objects.Count, Allocator.TempJob);
-        
+
+        QueryParameters query = QueryParameters.Default;
+        query.hitTriggers = QueryTriggerInteraction.Ignore;
+
         int index = 0;
         
         for (int i = 0; i < data.objects.Count; i++)
-        {            
-            BoxCollider box = data.spawnDatas[i].GetComponent<BoxCollider>();
-            Transform tran = box.transform;
+        {
+            //BoxCollider box = data.spawnDatas[i].GetComponent<BoxCollider>();
+
+            //BoxCollider box = data.spawnDatas[i].boxCollider;
+            Transform tran = data.spawnDatas[i].transform;
+
             Vector3 pos = data.spawnDatas[i].transform.TransformPoint(data.spawnDatas[i].center);
+            //Vector3 pos = data.spawnDatas[i].rayPoints[0].position;            
+
             //Vector3 extents = box.size;
-            Vector3 extents = box.bounds.extents;
-            //Vector3 extents = pass.neighborCheckSize;
-            Quaternion rot = data.spawnDatas[i].transform.rotation;
-            float scale = Mathf.Max(box.bounds.extents.x, box.bounds.extents.y, box.bounds.extents.z);
+            //Vector3 extents = box.bounds.extents;            
+            //Quaternion rot = data.spawnDatas[i].transform.rotation;
+            //float scale = Mathf.Max(box.bounds.extents.x, box.bounds.extents.y, box.bounds.extents.z);
 
-            //Vector3 forward = tran.TransformPoint(Vector3.forward * pass.checkRadius);
-            //Vector3 forward = tran.TransformPoint(Vector3.forward * scale);
-            Vector3 forward = data.spawnDatas[i].neighborPoints[0].position;
-            forward.y += pass.neighborCastDist - 1.0f;
+            //Vector3 forward = tran.TransformPoint(Vector3.forward * pass.checkRadius);            
+            Vector3 forward = tran.TransformDirection(Vector3.forward);
+            //Vector3 forward = data.spawnDatas[i].neighborPoints[0].position;
+            //forward.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(forward);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(forward);
 
-            //Vector3 upRight = tran.TransformPoint(new Vector3(1, 0, 1).normalized * pass.checkRadius);
-            //Vector3 upRight = tran.TransformPoint(new Vector3(1, 0, 1).normalized * scale);
-            Vector3 upRight = data.spawnDatas[i].neighborPoints[1].position;
-            upRight.y += pass.neighborCastDist - 1.0f;
-
-            //Vector3 upLeft = tran.TransformPoint(new Vector3(-1, 0, 1).normalized * pass.checkRadius);
-            //Vector3 upLeft = tran.TransformPoint(new Vector3(-1, 0, 1).normalized * scale);
-            Vector3 upLeft = data.spawnDatas[i].neighborPoints[2].position;
-            upLeft.y += pass.neighborCastDist - 1.0f;
-
-            //Vector3 right = tran.TransformPoint(Vector3.right * pass.checkRadius);
-            //Vector3 right = tran.TransformPoint(Vector3.right * scale);
-            Vector3 right = data.spawnDatas[i].neighborPoints[3].position;
-            right.y += pass.neighborCastDist - 1.0f;
-
-            //Vector3 left = tran.TransformPoint(Vector3.left * pass.checkRadius);
-            //Vector3 left = tran.TransformPoint(Vector3.left * scale);
-            Vector3 left = data.spawnDatas[i].neighborPoints[4].position;
-            left.y += pass.neighborCastDist - 1.0f;
-
-            //Vector3 back = tran.TransformPoint(Vector3.back * pass.checkRadius);
-            //Vector3 back = tran.TransformPoint(Vector3.back * scale);
-            //Vector3 back = data.spawnDatas[i].neighborPoints[1].position;
-            Vector3 back = data.spawnDatas[i].neighborPoints[5].position;
-            back.y += pass.neighborCastDist - 1.0f;
-
-            //Vector3 downRight = tran.TransformPoint(new Vector3(1, 0, -1).normalized * pass.checkRadius);
-            //Vector3 downRight = tran.TransformPoint(new Vector3(1, 0, -1).normalized * scale);
-            Vector3 downRight = data.spawnDatas[i].neighborPoints[6].position;
-            downRight.y += pass.neighborCastDist - 1.0f;
-
-            //Vector3 downLeft = tran.TransformPoint(new Vector3(-1, 0, -1).normalized * pass.checkRadius);
-            //Vector3 downLeft = tran.TransformPoint(new Vector3(-1, 0, -1).normalized * scale);
-            Vector3 downLeft = data.spawnDatas[i].neighborPoints[7].position;
-            downLeft.y += pass.neighborCastDist - 1.0f;
+            //Vector3 upRight = tran.TransformPoint(new Vector3(1, 0, 1).normalized * pass.checkRadius);            
+            Vector3 upRight = tran.TransformDirection(new Vector3(1, 0, 1).normalized);            
+            //Vector3 upRight = data.spawnDatas[i].neighborPoints[1].position;
+            //upRight.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(upRight);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(upRight);
+           
+            Vector3 upLeft = tran.TransformDirection(new Vector3(-1, 0, 1).normalized);
+            //Vector3 upLeft = data.spawnDatas[i].neighborPoints[2].position;
+            //upLeft.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(upLeft);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(upLeft);
             
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, Vector3.forward, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, Vector3.forward, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[0] = new RaycastCommand(pos, Vector3.forward, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[0] = new BoxcastCommand(pos, extents, rot, forward, QueryParameters.Default, pass.neighborCastDist);            
-            //boxCommands[0] = new BoxcastCommand(forward, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[0] = new SpherecastCommand(forward, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(forward, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + Vector3.forward * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(forward, forward + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
-            index++;
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, Vector3.back, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, Vector3.back, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[1] = new RaycastCommand(pos, Vector3.back, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[1] = new BoxcastCommand(pos, extents, rot, back, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[1] = new BoxcastCommand(back, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[1] = new SpherecastCommand(back, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(back, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + Vector3.back * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(back, back + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
-            index++;
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, Vector3.right, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, Vector3.right, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[2] = new RaycastCommand(pos, Vector3.right, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[2] = new BoxcastCommand(pos, extents, rot, right, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[2] = new BoxcastCommand(right, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[2] = new SpherecastCommand(right, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(right, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + Vector3.right * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(right, right + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
-            index++;
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, Vector3.left, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, Vector3.left, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[3] = new RaycastCommand(pos, Vector3.left, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[3] = new BoxcastCommand(pos, extents, rot, left, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[3] = new BoxcastCommand(left, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[3] = new SpherecastCommand(left, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(left, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + Vector3.left * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(left, left + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
-            index++;
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, upRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, upRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[4] = new RaycastCommand(pos, upRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[4] = new BoxcastCommand(pos, extents, rot, upRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[4] = new BoxcastCommand(upRight, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[4] = new SpherecastCommand(upRight, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(upRight, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + upRight * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(upRight, upRight + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
-            index++;
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, upLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, upLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[5] = new RaycastCommand(pos, upLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[5] = new BoxcastCommand(pos, extents, rot, upLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[5] = new BoxcastCommand(upLeft, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[5] = new SpherecastCommand(upLeft, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(upLeft, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + upLeft * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(upLeft, upLeft + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
-            index++;
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, downRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, downRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[6] = new RaycastCommand(pos, downRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[6] = new BoxcastCommand(pos, extents, rot, downRight, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[6] = new BoxcastCommand(downRight, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[6] = new SpherecastCommand(downRight, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(downRight, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + downRight * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(downRight, downRight + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
-            index++;
-        
-            //boxCommands[index] = new BoxcastCommand(pos, extents, rot, downLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[index] = new RaycastCommand(pos, downLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[7] = new RaycastCommand(pos, downLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[7] = new BoxcastCommand(pos, extents, rot, downLeft, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[7] = new BoxcastCommand(downLeft, extents, rot, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //boxCommands[7] = new SpherecastCommand(downLeft, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            boxCommands[index] = new SpherecastCommand(downLeft, pass.checkRadius, Vector3.down, QueryParameters.Default, pass.neighborCastDist);
-            //Debug.DrawLine(pos, pos + downLeft * pass.neighborCastDist, Color.red, 30.0f);
-            //Debug.DrawLine(downLeft, downLeft + Vector3.down * pass.neighborCastDist, Color.red, 30.0f);
+            Vector3 right = tran.TransformDirection(Vector3.right);
+            //Vector3 right = data.spawnDatas[i].neighborPoints[3].position;
+            //right.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(right);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(right);
+            
+            Vector3 left = tran.TransformDirection(Vector3.left);
+            //Vector3 left = data.spawnDatas[i].neighborPoints[4].position;
+            //left.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(left);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(left);
+            
+            Vector3 back = tran.TransformDirection(Vector3.back);            
+            //Vector3 back = data.spawnDatas[i].neighborPoints[5].position;
+            //back.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(back);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(back);
+            
+            Vector3 downRight = tran.TransformDirection(new Vector3(1, 0, -1).normalized);
+            //Vector3 downRight = data.spawnDatas[i].neighborPoints[6].position;
+            //downRight.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(downRight);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(downRight);
+                       
+            Vector3 downLeft = tran.TransformDirection(new Vector3(-1, 0, -1).normalized);
+            //Vector3 downLeft = data.spawnDatas[i].neighborPoints[7].position;
+            //downLeft.y += pass.neighborCastDist - 1.0f;
+            //data.spawnDatas[i].neighborRayPoses.Add(downLeft);
+            data.spawnDatas[i].neighborRayPoses.Add(pos);
+            data.spawnDatas[i].neighborRayDirs.Add(downLeft);
+
+            //boxCommands[index] = new RaycastCommand(pos, forward, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, forward, query, pass.neighborCastDist);
+            //boxCommands[index] = new RaycastCommand(forward, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(forward, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);
             index++;
 
-            //GameObject obj = data.objects[i];
-            //
-            //AddChildPos(forward, "Forward", obj);
-            //AddChildPos(back, "Back", obj);
-            //AddChildPos(right, "Right", obj);
-            //AddChildPos(left, "Left", obj);
-            //AddChildPos(upRight, "upRight", obj);
-            //AddChildPos(upLeft, "upLeft", obj);
-            //AddChildPos(downRight, "downRight", obj);
-            //AddChildPos(downLeft, "downLeft", obj);
+            //boxCommands[index] = new RaycastCommand(pos, back, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, back, query, pass.neighborCastDist);            
+            //boxCommands[index] = new RaycastCommand(back, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(back, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);            
+            index++;
 
-        
-            //JobHandle handle = RaycastCommand.ScheduleBatch(boxCommands, boxHits, maxHits);
-            //JobHandle handle = BoxcastCommand.ScheduleBatch(boxCommands, boxHits, maxHits);
-            //JobHandle handle = SpherecastCommand.ScheduleBatch(boxCommands, boxHits, maxCommands, maxHits);
-            //handle.Complete();            
-            //
-            //for (int j = 0; j < maxCommands * maxHits; j++)
-            //{
-            //    if (boxHits[j].collider != null && boxHits[j].collider.gameObject != data.objects[i])
-            //    {
-            //        if (boxHits[j].collider.isTrigger)
-            //        {
-            //            SpawnPointData other = boxHits[j].collider.GetComponent<SpawnPointData>();
-            //            data.spawnDatas[i].neighbors.Add(other);
-            //            data.spawnDatas[i].neighborBounds.Add(boxHits[j].collider.bounds);
-            //
-            //            //if (!data.spawnDatas[i].neighbors.Contains(other))
-            //            //{
-            //            //    data.spawnDatas[i].neighbors.Add(other);
-            //            //    data.spawnDatas[i].neighborBounds.Add(boxHits[j].collider.bounds);
-            //            //}
-            //            //
-            //            //if (!other.neighbors.Contains(data.spawnDatas[i]))
-            //            //{
-            //            //    other.neighbors.Add(data.spawnDatas[i]);
-            //            //    other.neighborBounds.Add(box.bounds);
-            //            //}
-            //        }
-            //    }
-            //}
-        
+            //boxCommands[index] = new RaycastCommand(pos, right, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, right, query, pass.neighborCastDist);            
+            //boxCommands[index] = new RaycastCommand(right, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(right, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);            
+            index++;
+
+            //boxCommands[index] = new RaycastCommand(pos, left, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, left, query, pass.neighborCastDist);            
+            //boxCommands[index] = new RaycastCommand(left, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(left, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);            
+            index++;
+
+            //boxCommands[index] = new RaycastCommand(pos, upRight, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, upRight, query, pass.neighborCastDist);            
+            //boxCommands[index] = new RaycastCommand(upRight, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(upRight, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);            
+            index++;
+
+            //boxCommands[index] = new RaycastCommand(pos, upLeft, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, upLeft, query, pass.neighborCastDist);            
+            //boxCommands[index] = new RaycastCommand(upLeft, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(upLeft, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);            
+            index++;
+
+            //boxCommands[index] = new RaycastCommand(pos, downRight, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, downRight, query, pass.neighborCastDist);            
+            //boxCommands[index] = new RaycastCommand(downRight, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(downRight, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);            
+            index++;
+
+            //boxCommands[index] = new RaycastCommand(pos, downLeft, query, pass.neighborCastDist);
+            boxCommands[index] = new SpherecastCommand(pos, pass.checkRadius, downLeft, query, pass.neighborCastDist);            
+            //boxCommands[index] = new RaycastCommand(downLeft, Vector3.down, query, pass.neighborCastDist);
+            //boxCommands[index] = new SpherecastCommand(downLeft, pass.checkRadius, Vector3.down, query, pass.neighborCastDist);            
+            index++;
         }
 
         JobHandle handle = SpherecastCommand.ScheduleBatch(boxCommands, boxHits, maxCommands, maxHits);
+        //JobHandle handle = RaycastCommand.ScheduleBatch(boxCommands, boxHits, maxCommands, maxHits);
         handle.Complete();
 
         for (int i = 0; i < data.objects.Count; i++)
         {
+            data.spawnDatas[i].mainIndex = i;
+
             for (int j = i * maxCommands; j < (i * maxCommands) + maxCommands; j++)
             {
                 if (j * maxHits < boxHits.Length)
                 {
+                    if (boxHits[j * maxHits].collider != null)
+                    {
+                        data.spawnDatas[i].neighborHits.Add(boxHits[j * maxHits]);
+                        GameObject obj = boxHits[j * maxHits].collider.gameObject;                        
+                        AddSphere(boxHits[j * maxHits].point, $"hit {obj.name} for {data.spawnDatas[i].gameObject.name}", obj, MyColor.purple);
+                    }
+
                     if (boxHits[j * maxHits].collider != null && boxHits[j * maxHits].collider.gameObject != data.objects[i])
                     {
-                        if (boxHits[j * maxHits].collider.isTrigger)
+                        //if (boxHits[j * maxHits].collider.isTrigger)
                         {
                             SpawnPointData other = boxHits[j * maxHits].collider.GetComponent<SpawnPointData>();
-                            data.spawnDatas[i].neighbors.Add(other);
-                            data.spawnDatas[i].neighborBounds.Add(boxHits[j * maxHits].collider.bounds);
+
+                            if (other == null)
+                                Debug.Log($"{boxHits[j * maxHits].collider.gameObject.name} does not have Spawn Data", boxHits[j * maxHits].collider.gameObject);
+
+
+                            if (other != null)
+                            {
+                                if (!data.spawnDatas[i].neighbors.Contains(other))
+                                {
+                                    data.spawnDatas[i].neighbors.Add(other);
+                                    data.spawnDatas[i].neighborBounds.Add(other.boxCollider.bounds);
+                                    Vector3 dir = (other.transform.position - data.spawnDatas[i].transform.position).normalized;
+                                    data.spawnDatas[i].neighborDirs.Add(dir);
+                                }
+
+                                //else Debug.Log("Duplicate Warning");
+
+                                //data.spawnDatas[i].renderers.Add(other.GetComponent<Renderer>());
+                                //data.spawnDatas[i].meshes.Add(other.GetComponent<MeshFilter>());
+                                //Collider col = boxHits[j * maxHits].collider;
+                                //Bounds bounds = new Bounds(other.boxCollider.center, other.boxCollider.size);
+                                //data.spawnDatas[i].neighborBounds.Add(bounds);
+                                //data.spawnDatas[i].neighborBounds.Add(boxHits[j * maxHits].collider.bounds);
+
+                                if (!other.neighbors.Contains(data.spawnDatas[i]))
+                                {
+                                    other.neighbors.Add(data.spawnDatas[i]);
+                                    //Bounds bounds2 = new Bounds(data.spawnDatas[i].boxCollider.center, data.spawnDatas[i].boxCollider.size);
+                                    //other.neighborBounds.Add(bounds2);
+                                    other.neighborBounds.Add(data.spawnDatas[i].boxCollider.bounds);
+                                    //other.renderers.Add(data.spawnDatas[i].GetComponent<Renderer>());
+                                    //other.meshes.Add(data.spawnDatas[i].GetComponent<MeshFilter>());
+                                    Vector3 dir2 = (data.spawnDatas[i].transform.position - other.transform.position).normalized;
+                                    other.neighborDirs.Add(dir2);
+                                }
+                            }
                         }
                     }
                 }
             }
         }
-        
+
+        //for (int i = 0; i < data.spawnDatas.Count; i++)
+        //    data.spawnDatas[i].boxCollider.enabled = false;
+
         boxCommands.Dispose();
         boxHits.Dispose();
 
-        //JobHandle handle = BoxcastCommand.ScheduleBatch(boxCommands, boxHits, maxHits);
-        //JobHandle handle = RaycastCommand.ScheduleBatch(boxCommands, boxHits, maxHits);
-        //handle.Complete();
-
-        //index = 0;
-
-        //for (int i = 0; i < data.objects.Count; i++)
-        //{
-        //    if (i + maxHits < boxHits.Length)
-        //    {
-        //        for (int j = i; j < i + maxHits; j++)
-        //        {
-        //            if (boxHits[j].collider != null && boxHits[j].collider.gameObject != data.objects[i])
-        //            {
-        //                if (boxHits[j].collider.isTrigger)
-        //                {
-        //                    data.spawnDatas[i].neighbors.Add(boxHits[j].collider.GetComponent<SpawnPointData>());
-        //                    data.spawnDatas[i].neighborBounds.Add(boxHits[j].collider.bounds);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    
-        //}
-
-        //boxCommands.Dispose();
-        //boxHits.Dispose();
-        //int maxHits = 9;
-        //
-        ////NativeArray<OverlapBoxCommand> boxCommands = new NativeArray<OverlapBoxCommand>(maxHits * data.objects.Count, Allocator.TempJob);
-        ////NativeArray<ColliderHit> overlapHits = new NativeArray<ColliderHit>(maxHits * data.objects.Count, Allocator.TempJob);
-        //NativeArray<OverlapSphereCommand> boxCommands = new NativeArray<OverlapSphereCommand>(1, Allocator.TempJob);
-        //NativeArray<ColliderHit> overlapHits = new NativeArray<ColliderHit>(maxHits, Allocator.TempJob);
-        //
-        //for (int it = 0; it < data.objects.Count; it++)
-        //{
-        //    Vector3 center = data.spawnDatas[it].center;
-        //    center = data.spawnDatas[it].transform.TransformPoint(center);
-        //
-        //    Vector3 extents = data.spawnDatas[it].size;
-        //    extents *= pass.neighborScale;
-        //
-        //    Quaternion rot = data.objects[it].transform.rotation;
-        //
-        //    //boxCommands[0] = new OverlapBoxCommand(center, extents, rot, QueryParameters.Default);
-        //    boxCommands[0] = new OverlapSphereCommand(center, Vector3.Dot(extents, extents), QueryParameters.Default);
-        //    //boxCommandsDebug.Add($"{it} {data.objects[it].name} {center.ToString()} {extents.ToString()}");
-        //    //JobHandle handle = OverlapBoxCommand.ScheduleBatch(boxCommands, overlapHits, 1, maxHits);
-        //    JobHandle handle = OverlapSphereCommand.ScheduleBatch(boxCommands, overlapHits, 1, maxHits);
-        //    handle.Complete();
-        //
-        //    for (int j = 0; j < overlapHits.Length; j++)
-        //    {
-        //        if (overlapHits[j].collider != null && overlapHits[j].collider.isTrigger)
-        //        {
-        //            SpawnPointData other = overlapHits[j].collider.GetComponent<SpawnPointData>();
-        //            data.spawnDatas[it].neighbors.Add(other);
-        //            data.spawnDatas[it].neighborBounds.Add(overlapHits[j].collider.bounds);
-        //        }
-        //    }
-        //}
-        
-        //JobHandle handle = OverlapBoxCommand.ScheduleBatch(boxCommands, overlapHits, maxHits, 1);
-        //handle.Complete();
-        //
-        //for (int itx = 0; itx < data.objects.Count; itx++)
-        //{
-        //    //if (i * maxHits < overlapHits.Length)
-        //    //{
-        //    //    if (overlapHits[i * maxHits].collider != null && overlapHits[i * maxHits].collider.gameObject != data.objects[i])
-        //    //    {
-        //    //        if (overlapHits[i * maxHits].collider.isTrigger)
-        //    //        {
-        //    //            data.spawnDatas[i].neighbors.Add(overlapHits[i * maxHits].collider.GetComponent<SpawnPointData>());
-        //    //            data.spawnDatas[i].neighborBounds.Add(overlapHits[i * maxHits].collider.bounds);
-        //    //        }
-        //    //    }
-        //    //}
-        //
-        //    if (itx + maxHits < overlapHits.Length)
-        //    {
-        //        for (int jtx = itx; jtx < (itx + maxHits); jtx++)
-        //        {
-        //            //overlapHitsDebug.Add(overlapHits[jtx].ToString());
-        //            //if (overlapHits[jtx].collider != null)
-        //            //    overlapHitsDebug.Add($"{itx} {jtx} {overlapHits[jtx].collider.gameObject.name} {overlapHits[jtx].collider.transform.position}");
-        //
-        //            if (overlapHits[jtx].collider != null && overlapHits[jtx].collider.gameObject != data.objects[itx])
-        //            {
-        //                if (overlapHits[jtx].collider.isTrigger)
-        //                {
-        //                    data.spawnDatas[itx].neighbors.Add(overlapHits[jtx].collider.GetComponent<SpawnPointData>());
-        //                    data.spawnDatas[itx].neighborBounds.Add(overlapHits[jtx].collider.bounds);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-        
-        //boxCommands.Dispose();
-        //overlapHits.Dispose();
+        Debug.Log("Finished Spline Setup");
 
         if (pass.runMode == RunMode.EndOfCycle)
         {

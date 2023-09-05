@@ -2591,6 +2591,7 @@ MonoBehaviour:
   splinePrefab: {fileID: 1040092656535725148, guid: 71f10ef5cf28429479b2502844766564, type: 3}
   playerStartPos: {x: 0, y: 100, z: 0}
   regenerate: 0
+  makeTestSpline: 0
   passes:
   - name: 
     enabled: 0
@@ -2616,6 +2617,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -2683,6 +2688,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -2760,6 +2769,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -2827,6 +2840,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -2877,6 +2894,21 @@ MonoBehaviour:
     - {fileID: 8945000759204743511, guid: d58cc166323d26a4ca3f91e1f0d55980, type: 3}
     spawnObjects: {fileID: 0}
     subpasses: []
+  hitsForTopGround: 4
+  maxPruneCommands: 9
+  maxPruneHits: 3
+  pruneLowScoreGrounds: 1
+  pruneHitTriggers: 0
+  pruneHitBackFaces: 0
+  pruneHitMultiFaces: 0
+  showAllPruneHits: 0
+  minPointCount: 10
+  maxPointCount: 30
+  dotLimit: 0.45
+  maxStartAngle: 90
+  space: 1
+  allowHeightSwitch: 0
+  enforceDotAndHeight: 0
   topRightDebug: 0
   topLeftDebug: 0
   downRightDebug: 0
@@ -2932,6 +2964,7 @@ MonoBehaviour:
   splinePrefab: {fileID: 1040092656535725148, guid: 71f10ef5cf28429479b2502844766564, type: 3}
   playerStartPos: {x: 0, y: 100, z: 0}
   regenerate: 0
+  makeTestSpline: 0
   passes:
   - name: Main Land Spawn
     enabled: 1
@@ -2951,12 +2984,16 @@ MonoBehaviour:
     maxNeighborCastDist: 100
     neighborCheckSize: {x: 5, y: 5, z: 5}
     neighborScale: 1
-    checkRadius: 10
+    checkRadius: 0.25
     pruneWaitTime: 0
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -3024,6 +3061,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -3090,6 +3131,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -3156,6 +3201,10 @@ MonoBehaviour:
       useOrigIndex: 0
       useOrigY: 0
       useSpawnedObjects: 1
+      neighborDotCheck: 0.8
+      dotCheck: 0
+      minDistInterval: 10
+      maxDistInterval: 15
       canRotateSpline: 0
       minSplineRotation: {x: 0, y: 0, z: 0}
       maxSplineRotation: {x: 0, y: 0, z: 0}
@@ -3220,6 +3269,10 @@ MonoBehaviour:
       useOrigIndex: 0
       useOrigY: 0
       useSpawnedObjects: 1
+      neighborDotCheck: 0.8
+      dotCheck: 0
+      minDistInterval: 10
+      maxDistInterval: 15
       canRotateSpline: 0
       minSplineRotation: {x: 0, y: 0, z: 0}
       maxSplineRotation: {x: 0, y: 0, z: 0}
@@ -3285,6 +3338,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 1
     useSpawnedObjects: 1
+    neighborDotCheck: 0
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -3351,6 +3408,10 @@ MonoBehaviour:
       useOrigIndex: 0
       useOrigY: 0
       useSpawnedObjects: 0
+      neighborDotCheck: 0.8
+      dotCheck: 0
+      minDistInterval: 10
+      maxDistInterval: 15
       canRotateSpline: 0
       minSplineRotation: {x: 0, y: 0, z: 0}
       maxSplineRotation: {x: 0, y: 0, z: 0}
@@ -3421,6 +3482,10 @@ MonoBehaviour:
       useOrigIndex: 0
       useOrigY: 0
       useSpawnedObjects: 0
+      neighborDotCheck: 0.8
+      dotCheck: 0
+      minDistInterval: 10
+      maxDistInterval: 15
       canRotateSpline: 0
       minSplineRotation: {x: 0, y: 0, z: 0}
       maxSplineRotation: {x: 0, y: 0, z: 0}
@@ -3463,14 +3528,14 @@ MonoBehaviour:
       spawnObjects: {fileID: 0}
       subpasses: []
   - name: Obstacle Splines
-    enabled: 0
+    enabled: 1
     passMode: 5
     runMode: 1
     spawnOptions: 0
     spawnSource: 0
     waitUntilComplete: 1
     runSubPassesAsync: 1
-    maxMainPassSpawnCount: 10
+    maxMainPassSpawnCount: 1
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
@@ -3486,6 +3551,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 1
     useSpawnedObjects: 1
+    neighborDotCheck: 0
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -3552,6 +3621,10 @@ MonoBehaviour:
       useOrigIndex: 0
       useOrigY: 0
       useSpawnedObjects: 0
+      neighborDotCheck: 0.8
+      dotCheck: 0
+      minDistInterval: 10
+      maxDistInterval: 15
       canRotateSpline: 0
       minSplineRotation: {x: 0, y: 0, z: 0}
       maxSplineRotation: {x: 0, y: 0, z: 0}
@@ -3622,6 +3695,10 @@ MonoBehaviour:
       useOrigIndex: 0
       useOrigY: 0
       useSpawnedObjects: 0
+      neighborDotCheck: 0.8
+      dotCheck: 0
+      minDistInterval: 10
+      maxDistInterval: 15
       canRotateSpline: 0
       minSplineRotation: {x: 0, y: 0, z: 0}
       maxSplineRotation: {x: 0, y: 0, z: 0}
@@ -3687,6 +3764,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -3753,6 +3834,10 @@ MonoBehaviour:
     useOrigIndex: 0
     useOrigY: 0
     useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
     canRotateSpline: 1
     minSplineRotation: {x: 0, y: 0, z: 0}
     maxSplineRotation: {x: 0, y: 360, z: 0}
@@ -3794,6 +3879,21 @@ MonoBehaviour:
     - {fileID: 409821093893844648, guid: c4f9502e2062a5149aa9ea88fb4d214f, type: 3}
     spawnObjects: {fileID: 0}
     subpasses: []
+  hitsForTopGround: 3
+  maxPruneCommands: 9
+  maxPruneHits: 1
+  pruneLowScoreGrounds: 1
+  pruneHitTriggers: 1
+  pruneHitBackFaces: 0
+  pruneHitMultiFaces: 0
+  showAllPruneHits: 0
+  minPointCount: 10
+  maxPointCount: 30
+  dotLimit: 0.45
+  maxStartAngle: 90
+  space: 1
+  allowHeightSwitch: 0
+  enforceDotAndHeight: 1
   topRightDebug: 0
   topLeftDebug: 0
   downRightDebug: 0
