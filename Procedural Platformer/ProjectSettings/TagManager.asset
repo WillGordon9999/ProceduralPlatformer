@@ -15,6 +15,7 @@ TagManager:
   - Collectable
   - LookAt
   - Boss
+  - MainLand
   layers:
   - Default
   - TransparentFX

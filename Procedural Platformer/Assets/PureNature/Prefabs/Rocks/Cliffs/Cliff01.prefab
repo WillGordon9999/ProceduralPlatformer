@@ -233,7 +233,23 @@ MonoBehaviour:
   adjacents: {fileID: 11400000, guid: 794c1b92926f4a941a1c96bcc4cd5a1f, type: 2}
   boxCollider: {fileID: 0}
   rayPos: {x: 0, y: 0, z: 0}
+  topRight: {x: 0, y: 0, z: 0}
+  topLeft: {x: 0, y: 0, z: 0}
+  downRight: {x: 0, y: 0, z: 0}
+  downLeft: {x: 0, y: 0, z: 0}
+  yBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  mainIndex: -1
   rayPoints: []
   neighborPoints: []
+  rayPointHitCount: 0
+  generateRadius: 10
   neighbors: []
   neighborBounds: []
+  neighborDirs: []
+  neighborRayPoses: []
+  neighborRayDirs: []
+  mesh: {fileID: 0}
+  renderer: {fileID: 0}
+  spline: {fileID: 0}
