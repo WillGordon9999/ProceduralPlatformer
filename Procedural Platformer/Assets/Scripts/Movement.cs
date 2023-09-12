@@ -470,7 +470,7 @@ public class Movement : MonoBehaviour
         //    Debug.DrawRay(ray.origin, ray.direction * stopMoveDistance, Color.red);
         //}
 
-        if (Physics.Raycast(ray, out hitinfo, capsule.radius + stopMoveDistance, stopMoveLayer))
+        if (Physics.Raycast(ray, out hitinfo, capsule.radius + stopMoveDistance, stopMoveLayer, QueryTriggerInteraction.Ignore))
         {
             //stopMove = true;
             moveVector = Vector3.zero;

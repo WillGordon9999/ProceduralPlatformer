@@ -2605,6 +2605,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -2613,6 +2616,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -2676,6 +2695,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -2684,6 +2706,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -2757,6 +2795,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -2765,6 +2806,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -2828,6 +2885,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -2836,6 +2896,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -2902,18 +2978,16 @@ MonoBehaviour:
   pruneHitBackFaces: 0
   pruneHitMultiFaces: 0
   showAllPruneHits: 0
-  minPointCount: 10
-  maxPointCount: 30
-  dotLimit: 0.45
-  maxStartAngle: 90
-  space: 1
-  allowHeightSwitch: 0
-  enforceDotAndHeight: 0
+  highScoreCheck: 6
+  highScoreBoundCheck:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   topRightDebug: 0
   topLeftDebug: 0
   downRightDebug: 0
   downLeftDebug: 0
   spawnedObjects: []
+  highScoreObjects: []
   splineObjects: []
   allSpawnedObjects: []
   pendingObjects: []
@@ -2978,6 +3052,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 1
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 30
@@ -2986,6 +3063,22 @@ MonoBehaviour:
     neighborScale: 1
     checkRadius: 0.25
     pruneWaitTime: 0
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -3049,6 +3142,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 1
     splineOffset: {x: 0, y: 35, z: 0}
     neighborCastDist: 10
@@ -3057,6 +3153,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -3119,6 +3231,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 1
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -3127,6 +3242,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -3189,6 +3320,9 @@ MonoBehaviour:
       useStartingPos: 0
       splinePrefab: {fileID: 0}
       maxHeightDiff: 0
+      sampleRate: 10
+      sampleMode: 0
+      space: 1
       offsetSplineObject: 0
       splineOffset: {x: 0, y: 0, z: 0}
       neighborCastDist: 10
@@ -3197,6 +3331,22 @@ MonoBehaviour:
       neighborScale: 3
       checkRadius: 20
       pruneWaitTime: 0.3
+      minPointCount: 10
+      maxPointCount: 30
+      maxStartAngle: 90
+      sampleCastHeight: 20
+      sampleCastDist: 25
+      groundCheckRadius: 0.5
+      groundCheckHeight: 20
+      groundCheckDist: 25
+      minGroundDist: 1
+      sampleCastHits: 4
+      allowHeightSwitch: 0
+      randomizeRotAtStart: 0
+      xScale: 0
+      maxWidth: 5
+      yScale: 0
+      maxHeight: 10
       useAltSubSpline: 0
       useOrigIndex: 0
       useOrigY: 0
@@ -3257,6 +3407,9 @@ MonoBehaviour:
       useStartingPos: 0
       splinePrefab: {fileID: 0}
       maxHeightDiff: 2
+      sampleRate: 10
+      sampleMode: 0
+      space: 1
       offsetSplineObject: 0
       splineOffset: {x: 0, y: 0, z: 0}
       neighborCastDist: 10
@@ -3265,6 +3418,22 @@ MonoBehaviour:
       neighborScale: 3
       checkRadius: 20
       pruneWaitTime: 0.3
+      minPointCount: 10
+      maxPointCount: 30
+      maxStartAngle: 90
+      sampleCastHeight: 20
+      sampleCastDist: 25
+      groundCheckRadius: 0.5
+      groundCheckHeight: 20
+      groundCheckDist: 25
+      minGroundDist: 1
+      sampleCastHits: 4
+      allowHeightSwitch: 0
+      randomizeRotAtStart: 0
+      xScale: 0
+      maxWidth: 5
+      yScale: 0
+      maxHeight: 10
       useAltSubSpline: 0
       useOrigIndex: 0
       useOrigY: 0
@@ -3326,6 +3495,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -3334,6 +3506,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 1
@@ -3396,6 +3584,9 @@ MonoBehaviour:
       useStartingPos: 0
       splinePrefab: {fileID: 0}
       maxHeightDiff: 0
+      sampleRate: 10
+      sampleMode: 0
+      space: 1
       offsetSplineObject: 0
       splineOffset: {x: 0, y: 0, z: 0}
       neighborCastDist: 10
@@ -3404,6 +3595,22 @@ MonoBehaviour:
       neighborScale: 3
       checkRadius: 20
       pruneWaitTime: 0.3
+      minPointCount: 10
+      maxPointCount: 30
+      maxStartAngle: 90
+      sampleCastHeight: 20
+      sampleCastDist: 25
+      groundCheckRadius: 0.5
+      groundCheckHeight: 20
+      groundCheckDist: 25
+      minGroundDist: 1
+      sampleCastHits: 4
+      allowHeightSwitch: 0
+      randomizeRotAtStart: 0
+      xScale: 0
+      maxWidth: 5
+      yScale: 0
+      maxHeight: 10
       useAltSubSpline: 0
       useOrigIndex: 0
       useOrigY: 0
@@ -3470,6 +3677,9 @@ MonoBehaviour:
       useStartingPos: 0
       splinePrefab: {fileID: 0}
       maxHeightDiff: 2
+      sampleRate: 10
+      sampleMode: 0
+      space: 1
       offsetSplineObject: 0
       splineOffset: {x: 0, y: 0, z: 0}
       neighborCastDist: 10
@@ -3478,6 +3688,22 @@ MonoBehaviour:
       neighborScale: 3
       checkRadius: 20
       pruneWaitTime: 0.3
+      minPointCount: 10
+      maxPointCount: 30
+      maxStartAngle: 90
+      sampleCastHeight: 20
+      sampleCastDist: 25
+      groundCheckRadius: 0.5
+      groundCheckHeight: 20
+      groundCheckDist: 25
+      minGroundDist: 1
+      sampleCastHits: 4
+      allowHeightSwitch: 0
+      randomizeRotAtStart: 0
+      xScale: 0
+      maxWidth: 5
+      yScale: 0
+      maxHeight: 10
       useAltSubSpline: 0
       useOrigIndex: 0
       useOrigY: 0
@@ -3528,17 +3754,20 @@ MonoBehaviour:
       spawnObjects: {fileID: 0}
       subpasses: []
   - name: Obstacle Splines
-    enabled: 1
+    enabled: 0
     passMode: 5
     runMode: 1
     spawnOptions: 0
     spawnSource: 0
     waitUntilComplete: 1
     runSubPassesAsync: 1
-    maxMainPassSpawnCount: 1
+    maxMainPassSpawnCount: 10
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 1
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -3547,6 +3776,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 1
@@ -3609,6 +3854,9 @@ MonoBehaviour:
       useStartingPos: 0
       splinePrefab: {fileID: 0}
       maxHeightDiff: 0
+      sampleRate: 10
+      sampleMode: 0
+      space: 1
       offsetSplineObject: 0
       splineOffset: {x: 0, y: 0, z: 0}
       neighborCastDist: 10
@@ -3617,6 +3865,22 @@ MonoBehaviour:
       neighborScale: 3
       checkRadius: 20
       pruneWaitTime: 0.3
+      minPointCount: 10
+      maxPointCount: 30
+      maxStartAngle: 90
+      sampleCastHeight: 20
+      sampleCastDist: 25
+      groundCheckRadius: 0.5
+      groundCheckHeight: 20
+      groundCheckDist: 25
+      minGroundDist: 1
+      sampleCastHits: 4
+      allowHeightSwitch: 0
+      randomizeRotAtStart: 0
+      xScale: 0
+      maxWidth: 5
+      yScale: 0
+      maxHeight: 10
       useAltSubSpline: 0
       useOrigIndex: 0
       useOrigY: 0
@@ -3683,6 +3947,9 @@ MonoBehaviour:
       useStartingPos: 0
       splinePrefab: {fileID: 0}
       maxHeightDiff: 2
+      sampleRate: 10
+      sampleMode: 0
+      space: 1
       offsetSplineObject: 0
       splineOffset: {x: 0, y: 0, z: 0}
       neighborCastDist: 10
@@ -3691,6 +3958,22 @@ MonoBehaviour:
       neighborScale: 3
       checkRadius: 20
       pruneWaitTime: 0.3
+      minPointCount: 10
+      maxPointCount: 30
+      maxStartAngle: 90
+      sampleCastHeight: 20
+      sampleCastDist: 25
+      groundCheckRadius: 0.5
+      groundCheckHeight: 20
+      groundCheckDist: 25
+      minGroundDist: 1
+      sampleCastHits: 4
+      allowHeightSwitch: 0
+      randomizeRotAtStart: 0
+      xScale: 0
+      maxWidth: 5
+      yScale: 0
+      maxHeight: 10
       useAltSubSpline: 0
       useOrigIndex: 0
       useOrigY: 0
@@ -3752,6 +4035,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -3760,6 +4046,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -3822,6 +4124,9 @@ MonoBehaviour:
     useStartingPos: 1
     splinePrefab: {fileID: 0}
     maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 1
     offsetSplineObject: 0
     splineOffset: {x: 0, y: 0, z: 0}
     neighborCastDist: 10
@@ -3830,6 +4135,22 @@ MonoBehaviour:
     neighborScale: 3
     checkRadius: 20
     pruneWaitTime: 0.3
+    minPointCount: 10
+    maxPointCount: 30
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 25
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 25
+    minGroundDist: 1
+    sampleCastHits: 4
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 10
     useAltSubSpline: 0
     useOrigIndex: 0
     useOrigY: 0
@@ -3879,6 +4200,95 @@ MonoBehaviour:
     - {fileID: 409821093893844648, guid: c4f9502e2062a5149aa9ea88fb4d214f, type: 3}
     spawnObjects: {fileID: 0}
     subpasses: []
+  - name: New Spline Test
+    enabled: 1
+    passMode: 5
+    runMode: 2
+    spawnOptions: 0
+    spawnSource: 0
+    waitUntilComplete: 1
+    runSubPassesAsync: 0
+    maxMainPassSpawnCount: 10
+    useStartingPos: 1
+    splinePrefab: {fileID: 0}
+    maxHeightDiff: 2
+    sampleRate: 10
+    sampleMode: 0
+    space: 0
+    offsetSplineObject: 0
+    splineOffset: {x: 0, y: 0, z: 0}
+    neighborCastDist: 10
+    maxNeighborCastDist: 100
+    neighborCheckSize: {x: 3, y: 3, z: 3}
+    neighborScale: 3
+    checkRadius: 20
+    pruneWaitTime: 0.3
+    minPointCount: 3
+    maxPointCount: 5
+    maxStartAngle: 90
+    sampleCastHeight: 20
+    sampleCastDist: 30
+    groundCheckRadius: 0.5
+    groundCheckHeight: 20
+    groundCheckDist: 2
+    minGroundDist: 1
+    sampleCastHits: 1
+    allowHeightSwitch: 0
+    randomizeRotAtStart: 0
+    xScale: 0
+    maxWidth: 5
+    yScale: 0
+    maxHeight: 5
+    useAltSubSpline: 0
+    useOrigIndex: 0
+    useOrigY: 0
+    useSpawnedObjects: 1
+    neighborDotCheck: 0.8
+    dotCheck: 0
+    minDistInterval: 10
+    maxDistInterval: 15
+    canRotateSpline: 1
+    minSplineRotation: {x: 0, y: 0, z: 0}
+    maxSplineRotation: {x: 0, y: 360, z: 0}
+    splinePointCount: 5
+    objectSpawnCount: 5
+    minObjectSpawnCount: 5
+    maxObjectSpawnCount: 10
+    minSplinePointDist: 30
+    maxSplinePointDist: 50
+    minAngles: {x: -20, y: 0, z: -20}
+    maxAngles: {x: 20, y: 0, z: 20}
+    pointSize: 1
+    normal: {x: 0, y: 1, z: 0}
+    useRandomNormal: 0
+    minNormal: {x: 0, y: 0, z: 0}
+    maxNormal: {x: 0, y: 0, z: 0}
+    useObjectDist: 0
+    minObjectDist: 5
+    maxObjectDist: 15
+    useRandomSeedRange: 1
+    minSeedRange: 0
+    maxSeedRange: 2147483647
+    spawnOnTopRayDist: 50
+    maxRayAttempts: 30
+    maxPassAttempts: 200
+    canOffset: 0
+    minOffset: {x: -5, y: 0, z: 0}
+    maxOffset: {x: 5, y: 0, z: 0}
+    canRotate: 1
+    minRotation: {x: 0, y: 0, z: 0}
+    maxRotation: {x: 0, y: 360, z: 0}
+    canScale: 1
+    minScale: 0.5
+    maxScale: 1
+    stackRayOffset: {x: 0, y: 1, z: 0}
+    stackRayDist: 3
+    stackSpawnChance: 30
+    splineObjectPrefabs:
+    - {fileID: 1960844236708463733, guid: 52202b428c93675499f1d787e93be31b, type: 3}
+    - {fileID: 2665002134388066620, guid: 54d9f8a7e45bf2b45bd950c3d6602823, type: 3}
+    spawnObjects: {fileID: 0}
+    subpasses: []
   hitsForTopGround: 3
   maxPruneCommands: 9
   maxPruneHits: 1
@@ -3887,18 +4297,16 @@ MonoBehaviour:
   pruneHitBackFaces: 0
   pruneHitMultiFaces: 0
   showAllPruneHits: 0
-  minPointCount: 10
-  maxPointCount: 30
-  dotLimit: 0.45
-  maxStartAngle: 90
-  space: 1
-  allowHeightSwitch: 0
-  enforceDotAndHeight: 1
+  highScoreCheck: 7
+  highScoreBoundCheck:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   topRightDebug: 0
   topLeftDebug: 0
   downRightDebug: 0
   downLeftDebug: 0
   spawnedObjects: []
+  highScoreObjects: []
   splineObjects: []
   allSpawnedObjects: []
   pendingObjects: []

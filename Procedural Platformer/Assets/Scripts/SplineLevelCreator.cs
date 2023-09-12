@@ -23,18 +23,6 @@ public class EditorHelper
             Bounds bounds = box.bounds;
             SpawnPointData data = obj.GetComponent<SpawnPointData>();
 
-            //Vector3 center = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.center.z);
-            //Vector3 centerRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
-            //Vector3 centerLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
-            //
-            //Vector3 topCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
-            //Vector3 topRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
-            //Vector3 topLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
-            //
-            //Vector3 downCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
-            //Vector3 downRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
-            //Vector3 downLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
-
             Vector3 fwd = Vector3.forward * data.generateRadius;
             Vector3 fwdRight = new Vector3(1, 0, 1).normalized * data.generateRadius;
             Vector3 fwdLeft = new Vector3(-1, 0, 1).normalized * data.generateRadius;
@@ -60,28 +48,76 @@ public class EditorHelper
             SplineLevelCreator.AddSphere(back, "Back", obj);
             SplineLevelCreator.AddSphere(backRight, "Back-Right", obj);
             SplineLevelCreator.AddSphere(backLeft, "Back-Left", obj);
+        }
+    }
 
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(fwd), "Forward", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(fwdRight), "Forward-Right", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(fwdLeft), "Forward-Left", obj);
-            //
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(right), "Right", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(left), "Left", obj);
-            //
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(back), "Back", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(backRight), "Back-Right", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(backLeft), "Back-Left", obj);   
+    [MenuItem("Window/Create Ray Points")]
+    public static void CreateRayPoints()
+    {
+        GameObject obj = Selection.activeGameObject;
+        int rayPointNum = 9;
 
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topCenter), "Forward", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topRight), "Forward-Right", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topLeft), "Forward-Left", obj);
-            //
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerRight), "Right", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerLeft), "Left", obj);
-            //
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downCenter), "Back", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downRight), "Back-Right", obj);
-            //SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downLeft), "Back-Left", obj);
+        if (obj != null)
+        {
+            BoxCollider box = obj.GetComponent<BoxCollider>();
+            Bounds bounds = box.bounds;
+            SpawnPointData data = obj.GetComponent<SpawnPointData>();
+
+            Vector3 center = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.center.z);
+            Vector3 centerRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
+            Vector3 centerLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z);
+
+            Vector3 topCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
+            Vector3 topRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
+            Vector3 topLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.extents.z);
+
+            Vector3 downCenter = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
+            Vector3 downRight = new Vector3(bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
+            Vector3 downLeft = new Vector3(-bounds.extents.x, bounds.center.y + bounds.extents.y, -bounds.extents.z);
+
+            data.rayPoints = new Transform[rayPointNum];
+
+            data.rayPoints[0] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(center), "Center", obj).transform;
+            data.rayPoints[1] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerRight), "Center-Right", obj).transform;
+            data.rayPoints[2] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(centerLeft), "Center-Left", obj).transform;
+
+            data.rayPoints[3] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topCenter), "Top-Center", obj).transform;
+            data.rayPoints[4] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topRight), "Top-Right", obj).transform;
+            data.rayPoints[5] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topLeft), "Top-Left", obj).transform;
+
+            data.rayPoints[6] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downCenter), "Back", obj).transform;
+            data.rayPoints[7] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downRight), "Back-Right", obj).transform;
+            data.rayPoints[8] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downLeft), "Back-Left", obj).transform;            
+        }
+    }
+
+    [MenuItem("Window/Create Ray Poses")]
+    public static void CreateRayPoses()
+    {
+        GameObject obj = Selection.activeGameObject;
+        int rayPosNum = 5;
+
+        if (obj != null)
+        {
+            BoxCollider box = obj.GetComponent<BoxCollider>();
+            Bounds bounds = box.bounds;
+            SpawnPointData data = obj.GetComponent<SpawnPointData>();
+
+            Vector3 center = new Vector3(bounds.center.x, bounds.center.y - bounds.extents.y, bounds.center.z);
+
+            Vector3 topRight = new Vector3(bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.extents.z);
+            Vector3 topLeft = new Vector3(-bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.extents.z);
+
+            Vector3 downRight = new Vector3(bounds.extents.x, bounds.center.y - bounds.extents.y, -bounds.extents.z);
+            Vector3 downLeft = new Vector3(-bounds.extents.x, bounds.center.y - bounds.extents.y, -bounds.extents.z);
+
+            data.rayPoses = new Transform[rayPosNum];
+
+            data.rayPoses[0] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(center), "Center Ray Pos", obj).transform;                        
+            data.rayPoses[1] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topRight), "Top-Right Ray Pos", obj).transform;
+            data.rayPoses[2] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(topLeft), "Top-Left Ray Pos", obj).transform;            
+            data.rayPoses[3] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downRight), "Down-Right Ray Pos", obj).transform;
+            data.rayPoses[4] = SplineLevelCreator.AddChildPos(obj.transform.TransformPoint(downLeft), "Down-Left Ray Pos", obj).transform;
 
         }
     }
@@ -148,6 +184,9 @@ public class SplinePass
     public bool useStartingPos = true;        
     public GameObject splinePrefab;        
     public float maxHeightDiff = 2.0f;
+    public int sampleRate = 10;
+    public SplineComputer.SampleMode sampleMode = SplineComputer.SampleMode.Default;
+    public SplineComputer.Space space = SplineComputer.Space.Local;
 
     [Space(10)]
     [Header("Main Land Specific")]
@@ -159,6 +198,27 @@ public class SplinePass
     public float neighborScale = 3.0f;
     public float checkRadius = 20.0f;
     public float pruneWaitTime = 0.3f;
+
+    [Space(10)]
+    [Header("New Spline Specific")]
+    public int minPointCount = 10;
+    public int maxPointCount = 30;    
+    public float maxStartAngle = 90.0f;
+    public float sampleCastHeight = 20.0f;
+    public float sampleCastDist = 25.0f;
+    public float groundCheckRadius = 0.5f;
+    public float groundCheckHeight = 20.0f;
+    public float groundCheckDist = 25.0f;
+    public float minGroundDist = 1.0f;
+    public int sampleCastHits = 1;
+    public bool allowHeightSwitch = false;        
+    public bool randomizeRotAtStart = false;
+    [Range(0.0f, 1.0f)]
+    public float xScale = 0.0f;
+    public float maxWidth = 5.0f;
+    [Range(0.0f, 1.0f)]
+    public float yScale = 0.0f;
+    public float maxHeight = 10.0f;    
 
     [Space(10)]
     [Header("Sub Spline Specific")]
@@ -246,14 +306,16 @@ public class SplinePass
     public float stackRayDist = 3.0f;
     public int stackSpawnChance = 30;
 
-    //[Space(10)]    
+    [Space(20)]
+    [Header("Object Lists")]
     public List<GameObject> splineObjectPrefabs;
     public SpawnObjectList spawnObjects;
 
     //[Space(10)]
     //public SubSplinePass subPass;
 
-    //[Space(10)]
+    [Space(20)]
+    [Header("Subpasses")]
     public List<SplinePass> subpasses;
 
     public Vector3 GetRandomVector(Vector3 min, Vector3 max)
@@ -277,12 +339,16 @@ public class SplinePass
 
 public class MyColor
 {
+    //static Color _orange = new Color(1.0f, 0.6004562f, 0.0f, 1.0f);
+    //static Color _purple = new Color(0.467245f, 0.0f, 1.0f, 1.0f);
+
     public static Color orange { get { return new Color(1.0f, 0.6004562f, 0.0f, 1.0f); } }
     public static Color purple { get { return new Color(0.467245f, 0.0f, 1.0f, 1.0f); } }
 }
 
 public enum RayPointOrder { Center, CenterRight, CenterLeft, TopCenter, TopRight, TopLeft, DownCenter, DownRight, DownLeft };
 public enum RayDirOrder { Forward, ForwardRight, ForwardLeft, Right, Left, Back, BackRight, BackLeft };
+public enum RayPosOrder { Center, TopRight, TopLeft, DownRight, DownLeft };
 
 public class SplineLevelCreator : MonoBehaviour
 {
@@ -306,16 +372,21 @@ public class SplineLevelCreator : MonoBehaviour
     public bool pruneHitBackFaces = false;
     public bool pruneHitMultiFaces = false;
     public bool showAllPruneHits = false;
+    public int highScoreCheck = 6;
+    public Bounds highScoreBoundCheck;
     [Space(10)]
     [Header("Prototyping")]
-    public int minPointCount = 10;
-    public int maxPointCount = 30;
-    public float dotLimit = 0.45f;
-    public float maxStartAngle = 90.0f;
-    public SplineComputer.Space space = SplineComputer.Space.Local;
-    public bool allowHeightSwitch = false;
-    public bool enforceDotAndHeight = false;
-    public bool useDotLimit = false;
+    //public float scaleTest = 1.0f;
+    //public float maxHeight = 10.0f;
+    //public int minPointCount = 10;
+    //public int maxPointCount = 30;
+    //public float dotLimit = 0.45f;
+    //public float maxStartAngle = 90.0f;
+    //public SplineComputer.Space space = SplineComputer.Space.Local;
+    //public bool allowHeightSwitch = false;
+    //public bool enforceDotAndHeight = false;
+    //public bool useDotLimit = false;
+    //public bool randomizeRotAtStart = false;
 
     [Header("Debug")]
     public bool topRightDebug;
@@ -323,6 +394,7 @@ public class SplineLevelCreator : MonoBehaviour
     public bool downRightDebug;
     public bool downLeftDebug;
     public List<GameObject> spawnedObjects;
+    public List<GameObject> highScoreObjects;
     public List<SplineComputer> splineObjects;
     public List<GameObject> allSpawnedObjects;
     public List<GameObject> pendingObjects;
@@ -344,6 +416,7 @@ public class SplineLevelCreator : MonoBehaviour
     bool newSplinePassComplete = false;
     bool canRunAdjacents = false;
     bool canRunStack = false;
+    public HashSet<Transform> pointVisits;
 
     //Literally a wrapper for a bool so we can pass them by reference to a Coroutine which doesn't allow ref
     class PassBool
@@ -361,6 +434,7 @@ public class SplineLevelCreator : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         spawnedObjects = new List<GameObject>();
+        highScoreObjects = new List<GameObject>();
         allSpawnedObjects = new List<GameObject>();
         splineObjects = new List<SplineComputer>();
         pendingObjects = new List<GameObject>();
@@ -410,6 +484,7 @@ public class SplineLevelCreator : MonoBehaviour
             spawnedObjects.Clear();
             pendingObjects.Clear();
             splineObjects.Clear();
+            highScoreObjects.Clear();
 
             if (player != null)
             {
@@ -421,23 +496,31 @@ public class SplineLevelCreator : MonoBehaviour
         }
     }
 
-    public static void AddChildPos(Vector3 position, string name, GameObject target)
+    public static GameObject AddChildPos(Vector3 position, string name, GameObject target)
     {
         GameObject point = new GameObject(name);
         point.transform.position = position;
-        point.transform.parent = target.transform;
+
+        if (target != null)
+            point.transform.parent = target.transform;
+
+        return point;
     }
 
-    public static void AddSphere(Vector3 position, string name, GameObject target)
+    public static GameObject AddSphere(Vector3 position, string name, GameObject target)
     {
         GameObject point = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         point.name = name;
         point.transform.position = position;
         DestroyImmediate(point.GetComponent<SphereCollider>());
-        point.transform.parent = target.transform;
+
+        if (target != null)
+            point.transform.parent = target.transform;
+
+        return point;
     }
 
-    public static void AddSphere(Vector3 position, string name, GameObject target, Color color)
+    public static GameObject AddSphere(Vector3 position, string name, GameObject target, Color color)
     {
         GameObject point = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         point.name = name;
@@ -450,7 +533,10 @@ public class SplineLevelCreator : MonoBehaviour
 
         point.GetComponent<Renderer>().material.color = color;
 
-        point.transform.parent = target.transform;
+        if (target != null)
+            point.transform.parent = target.transform;
+
+        return point;
     }
 
     public static GameObject AddSphere(Vector3 position, Quaternion rotation, string name, GameObject target, Color color)
@@ -467,7 +553,9 @@ public class SplineLevelCreator : MonoBehaviour
 
         point.GetComponent<Renderer>().material.color = color;
 
-        point.transform.parent = target.transform;
+        if (target != null)
+            point.transform.parent = target.transform;
+
         return point;
     }
 
@@ -575,17 +663,17 @@ public class SplineLevelCreator : MonoBehaviour
             //if (canSpawn)
             if (pass.passMode == PassMode.OriginalSpline)
             {
-                Quaternion randRot = Quaternion.identity;
-
-                if (pass.canRotateSpline)
-                    randRot = pass.GetRandomRotation(pass.minSplineRotation, pass.maxSplineRotation);
-
-                GameObject prefab = (pass.splinePrefab != null) ? pass.splinePrefab : splinePrefab;
-                GameObject newSpline = Instantiate(prefab, randPos, randRot);
+                //Quaternion randRot = Quaternion.identity;
+                //
+                //if (pass.canRotateSpline)
+                //    randRot = pass.GetRandomRotation(pass.minSplineRotation, pass.maxSplineRotation);
+                //
+                //GameObject prefab = (pass.splinePrefab != null) ? pass.splinePrefab : splinePrefab;
+                //GameObject newSpline = Instantiate(prefab, randPos, randRot);
 
                 PassBool complete = new PassBool();
                 //newSplinePassComplete = false;
-                StartCoroutine(SetupSpline(pass, newSpline, targetObj, startPos, complete));
+                StartCoroutine(SetupSpline(pass, null, targetObj, startPos, complete));
                 //yield return new WaitUntil(() => { return newSplinePassComplete; });
                 if (pass.waitUntilComplete)
                     yield return new WaitUntil(() => { return complete.val; });
@@ -791,23 +879,29 @@ public class SplineLevelCreator : MonoBehaviour
         //newSplinePassComplete = true;
         complete.val = true;
     }
-
+ 
     IEnumerator NewSubSpline5(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, List<GameObject> objectList = null)
     {
         while (spawnedObjects.Count < 1)
             yield return null;
 
-        Restart:
+        Restart:        
         SpawnPointData current = mainSpline.spawnDatas[Random.Range(0, mainSpline.spawnDatas.Count)];
         SpawnPointData start = current;
         SpawnPointData prev = null;
         SpawnPointData next = null;
 
+        if (Random.Range(0, 2) == 0)
+        {
+            current = highScoreObjects[Random.Range(0, highScoreObjects.Count)].GetComponent<SpawnPointData>();
+        }
+        
         Transform point = null;
         Transform prevPoint = null;
-        int index = Random.Range(0, current.rayPointHits.Length);
+        int index = Random.Range(0, current.rayPointHits.Length);        
 
-        if (current.rayPointHits[index].collider != null)
+        //if (current.rayPointHits[index].collider != null && current.rayPointHits[index].collider.gameObject != current.gameObject && !pointVisits.Contains(current.rayPointHits[index].transform))
+        if (current.rayPointHits[index].collider != null && !pointVisits.Contains(current.rayPointHits[index].transform))
         {
             //Debug.Log("Find other point");
             yield return null;
@@ -815,34 +909,40 @@ public class SplineLevelCreator : MonoBehaviour
         }
 
         point = current.rayPoints[index];
+        RaycastHit currentHit = current.rayPointHits[index];
         GameObject newSpline = Instantiate(splinePrefab, point.position, Quaternion.identity);
-        if (useDotLimit) newSpline.name += " Dot Limit";
+        newSpline.name = $"Spline {pass.name}";
+
         SplineComputer spline = newSpline.GetComponent<SplineComputer>();
         SplineData splineData = newSpline.GetComponent<SplineData>();
-        spline.space = space;
+        splineData.pass = pass;
+        spline.space = pass.space;
+        spline.sampleRate = pass.sampleRate;
 
         if (current.neighbors.Count < 1)
         {
-            Debug.LogError($"{current.gameObject.name} has no neighbors", current.gameObject);
+            //Debug.LogError($"{current.gameObject.name} has no neighbors", current.gameObject);
             Destroy(newSpline);
             yield return null;
             goto Restart;
         }
 
-        int pointCount = Random.Range(minPointCount, maxPointCount);
-        Debug.Log($"Point Count is  {pointCount}");
+        int pointCount = Random.Range(pass.minPointCount, pass.maxPointCount);
+        //Debug.Log($"Point Count is  {pointCount}");
+        //GameObject pointList = new GameObject("Point List");
+        //if (useDotLimit) pointList.name += " Dot Limit";
+
         SplinePoint[] splinePoints = new SplinePoint[pointCount];
-        GameObject pointList = new GameObject("Point List");
-        if (useDotLimit) pointList.name += " Dot Limit";
-        splineData.pointList = pointList;
+        //splineData.pointList = pointList;
+        //allSpawnedObjects.Add(pointList);
 
         int prevCount = 10;
         int prevIndex = 0;
-        int prevAccess = 0;
+        //int prevAccess = 0;
         SpawnPointData[] prevData = new SpawnPointData[prevCount];
         Vector3[] prevDirs = new Vector3[prevCount];
-        //allSpawnedObjects.Add(pointList);
-        HashSet<SpawnPointData> visits = new HashSet<SpawnPointData>(pointCount);
+        pointVisits.Add(point);
+        //HashSet<SpawnPointData> visits = new HashSet<SpawnPointData>(pointCount);
 
         for (int i = 0; i < pointCount; i++)
         {
@@ -855,53 +955,48 @@ public class SplineLevelCreator : MonoBehaviour
                 //Vector3 initDir = (mainSpline.mainLandCenter - point.position).normalized;
                 Vector3 initDir = (point.position - mainSpline.mainLandCenter).normalized;
                 initDir.y = 0.0f;
-                float angle = Random.Range(-maxStartAngle, maxStartAngle);
+                float angle = Random.Range(-pass.maxStartAngle, pass.maxStartAngle);
                 spawnHelper.transform.rotation = Quaternion.LookRotation(point.TransformDirection(initDir));
-                //spawnHelper.transform.Rotate(0.0f, angle, 0.0f);
+
+                if (pass.randomizeRotAtStart)
+                    spawnHelper.transform.Rotate(0.0f, angle, 0.0f);
 
                 Vector3 fwd = spawnHelper.transform.TransformDirection(Vector3.forward);
                 splineData.debugStart = point.position;
-                splineData.debugStartDir = fwd;
-                //Debug.DrawLine(spawnHelper.transform.position, spawnHelper.transform.position + fwd * 50.0f, Color.red, 60.0f);
+                splineData.debugStartDir = fwd;                
             }
 
             splinePoints[i] = new SplinePoint();
             splinePoints[i].position = point.position;
+            //splinePoints[i].position = currentHit.point;
             splinePoints[i].normal = Vector3.up;
             splinePoints[i].size = 1.0f;
             spawnHelper.transform.position = point.position;
-            visits.Add(current);
+            //visits.Add(current);
 
-            GameObject pointObj = AddSphere(point.position, spawnHelper.transform.rotation, $"{i} {point.position} {current.gameObject.name}", pointList, MyColor.orange);
+            splineData.pointList.Add(point.position);
+            pointVisits.Add(point);
+            //GameObject pointObj = AddSphere(point.position, spawnHelper.transform.rotation, $"{i} {point.position} {current.gameObject.name}", pointList, MyColor.orange);
 
-            bool foundPoint = false;
-            bool isSet = false;
+            bool foundPoint = false;            
             float bestDot = -1.0f;
-            float bestHeight = 100.0f;
+            //float bestHeight = 100.0f;
+
             Vector3 currentDir = Vector3.zero;
 
             for (int j = 0; j < current.neighbors.Count; j++)
             {
                 if (prev != null && current.neighbors[j] == prev)
                     continue;
-
+               
                 Vector3 dir = current.neighborDirs[j];
                 dir.y = 0.0f;
-                //float dot = Vector3.Dot(dir, point.TransformDirection(Vector3.forward));
+                
                 float dot = Vector3.Dot(dir, spawnHelper.transform.TransformDirection(Vector3.forward));
-                float height = Mathf.Abs(current.neighbors[j].rayPoints[0].position.y - point.position.y);
-
-                //if (!isSet)
-                //{
-                //    bestHeight = height;
-                //    isSet = true;
-                //}
-
-                bool dotCheck = (useDotLimit) ? dot >= dotLimit && dot > bestDot : dot > bestDot;
-
-                //if (dot >= dotLimit && dot > bestDot)
-                //if (dot > bestDot)
-                if (dotCheck)
+                //float height = Mathf.Abs(current.neighbors[j].rayPoints[0].position.y - point.position.y);
+                //bool dotCheck = (useDotLimit) ? dot >= dotLimit && dot > bestDot : dot > bestDot;
+                
+                if (dot > bestDot)
                 {
                     bestDot = dot;
                     next = current.neighbors[j];
@@ -914,61 +1009,53 @@ public class SplineLevelCreator : MonoBehaviour
                     //spawnHelper.transform.rotation = Quaternion.LookRotation(dir);                    
                     currentDir = dir;
                     foundPoint = true;
-
-                    //if (enforceDotAndHeight && height < bestHeight)
-                    //{                       
-                    //    bestHeight = height;
-                    //    next = current.neighbors[j];
-                    //
-                    //    prevData[prevIndex] = next;
-                    //    prevDirs[prevIndex] = dir;
-                    //    prevIndex++;
-                    //    if (prevIndex >= prevCount) prevIndex = 0;
-                    //
-                    //    //spawnHelper.transform.rotation = Quaternion.LookRotation(dir);
-                    //    currentDir = dir;
-                    //    if (allowHeightSwitch) foundPoint = true;
-                    //}
-
                 }
 
-                if (!enforceDotAndHeight && height < bestHeight)
-                {
-                    bestHeight = height;
-                    next = current.neighbors[j];
-
-                    prevData[prevIndex] = next;
-                    prevDirs[prevIndex] = dir;
-                    prevIndex++;
-                    if (prevIndex >= prevCount) prevIndex = 0;
-
-                    //spawnHelper.transform.rotation = Quaternion.LookRotation(dir);
-                    currentDir = dir;
-                    if (allowHeightSwitch) foundPoint = true;
-                }
+                //if (!enforceDotAndHeight && height < bestHeight)
+                //{
+                //    bestHeight = height;
+                //    next = current.neighbors[j];
+                //
+                //    prevData[prevIndex] = next;
+                //    prevDirs[prevIndex] = dir;
+                //    prevIndex++;
+                //    if (prevIndex >= prevCount) prevIndex = 0;
+                //
+                //    //spawnHelper.transform.rotation = Quaternion.LookRotation(dir);
+                //    currentDir = dir;
+                //    if (allowHeightSwitch) foundPoint = true;
+                //}
             }
 
             if (foundPoint)
             {
-                Debug.Log("Found point");
+                //Debug.Log("Found point");
                 //int randIndex = Random.Range(0, next.rayPoints.Length);
                 Transform closest = null;
                 float bestDist = 0.0f;
 
                 for (int j = 0; j < next.rayPoints.Length; j++)
                 {
+                    if (pointVisits.Contains(next.rayPoints[j]))
+                        continue;
+
                     float dist = Vector3.Distance(spawnHelper.transform.position, next.rayPoints[j].position);
 
                     if (closest == null)
                     {
                         closest = next.rayPoints[j];
+                        currentHit = next.rayPointHits[j];
                         bestDist = dist;
                     }
 
                     if (dist < bestDist)
                     {
-                        closest = next.rayPoints[j];
-                        bestDist = dist;
+                        if (next.rayPointHits[j].collider != null && next.rayPointHits[j].collider.gameObject == next.gameObject)
+                        {
+                            closest = next.rayPoints[j];
+                            currentHit = next.rayPointHits[j];
+                            bestDist = dist;
+                        }
                     }
                 }
 
@@ -982,122 +1069,427 @@ public class SplineLevelCreator : MonoBehaviour
 
             else
             {
-                Debug.Log("Try again");
-
-                //prevAccess = (prevIndex - 1 < 0) ? prevCount - 1 : prevIndex - 1;
-                //next = prevData[prevAccess];
-                Vector3 prevDir = Vector3.zero;
-                SpawnPointData testNext = null;
-                float dotTest = -1.0f;
-                float heightTest = 100.0f;
-                bool foundPoint2 = false;
-
-                //for (int j = 0; j < prevCount; j++)
-                //{
-                //    if (!visits.Contains(prevData[j]) && prevData[j] != null)
-                //    {
-                //        Vector3 dir = prevDirs[j];
-                //        dir.y = 0.0f;
-                //
-                //        float dot = Vector3.Dot(dir, spawnHelper.transform.TransformDirection(Vector3.forward));
-                //        float height = Mathf.Abs(prevData[j].rayPoints[0].position.y - point.position.y);
-                //
-                //        if (dot >= dotLimit && dot > dotTest)
-                //        {
-                //            dotTest = dot;
-                //            prevDir = dir;
-                //            foundPoint2 = true;
-                //            testNext = prevData[j];
-                //
-                //            if (enforceDotAndHeight && height < heightTest)
-                //            {
-                //                heightTest = height;
-                //                testNext = prevData[j];
-                //                prevDir = dir;
-                //                if (allowHeightSwitch) foundPoint2 = true;
-                //            }
-                //        }
-                //
-                //        if (!enforceDotAndHeight && height < heightTest)
-                //        {
-                //            heightTest = height;
-                //            testNext = prevData[j];
-                //            prevDir = dir;
-                //            if (allowHeightSwitch) foundPoint2 = true;
-                //        }
-                //
-                //    }
-                //}
-                //
-                //if (foundPoint2)
-                //{
-                //    next = testNext;
-                //}
-                //
-                //else Debug.Log("Running out of ideas here");
-
-                for (int j = prevCount - 1; j >= 0; j--)
-                {
-                    if (prevData[j] != null && prevData[j] != current && prevData[j] != next)
-                    {
-                        next = prevData[j];
-                        prevDir = prevDirs[j];
-                        break;
-                    }
-                }
-
-                //currentDir = prevDirs[prevIndex];
-
-                Transform closest = null;
-                float bestDist = 0.0f;
-
-                for (int j = 0; j < next.rayPoints.Length; j++)
-                {
-                    float dist = Vector3.Distance(spawnHelper.transform.position, next.rayPoints[j].position);
-
-                    if (closest == null)
-                    {
-                        closest = next.rayPoints[j];
-                        bestDist = dist;
-                    }
-
-                    if (dist < bestDist)
-                    {
-                        closest = next.rayPoints[j];
-                        bestDist = dist;
-                    }
-                }
-
-                //spawnHelper.transform.rotation = Quaternion.LookRotation(prevDirs[prevAccess]);
-                spawnHelper.transform.rotation = Quaternion.LookRotation(prevDir);
-
-                prev = current;
-                prevPoint = point;
-                point = closest;
-                current = next;
-
-                //if (prev != null && prevPoint != null)
-                //{
-                //    current = prev;
-                //    point = prevPoint;
-                //}
-
-                //Destroy(pointObj);
-
-                //spawnHelper.transform.position = point.position;                
-                //float angle = Random.Range(-maxStartAngle, maxStartAngle);
-                //spawnHelper.transform.Rotate(0.0f, angle, 0.0f);
-                //yield return null;
-                //goto TryAgain;
+                Debug.Log("Try again");  
             }
             
             yield return null;
         }
 
+        
         spline.SetPoints(splinePoints);
         splineObjects.Add(spline);
+        //ObjectController controller = newSpline.GetComponent<ObjectController>();
+              
+        yield return null; //Wait for World Space Calculations on Splines to go through
+
+        SampleCollection collection = new SampleCollection();
+        spline.GetSamples(collection);
+        int maxHits = pass.sampleCastHits;
+
+        NativeArray<RaycastCommand> commands = new NativeArray<RaycastCommand>(collection.samples.Length, Allocator.TempJob);
+        NativeArray<RaycastHit> hits = new NativeArray<RaycastHit>(collection.samples.Length * maxHits, Allocator.TempJob);
+
+        QueryParameters query = QueryParameters.Default;
+        query.hitTriggers = QueryTriggerInteraction.Ignore;
+
+        for (int i = 0; i < collection.samples.Length; i++)
+        {
+            //Vector3 pos = newSpline.transform.TransformPoint(collection.samples[i].position);
+            Vector3 pos = collection.samples[i].position;
+            pos.y += pass.sampleCastHeight;
+            Quaternion rot = Quaternion.LookRotation(collection.samples[i].forward);
+            AddSphere(pos, rot, $"{pos}", newSpline, MyColor.orange);            
+            commands[i] = new RaycastCommand(pos, Vector3.down, query, pass.sampleCastDist);
+        }
+
+        JobHandle handle = RaycastCommand.ScheduleBatch(commands, hits, maxHits);
+        handle.Complete();
+
+        float[] sign = new float[] { 1.0f, -1.0f };
+        
+        Bounds prevBounds = new Bounds();
+        GameObject prevObj = null;
+        Vector3 prevPos = Vector3.zero;
+        List<SpawnPointData> objects = new List<SpawnPointData>(collection.samples.Length);
+        
+        for (int i = 0; i < collection.samples.Length; i++)
+        {
+            if (prevObj != null && prevBounds.Contains(collection.samples[i].position))
+                continue;
+
+            GameObject obj = pass.splineObjectPrefabs[Random.Range(0, pass.splineObjectPrefabs.Count)];
+            SpawnPointData spawn = obj.GetComponent<SpawnPointData>();
+            spawn.spline = splineData;
+            Vector3 pos = collection.samples[i].position;
+
+            Bounds bounds = new Bounds(pos + spawn.center, spawn.size);
+
+            if (prevObj != null && bounds.Contains(prevPos))
+                continue;
+
+            Quaternion rot = Quaternion.identity;
+            if (hits[i].collider != null)
+            {
+                pos = hits[i].point;
+
+                if (pass.canRotate)                
+                    rot = pass.GetRandomRotation(pass.minRotation, pass.maxRotation);
+
+                GameObject newObj = Instantiate(obj, pos, rot);
+                //GameObject newObj = Instantiate(obj, hits[i].point, rot);
+                newObj.transform.parent = newSpline.transform;
+
+                AddSphere(pos, rot, $"hit {hits[i].point}", newSpline, MyColor.purple);
+
+                SpawnPointData newSpawn = newObj.GetComponent<SpawnPointData>();
+                newSpawn.origPos = pos;
+                objects.Add(newSpawn);
+
+                prevBounds = newObj.GetComponent<BoxCollider>().bounds;
+                prevPos = pos;
+                prevObj = newObj;
+
+                //Move Object into position on hit.point
+                newObj.transform.position = commands[i].from;
+                Transform origParent = newSpawn.transform.parent;
+                Transform rayPos = newSpawn.rayPoses[0];
+                rayPos.parent = null;
+                newSpawn.transform.parent = rayPos;                
+                rayPos.position = pos;   
+                newSpawn.transform.parent = origParent;
+                rayPos.parent = newSpawn.transform;
+
+
+                //prevPos = newSpawn.transform.position;
+                //prevBounds = newSpawn.boxCollider.bounds;
+                //prevBounds = new Bounds(newSpawn.center, newSpawn.size);
+                //objects.Add(newObj);
+
+                //This calculation needs a linecast check or something
+                //float diff = pos.y - collection.samples[i].position.y;
+                //if (diff > spawn.size.y)
+                //    Debug.Log($"{newObj.name} would need to be scaled up", newObj);
+            }
+
+            else
+            {
+                AddSphere(pos, rot, "Miss", newSpline, Color.red);
+            }
+
+            yield return null;
+        }
+
+        int maxGroundCommands = 4;
+        int maxGroundHits = 1;
+        //NativeArray<RaycastCommand> groundCommands = new NativeArray<RaycastCommand>(maxGroundCommands * objects.Count, Allocator.TempJob);
+        NativeArray<SpherecastCommand> groundCommands = new NativeArray<SpherecastCommand>(maxGroundCommands * objects.Count, Allocator.TempJob);
+        NativeArray<RaycastHit> groundHits = new NativeArray<RaycastHit>(maxGroundCommands * maxGroundHits * objects.Count, Allocator.TempJob);
+        
+        QueryParameters groundQuery = QueryParameters.Default;
+        groundQuery.hitTriggers = QueryTriggerInteraction.Ignore;
+        int commandIndex = 0;
+        
+        pass.xScale = Random.Range(0.0f, 1.0f);
+        pass.yScale = Random.Range(0.0f, 1.0f);
+        
+        for (int i = 0; i < objects.Count; i++)
+        {
+            //Vector3 pos = objects[i].transform.position;
+            //Vector3 pos = objects[i].origPos;
+            Vector3 pos = objects[i].transform.TransformPoint(objects[i].boxCollider.center);
+
+            pass.xScale = Random.Range(0.0f, 1.0f);
+            pass.yScale = Random.Range(0.0f, 1.0f);
+
+            Vector3 dir = collection.samples[i].right * sign[Random.Range(0, 2)];
+            dir = dir * Mathf.PerlinNoise1D(i * pass.xScale) * pass.maxWidth;
+            pos += dir;
+            objects[i].transform.position += dir;
+            //pos.y += Mathf.PerlinNoise1D(i * pass.yScale) * pass.maxHeight * sign[Random.Range(0, 2)];
+            pos.y += Mathf.PerlinNoise1D(i * pass.yScale) * pass.maxHeight;
+            objects[i].targetPos = pos;
+            //AddSphere(pos, $"pos {pos}", newSpline, Color.green);
+            //objects[i].transform.position = pos;            
+
+            //Transform origParent = objects[i].transform.parent;
+            //Transform rayPos = objects[i].rayPoses[0];
+            //rayPos.parent = null;
+            //objects[i].transform.parent = rayPos;
+
+            //rayPos.position = pos;
+            //objects[i].targetPos = pos;
+            //objects[i].transform.parent = origParent;
+            //rayPos.parent = objects[i].transform;
+
+            //Transform origParent = objects[i].transform.parent;
+            //
+            //Vector3 closest = objects[i].boxCollider.ClosestPoint(pos);
+            ////Vector3 closest = objects[i].boxCollider.ClosestPointOnBounds(pos);
+            //AddSphere(closest, $"Closest {closest}", newSpline, Color.blue);
+            //
+            ////Vector3 center = objects[i].transform.TransformPoint(objects[i].boxCollider.center);
+            ////AddSphere(center, $"Center {center}", newSpline, Color.blue);
+            //
+            //spawnHelper.transform.rotation = Quaternion.identity;
+            //spawnHelper.transform.position = closest;
+            ////spawnHelper.transform.position = center;
+            //
+            //objects[i].transform.parent = spawnHelper.transform;
+            //spawnHelper.transform.position = pos;
+            //
+            //objects[i].targetPos = pos;
+            //objects[i].transform.parent = origParent;
+            //
+            //AddSphere(pos, $"Pos {pos}", newSpline, Color.green);
+
+            SpawnPointData spawn = objects[i];
+            //spawn.SetRayPosesWorld(Vector3.up * pass.groundCheckHeight);
+            spawn.SetRayPosesWorld();
+
+            float rayDist = pass.groundCheckDist + spawn.boxCollider.bounds.size.y;
+            //float rayDist = pass.groundCheckDist + spawn.boxCollider.bounds.extents.y;
+            //float rayDist = pass.groundCheckDist;
+        
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.transform.TransformPoint(spawn.topRight), Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.topRight, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.rayPoints[(int)RayPointOrder.TopRight].position, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new SpherecastCommand(spawn.topRight, pass.groundCheckRadius, Vector3.down, groundQuery, pass.groundCheckDist);
+            groundCommands[commandIndex] = new SpherecastCommand(spawn.rayPoints[(int)RayPointOrder.TopRight].position, pass.groundCheckRadius, Vector3.down, groundQuery, rayDist);            
+            commandIndex++;
+        
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.transform.TransformPoint(spawn.topLeft), Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.topLeft, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.rayPoints[(int)RayPointOrder.TopLeft].position, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new SpherecastCommand(spawn.topLeft, pass.groundCheckRadius, Vector3.down, groundQuery, pass.groundCheckDist);
+            groundCommands[commandIndex] = new SpherecastCommand(spawn.rayPoints[(int)RayPointOrder.TopLeft].position, pass.groundCheckRadius, Vector3.down, groundQuery, rayDist);
+            commandIndex++;
+        
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.transform.TransformPoint(spawn.downRight), Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.downRight, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.rayPoints[(int)RayPointOrder.DownRight].position, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new SpherecastCommand(spawn.downRight, pass.groundCheckRadius, Vector3.down, groundQuery, pass.groundCheckDist);
+            groundCommands[commandIndex] = new SpherecastCommand(spawn.rayPoints[(int)RayPointOrder.DownRight].position, pass.groundCheckRadius, Vector3.down, groundQuery, rayDist);
+            commandIndex++;
+        
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.transform.TransformPoint(spawn.downLeft), Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.downLeft, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new RaycastCommand(spawn.rayPoints[(int)RayPointOrder.DownLeft].position, Vector3.down, groundQuery, rayDist);
+            //groundCommands[commandIndex] = new SpherecastCommand(spawn.downLeft, pass.groundCheckRadius, Vector3.down, groundQuery, pass.groundCheckDist);
+            groundCommands[commandIndex] = new SpherecastCommand(spawn.rayPoints[(int)RayPointOrder.DownLeft].position, pass.groundCheckRadius, Vector3.down, groundQuery, rayDist);
+            commandIndex++;
+
+            objects[i].gameObject.SetActive(false);
+        }
+
+        //yield return null;
+
+        //JobHandle groundHandle = RaycastCommand.ScheduleBatch(groundCommands, groundHits, maxGroundCommands);
+        JobHandle groundHandle = SpherecastCommand.ScheduleBatch(groundCommands, groundHits, maxGroundCommands);
+        groundHandle.Complete();
+        
+        for (int i = 0; i < objects.Count; i++)
+        {
+            objects[i].gameObject.SetActive(true);
+            objects[i].groundHits = new RaycastHit[maxGroundCommands * maxGroundHits];
+            int hitCount = 0;
+            
+            float dist = 0.0f;
+            int hitIndex = 0;
+        
+            for (int j = i * maxGroundCommands; j < (i * maxGroundCommands) + maxGroundCommands; j++)
+            {
+                if (j * maxGroundHits < groundHits.Length)
+                {
+                    //if (groundHits[j * maxGroundHits].collider != null && groundHits[j * maxGroundHits].collider.gameObject != objects[i].gameObject)
+                    if (groundHits[j * maxGroundHits].collider != null)
+                    {
+                        //Debug.Log($"{objects[i].gameObject.name} got a hit", objects[i].gameObject);
+
+                        objects[i].groundHits[hitIndex] = groundHits[j * maxGroundHits];
+                        hitCount++;
+
+                        //if (objects[i].gameObject == groundHits[j * maxGroundHits].collider.gameObject)
+                        //    Debug.Log("Fucker hit itself", objects[i]);
+
+                        if (groundHits[j * maxGroundHits].distance > dist)
+                            dist = groundHits[j * maxGroundHits].distance;
+                    }
+        
+                    //else if (groundHits[j * maxGroundHits].collider != null && groundHits[j * maxGroundHits].collider.gameObject == objects[i].gameObject)                        
+                    //    Debug.Log($"{objects[i].name} hit self in ground check", objects[i]);
+
+                    //else
+                    //{
+                    //    hitAll = false;
+                    //    break;
+                    //}
+                }
+        
+                hitIndex++;
+            }
+        
+            if (hitCount >= objects[i].minGroundHitCount)
+            {
+                //objects[i].transform.position += Vector3.down * dist;                     
+                Bounds bounds = objects[i].boxCollider.bounds;
+                Bounds orig = bounds;
+                Vector3 center = objects[i].transform.TransformPoint(objects[i].boxCollider.center);
+
+                //float diff = objects[i].targetPos.y - center.y;
+                //float diff = objects[i].targetPos.y - objects[i].rayPoses[0].position.y;
+                //float diff = objects[i].targetPos.y - objects[i].transform.position.y;
+
+                //float diff = objects[i].targetPos.y - objects[i].rayPoints[0].position.y;
+                //objects[i].diff = diff;
+                //objects[i].scalePos = objects[i].rayPoints[0].position;
+                //bounds.Expand(diff);
+
+                bounds.Encapsulate(objects[i].targetPos);
+                bounds.Encapsulate(objects[i].origPos);
+
+                float yScale = bounds.extents.y / orig.extents.y;
+                //float yScale = bounds.size.y / orig.size.y;                    
+
+
+                Vector3 scale = objects[i].transform.localScale;
+                objects[i].transform.localScale = new Vector3(scale.x, yScale, scale.z);
+
+                objects[i].testBounds = bounds;
+                prevBounds = bounds;
+                //prevBounds = objects[i].boxCollider.bounds;
+
+                //float diff = objects[i].rayPoses[0].position.y - objects[i].origPos.y;
+                //Vector3 center = objects[i].transform.TransformPoint(objects[i].boxCollider.center);
+                //float diff = center.y - objects[i].origPos.y;
+                //float diff = Mathf.Abs(objects[i].rayPoints[0].position.y - objects[i].origPos.y);
+                //float diff = (objects[i].rayPoints[0].position.y - objects[i].origPos.y) * 0.5f;
+                //float diff = (objects[i].transform.position.y + objects[i].boxCollider.center.y) - objects[i].origPos.y;
+                //objects[i].transform.localScale = Vector3.one * scale;                
+            }
+        
+            else
+            {
+                objects[i].gameObject.SetActive(false); //For Debugging
+                //objects[i].renderer.material.color = Color.red;
+            }
+        }
+        
+        groundCommands.Dispose();
+        groundHits.Dispose();
+
+        commands.Dispose();
+        hits.Dispose();
 
         complete.val = true;
+    }
+
+    IEnumerator MakeCopySplineFlat(SplinePass pass, GameObject newSpline, SplinePoint[] splinePoints, SampleCollection collection)
+    {
+        GameObject newSpline2 = Instantiate(splinePrefab, newSpline.transform.position, newSpline.transform.rotation);
+        SplineComputer spline2 = newSpline2.GetComponent<SplineComputer>();
+        newSpline2.name = $"Test Spline {pass.name}";
+        spline2.space = pass.space;
+        //Spline spline2 = new Spline(Spline.Type.CatmullRom);
+        SplinePoint[] newPoints = new SplinePoint[splinePoints.Length];
+
+        Vector3 newSplinePos = newSpline2.transform.position;
+        newSplinePos.y += pass.sampleCastDist;
+        newSpline2.transform.position = newSplinePos;
+
+        float origY = 0.0f;
+
+        for (int i = 0; i < splinePoints.Length; i++)
+        {
+            if (i == 0)
+                origY = splinePoints[i].position.y;
+
+            newPoints[i] = splinePoints[i];
+            Vector3 pos = splinePoints[i].position;
+            Vector3 newPos = new Vector3(pos.x, origY + pass.sampleCastDist, pos.z);
+            newPoints[i].position = newPos;
+        }
+
+        yield return null;
+        spline2.SetPoints(newPoints);
+
+        ObjectController controller = spline2.GetComponent<ObjectController>();
+
+
+        //------------ Boilerplate setup Start ------------
+        controller.objects = pass.splineObjectPrefabs.ToArray();
+        controller.useCustomObjectDistance = pass.useObjectDist;
+        controller.minObjectDistance = pass.minObjectDist;
+        controller.maxObjectDistance = pass.maxObjectDist;
+
+        if (pass.canOffset)
+        {
+            controller.minOffset = pass.minOffset;
+            controller.maxOffset = pass.maxOffset;
+        }
+
+        if (pass.canRotate)
+        {
+            controller.minRotation = pass.minRotation;
+            controller.maxRotation = pass.maxRotation;
+        }
+
+        if (pass.canScale)
+        {
+            controller.minScaleMultiplier = Vector3.one * pass.minScale;
+            controller.maxScaleMultiplier = Vector3.one * pass.maxScale;
+        }
+
+        //controller.spawnCount = pass.objectSpawnCount;
+        //controller.spawnCount = Random.Range(pass.minObjectSpawnCount, pass.maxObjectSpawnCount);
+        //controller.spawnCount = pointCount;
+        controller.spawnCount = collection.samples.Length / 2;
+
+
+        if (pass.useRandomSeedRange)
+        {
+            controller.randomSeed = Random.Range(pass.minSeedRange, pass.maxSeedRange + 1);
+        }
+
+        Transform[] children = null;
+        SplineData data = newSpline.GetComponent<SplineData>();
+        List<SpawnPointData> spawnDatas = null;
+
+        controller.Rebuild();
+
+        controller.onPostBuild += () =>
+        {
+            if (!data.initialized)
+            {
+                children = newSpline.GetComponentsInChildren<Transform>();
+                spawnDatas = new List<SpawnPointData>(children.Length);
+                data.rayPoses = new List<Vector3>(children.Length);
+                data.colliders = new List<Collider>(children.Length);
+                data.spawnDatas = new List<SpawnPointData>(children.Length);
+                data.objects = new List<GameObject>(children.Length);
+
+                for (int i = 0; i < children.Length; i++)
+                {
+                    if (children[i] != null && children[i] != newSpline.transform)
+                    {
+                        if (children[i].TryGetComponent<BoxCollider>(out BoxCollider box))
+                        {
+                            SpawnPointData spawn = children[i].GetComponent<SpawnPointData>();
+                            spawnDatas.Add(spawn);
+                            spawn.boxCollider = box;
+
+                            spawn.rayPos = new Vector3(box.bounds.center.x, -box.bounds.extents.y, box.bounds.center.z);
+                            spawn.topRight = new Vector3(box.bounds.extents.x, -box.bounds.extents.y, box.bounds.extents.z);
+                            spawn.topLeft = new Vector3(-box.bounds.extents.x, -box.bounds.extents.y, box.bounds.extents.z);
+                            spawn.downRight = new Vector3(box.bounds.extents.x, -box.bounds.extents.y, -box.bounds.extents.z);
+                            spawn.downLeft = new Vector3(-box.bounds.extents.x, -box.bounds.extents.y, -box.bounds.extents.z);
+                        }
+                    }
+                }
+
+                data.pass = pass;
+                data.initialized = true;
+            }
+        };
     }
 
     IEnumerator NewSubSpline4(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, List<GameObject> objectList = null)
@@ -2229,6 +2621,7 @@ public class SplineLevelCreator : MonoBehaviour
 
         GameObject prefab = (pass.splinePrefab != null) ? pass.splinePrefab : splinePrefab;
         GameObject newSpline = Instantiate(prefab, spawnPos, randRot);
+        newSpline.name = $"Additive Spline {pass.name}";
 
         SplineComputer spline = newSpline.GetComponent<SplineComputer>();
         SplinePoint[] splinePoints = new SplinePoint[pass.splinePointCount];
@@ -2995,14 +3388,24 @@ public class SplineLevelCreator : MonoBehaviour
         //canRunAdjacents = false;                
     }
 
-    IEnumerator SetupSpline(SplinePass pass, GameObject newSpline, GameObject targetObj, Vector3 startPos, PassBool complete, bool setFirstPointToSplineSpawn = false)
+    IEnumerator SetupSpline(SplinePass pass, GameObject targetSpline, GameObject targetObj, Vector3 startPos, PassBool complete, bool setFirstPointToSplineSpawn = false)
     {
-        //newSplinePassComplete = false;        
+        //newSplinePassComplete = false; 
+        Quaternion randRot = Quaternion.identity;
+
+        if (pass.canRotateSpline)
+            randRot = pass.GetRandomRotation(pass.minSplineRotation, pass.maxSplineRotation);
+
+        GameObject prefab = (pass.splinePrefab != null) ? pass.splinePrefab : splinePrefab;
+        GameObject newSpline = Instantiate(prefab, Vector3.zero, randRot);
+        newSpline.name = $"MainSpline {pass.name}";
+
         SplineComputer spline = newSpline.GetComponent<SplineComputer>();
         SplinePoint[] splinePoints = new SplinePoint[pass.splinePointCount];
         ObjectController controller = newSpline.GetComponent<ObjectController>();
 
         spline.space = SplineComputer.Space.Local;
+        spline.sampleMode = pass.sampleMode;
         //spline.space = SplineComputer.Space.World;
 
         if (pass.offsetSplineObject)        
@@ -3101,9 +3504,8 @@ public class SplineLevelCreator : MonoBehaviour
                                 {                                    
                                     SpawnPointData spawn = children[i].GetComponent<SpawnPointData>();
                                     spawnDatas.Add(spawn);
-                                    spawn.boxCollider = col;
-
-                                    spawn.rayPos = new Vector3(col.bounds.center.x, -col.bounds.extents.y, col.bounds.center.z);                                    
+                                    //spawn.boxCollider = col;
+                                    //spawn.rayPos = new Vector3(col.bounds.center.x, -col.bounds.extents.y, col.bounds.center.z);                                    
                                     //Bounds bounds = new Bounds(spawn.center, spawn.size);
                                     //Debug.Log(children[i].position);
                                     //Vector3 center = new Vector3(bounds.center.x, bounds.center.y + bounds.extents.y, bounds.center.z);
@@ -3282,7 +3684,7 @@ public class SplineLevelCreator : MonoBehaviour
                     if (rayHits[j * maxRayHits].collider != null && showAllPruneHits)
                     {
                         GameObject obj = rayHits[j * maxRayHits].collider.gameObject;
-                        AddSphere(rayHits[j * maxRayHits].point, $"hit {obj.name}", obj, Color.blue);
+                        //AddSphere(rayHits[j * maxRayHits].point, $"hit {obj.name}", obj, Color.blue);
                     }
 
                     if (rayHits[j * maxRayHits].collider != null && rayHits[j * maxRayHits].collider.gameObject == spawnDatas[i].gameObject)
@@ -3338,6 +3740,10 @@ public class SplineLevelCreator : MonoBehaviour
                     data.colliders.Add(spawnDatas[i].boxCollider);
                     data.objects.Add(spawnDatas[i].gameObject);
                     data.spawnDatas.Add(spawnDatas[i]);
+
+                    if (spawnDatas[i].rayPointHitCount >= highScoreCheck)
+                        highScoreObjects.Add(spawnDatas[i].gameObject);
+
                 }
 
                 else
@@ -3372,6 +3778,8 @@ public class SplineLevelCreator : MonoBehaviour
         //int maxHits = 9;
         int maxCommands = 8;
         int maxHits = 16;
+
+        pointVisits = new HashSet<Transform>(maxPruneCommands * data.spawnDatas.Count);
 
         NativeArray<SpherecastCommand> boxCommands = new NativeArray<SpherecastCommand>(maxCommands * data.objects.Count, Allocator.TempJob);
         //NativeArray<RaycastCommand> boxCommands = new NativeArray<RaycastCommand>(maxCommands * data.objects.Count, Allocator.TempJob);
@@ -3520,7 +3928,7 @@ public class SplineLevelCreator : MonoBehaviour
                     {
                         data.spawnDatas[i].neighborHits.Add(boxHits[j * maxHits]);
                         GameObject obj = boxHits[j * maxHits].collider.gameObject;                        
-                        AddSphere(boxHits[j * maxHits].point, $"hit {obj.name} for {data.spawnDatas[i].gameObject.name}", obj, MyColor.purple);
+                        //AddSphere(boxHits[j * maxHits].point, $"hit {obj.name} for {data.spawnDatas[i].gameObject.name}", obj, MyColor.purple);
                     }
 
                     if (boxHits[j * maxHits].collider != null && boxHits[j * maxHits].collider.gameObject != data.objects[i])
@@ -3609,6 +4017,106 @@ public class SplineLevelCreator : MonoBehaviour
     }
 
 #if REFERENCE
+
+    void NewSubSpline5FailedFindPoint()
+    {
+        ////prevAccess = (prevIndex - 1 < 0) ? prevCount - 1 : prevIndex - 1;
+        ////next = prevData[prevAccess];
+        //Vector3 prevDir = Vector3.zero;
+        //SpawnPointData testNext = null;
+        //float dotTest = -1.0f;
+        //bool foundPoint2 = false;
+        ////float heightTest = 100.0f;
+        //
+        //for (int j = 0; j < prevCount; j++)
+        //{
+        //    if (!visits.Contains(prevData[j]) && prevData[j] != null)
+        //    {
+        //        Vector3 dir = prevDirs[j];
+        //        dir.y = 0.0f;
+        //
+        //        float dot = Vector3.Dot(dir, spawnHelper.transform.TransformDirection(Vector3.forward));
+        //        //float height = Mathf.Abs(prevData[j].rayPoints[0].position.y - point.position.y);
+        //
+        //        if (dot > dotTest)
+        //        {
+        //            dotTest = dot;
+        //            prevDir = dir;
+        //            foundPoint2 = true;
+        //            testNext = prevData[j];               
+        //        }
+        //
+        //        //if (!enforceDotAndHeight && height < heightTest)
+        //        //{
+        //        //    heightTest = height;
+        //        //    testNext = prevData[j];
+        //        //    prevDir = dir;
+        //        //    if (allowHeightSwitch) foundPoint2 = true;
+        //        //}
+        //
+        //    }
+        //}
+        //
+        //if (foundPoint2)
+        //{
+        //    next = testNext;
+        //}
+        //
+        //else Debug.Log("Running out of ideas here");
+        //
+        ////for (int j = prevCount - 1; j >= 0; j--)
+        ////{
+        ////    if (prevData[j] != null && prevData[j] != current && prevData[j] != next)
+        ////    {
+        ////        next = prevData[j];
+        ////        prevDir = prevDirs[j];
+        ////        break;
+        ////    }
+        ////}
+        //
+        ////currentDir = prevDirs[prevIndex];
+        //
+        //Transform closest = null;
+        //float bestDist = 0.0f;
+        //
+        //for (int j = 0; j < next.rayPoints.Length; j++)
+        //{
+        //    float dist = Vector3.Distance(spawnHelper.transform.position, next.rayPoints[j].position);
+        //
+        //    if (closest == null)
+        //    {
+        //        closest = next.rayPoints[j];
+        //        currentHit = next.rayPointHits[j];
+        //        bestDist = dist;
+        //    }
+        //
+        //    if (dist < bestDist)
+        //    {
+        //        if (next.rayPointHits[j].collider != null && next.rayPointHits[j].collider.gameObject == next.gameObject)
+        //        {
+        //            closest = next.rayPoints[j];
+        //            currentHit = next.rayPointHits[j];
+        //            bestDist = dist;
+        //        }
+        //    }
+        //}
+        //
+        ////spawnHelper.transform.rotation = Quaternion.LookRotation(prevDirs[prevAccess]);
+        //spawnHelper.transform.rotation = Quaternion.LookRotation(prevDir);
+        //
+        //prev = current;
+        //prevPoint = point;
+        //point = closest;
+        //current = next;
+        //
+        ////Destroy(pointObj);
+        //
+        ////spawnHelper.transform.position = point.position;                
+        ////float angle = Random.Range(-maxStartAngle, maxStartAngle);
+        ////spawnHelper.transform.Rotate(0.0f, angle, 0.0f);
+        ////yield return null;
+        ////goto TryAgain;
+    }
 
     void OldAttempts()
     {

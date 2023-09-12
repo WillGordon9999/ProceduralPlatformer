@@ -18,8 +18,23 @@ public class SplineData : MonoBehaviour
     public Vector3 debugEnd;
 
     public List<RaycastHit> hits;
-    public GameObject pointList;
+    public List<Vector3> pointList;
 
+    [Range(0.0f, 1.0f)]
+    public float xScale = 1.0f;
+    public float maxWidth = 5.0f;
+    [Range(0.0f, 1.0f)]
+    public float yScale = 1.0f;
+    public float maxHeight = 10.0f;
+
+    float prevXScale = 0.0f;
+    float prevYScale = 0.0f;
+    float prevHeight = 0.0f;
+    float prevWidth = 0.0f;
+
+    List<Vector3> origPos;
+    bool initOrigList = false;
+    float[] sign;
     //public GameObject totalBoundsObj;
     //public Bounds totalBounds;
     //public BoxCollider totalBox;
@@ -27,49 +42,70 @@ public class SplineData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //hits = new List<RaycastHit>();
-        //Helper
-
-        //while (!foundSpotOnTop)
-        //{
-        //    data = spawnedObjects[index].GetComponent<SpawnPointData>();
-        //    pos = data.transform.TransformPoint(data.spawnPoints.yPoints[Random.Range(0, data.spawnPoints.yPoints.Count)]);
-        //
-        //    Vector3 rayPos = pos + Vector3.up * (pass.spawnOnTopRayDist - 1.0f);
-        //
-        //    if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit hit, pass.spawnOnTopRayDist))
-        //    {
-        //        if (hit.collider.gameObject == data.gameObject)
-        //        {
-        //
-        //        }
-        //    }
-        //
-        //    yield return null;
-        //}
-
-        //Transform closest = null;
-        //float dist = -1.0f;
-        //for (int k = 0; k < current.neighbors[j].rayPoints.Length; k++)
-        //{
-        //    if (closest == null)
-        //    {
-        //        closest = current.neighbors[j].rayPoints[k];
-        //        dist = Vector3.Distance(point.position, current.neighbors[j].rayPoints[k].position);
-        //    }
-        //
-        //    if (closest != null)
-        //    {
-        //        float dist2 = Vector3.Distance(point.position, current.neighbors[j].rayPoints[k].position);
-        //        
-        //        if (dist2 < dist)
-        //        {
-        //
-        //        }
-        //    }
-        //}
-
+        pointList = new List<Vector3>();
+        prevXScale = xScale;
+        prevYScale = yScale;
+        prevWidth = maxWidth;
+        prevHeight = maxHeight;
+        sign = new float[] { 1.0f, -1.0f };
     }
+
+    //private void Update()
+    //{
+    //    bool update = false;
+    //
+    //    if (xScale != prevXScale)
+    //    {
+    //        prevXScale = xScale;
+    //        update = true;
+    //    }
+    //
+    //    if (maxWidth != prevWidth)
+    //    {
+    //        prevWidth = maxWidth;
+    //        update = true;
+    //    }
+    //
+    //    if (yScale != prevYScale)
+    //    {
+    //        prevYScale = yScale;
+    //        update = true;
+    //    }
+    //
+    //    if (maxHeight != prevHeight)
+    //    {
+    //        prevHeight = maxHeight;
+    //        update = true;
+    //    }
+    //
+    //    if (update)
+    //    {
+    //        if (!initOrigList)
+    //        {
+    //            origPos = new List<Vector3>(transform.childCount);
+    //
+    //            for (int i = 0; i < transform.childCount; i++)
+    //            {
+    //                origPos.Add(transform.GetChild(i).position);
+    //            }
+    //
+    //            initOrigList = true;
+    //        }
+    //
+    //        for (int i = 0; i < transform.childCount; i++)
+    //        {
+    //            Transform child = transform.GetChild(i);
+    //            Vector3 pos = origPos[i];
+    //            Vector3 dir = child.TransformDirection(Vector3.right);
+    //            dir *= sign[Random.Range(0, 2)];
+    //            pos.y += Mathf.PerlinNoise1D(i * yScale) * maxHeight;
+    //            pos += dir * Mathf.PerlinNoise1D(i * xScale) * maxWidth;                
+    //            child.position = pos;
+    //        }
+    //        
+    //        update = false;
+    //    }        
+    //}
 
 #if UNITY_EDITOR
 
@@ -79,9 +115,9 @@ public class SplineData : MonoBehaviour
         
         if (pointList != null)
         {
-            for (int i = 0; i < pointList.transform.childCount; i++)
+            for (int i = 0; i < pointList.Count; i++)
             {
-                Gizmos.DrawSphere(pointList.transform.GetChild(i).position, 0.5f);
+                Gizmos.DrawSphere(pointList[i], 0.5f);
             }
         }
 
